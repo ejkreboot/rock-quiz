@@ -1,0 +1,49 @@
+{
+  "features": [
+    { "key": "texture", "label": "Overall texture", "type": "one",
+      "options": [
+        { "id": "aphanitic", "label": "Fine (aphanitic)" },
+        { "id": "phaneritic", "label": "Coarse (phaneritic)" },
+        { "id": "fragmental", "label": "Fragmental/pyroclastic" },
+        { "id": "foliated", "label": "Foliated/banded" },
+        { "id": "nonfoliated", "label": "Non-foliated massive" }
+      ]
+    },
+    { "key": "grain_size", "label": "Grain size (if visible)", "type": "one",
+      "options": [
+        { "id": "very_fine", "label": "Very fine / microcrystalline" },
+        { "id": "sand", "label": "Sand-sized" },
+        { "id": "silt", "label": "Silt-sized (slightly gritty)" },
+        { "id": "mud", "label": "Mud / clay (smooth)" }
+      ]
+    },
+    { "key": "special", "label": "Special tests", "type": "multi",
+      "options": [
+        { "id": "acid_reacts", "label": "Fizzes with dilute acid" },
+        { "id": "magnetic", "label": "Weakly magnetic" },
+        { "id": "conchoidal", "label": "Conchoidal fracture" }
+      ]
+    }
+  ],
+  "weights": {
+    "Basalt":     { "texture:aphanitic": 3, "special:magnetic": 1 },
+    "Gabbro":     { "texture:phaneritic": 3 },
+    "Tuff":       { "texture:fragmental": 4 },
+    "Gneiss":     { "texture:foliated": 4 },
+    "Slate":      { "texture:foliated": 2, "grain_size:mud": 2 },
+    "Phyllite":   { "texture:foliated": 3 },
+    "Schist":     { "texture:foliated": 3, "grain_size:sand": 1 },
+    "Sandstone":  { "grain_size:sand": 3, "texture:nonfoliated": 1 },
+    "Siltstone":  { "grain_size:silt": 3 },
+    "Shale":      { "grain_size:mud": 3 },
+    "Quartzite":  { "special:conchoidal": 1, "texture:nonfoliated": 2 },
+    "Chert":      { "special:conchoidal": 3, "grain_size:very_fine": 2 },
+    "Limestone":  { "special:acid_reacts": 4, "texture:nonfoliated": 1 },
+    "Marble":     { "special:acid_reacts": 3, "texture:nonfoliated": 2 },
+    "Rhyolite":   { "texture:aphanitic": 2 },
+    "Andesite":   { "texture:aphanitic": 2 },
+    "Conglomerate": { "grain_size:sand": 1 }, 
+    "Travertine": { "special:acid_reacts": 3 },
+    "Hornfels":   { "grain_size:very_fine": 2, "texture:nonfoliated": 2 }
+  }
+}

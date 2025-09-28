@@ -3,21 +3,18 @@
 Download the first N Google Custom Search JSON (Images) results for each rock type,
 convert them to PNG, save as <rocktype>_NNN.png, and record credits (URL -> filename).
 
-New in this version
--------------------
+This version adds:
+- GLOBAL RATE LIMITING for API calls and image downloads.
+- RETRY with exponential backoff + jitter and support for `Retry-After`.
+- `--debug` flag with verbose per-attempt logging so long waits don't look like hangs.
+- Tuple timeouts (connect/read) to avoid long stalls.
+- Polished prints that flush immediately.
+
+Optional query helpers:
 - `--rights` to pass Google CSE usage-rights filters (e.g., cc_publicdomain, cc_attribute).
-- `--public_domain` convenience flag (equivalent to --rights cc_publicdomain).
-- `--domains` to bias search to certain TLDs (e.g., ".edu,.gov") using `site:` operators in the query.
+- `--public_domain` shortcut for `--rights cc_publicdomain`.
+- `--domains` to bias search to certain TLDs (e.g., ".edu,.gov").
 - `--sites` to bias/limit search to specific hosts (e.g., "usgs.gov,si.edu").
-
-Notes
------
-- Google CSE supports the `rights` parameter for image usage rights. Accepted tokens include:
-  cc_publicdomain, cc_attribute, cc_sharealike, cc_noncommercial, cc_nonderived
-  You can combine them by comma (internally joined by `|` for the API).
-- Domain/Site filters are appended to the query string using `site:` operators.
-  Example: (site:.edu OR site:.gov) or (site:usgs.gov OR site:si.edu)
-
 """
 from __future__ import annotations
 
@@ -26,11 +23,11 @@ import csv
 import io
 import json
 import os
+import random
 import re
 import time
 from pathlib import Path
 from typing import Dict, List, Optional
-from urllib.parse import urlparse, unquote
 
 import requests
 from dotenv import load_dotenv
@@ -46,9 +43,17 @@ ROCK_TYPES = [
 
 GOOGLE_SEARCH_URL = "https://www.googleapis.com/customsearch/v1"
 DEFAULT_LIMIT = 10
-REQUEST_TIMEOUT = 20  # seconds
-PAUSE_BETWEEN_API_CALLS = 0.6  # seconds; adjust if you hit rate limits
-PAUSE_BETWEEN_DOWNLOADS = 0.2   # seconds
+
+# --- Throttling / backoff configuration ---
+API_MIN_INTERVAL = 0.75   # seconds between CSE API calls
+DL_MIN_INTERVAL  = 0.30   # seconds between image downloads
+MAX_RETRIES      = 3      # per-request attempts
+BASE_BACKOFF     = 0.8    # seconds (exponential base)
+JITTER_RANGE     = (0.05, 0.25)
+
+# Per-request timeout (connect, read) so connect stalls don't hang too long
+CSE_TIMEOUT      = (6, 15)
+DOWNLOAD_TIMEOUT = (8, 30)
 
 SAFE_NAME_RE = re.compile(r"[^A-Za-z0-9._-]+")
 
@@ -60,6 +65,87 @@ RIGHTS_CHOICES = {
     "cc_nonderived",
 }
 
+# ---------- HTTP helpers (session, limiter, retry) ----------
+
+# One shared Session is nicer to servers and faster
+SESSION = requests.Session()
+SESSION.headers.update({"User-Agent": "Mozilla/5.0 (compatible; rock-scraper/1.3)"})
+
+class RateLimiter:
+    def __init__(self, min_interval: float):
+        self.min_interval = float(min_interval)
+        self._next = 0.0  # monotonic time when next request is allowed
+
+    def wait(self):
+        now = time.monotonic()
+        if now < self._next:
+            time.sleep(self._next - now)
+        self._next = time.monotonic() + self.min_interval
+
+API_LIMITER = RateLimiter(API_MIN_INTERVAL)
+DL_LIMITER  = RateLimiter(DL_MIN_INTERVAL)
+
+TRANSIENT_STATUSES = {429, 500, 502, 503, 504}
+DEBUG = False  # set from --debug
+
+
+def _parse_retry_after(resp: requests.Response) -> Optional[float]:
+    ra = resp.headers.get("Retry-After")
+    if not ra:
+        return None
+    try:
+        return float(ra)  # seconds form
+    except ValueError:
+        # Date form present — be conservative
+        return 2.0
+
+
+def get_with_retries(
+    url: str,
+    *,
+    params: Optional[Dict] = None,
+    headers: Optional[Dict] = None,
+    timeout = (8, 20),
+    limiter: Optional[RateLimiter] = None,
+    label: str = ""
+) -> Optional[requests.Response]:
+    """Rate-limited GET with retry/backoff. Returns Response or None after retries."""
+    for attempt in range(MAX_RETRIES):
+        if limiter:
+            limiter.wait()
+
+        try:
+            if DEBUG:
+                print(f"  -> GET {label or url} (attempt {attempt+1}/{MAX_RETRIES})", flush=True)
+            resp = SESSION.get(url, params=params, headers=headers, timeout=timeout, stream=False)
+        except requests.RequestException as e:
+            delay = BASE_BACKOFF * (2 ** attempt) + random.uniform(*JITTER_RANGE)
+            if DEBUG:
+                print(f"     ! network error {e.__class__.__name__}: {e}; retrying in {delay:.2f}s", flush=True)
+            time.sleep(delay)
+            continue
+
+        if resp.status_code in TRANSIENT_STATUSES:
+            ra = _parse_retry_after(resp)
+            delay = (ra if ra is not None else BASE_BACKOFF * (2 ** attempt)) + random.uniform(*JITTER_RANGE)
+            if DEBUG:
+                why = f"{resp.status_code} (Retry-After {ra}s)" if ra is not None else f"{resp.status_code}"
+                print(f"     ! transient {why}; backing off {delay:.2f}s", flush=True)
+            time.sleep(delay)
+            continue
+
+        try:
+            resp.raise_for_status()
+            return resp
+        except requests.HTTPError as e:
+            if DEBUG:
+                print(f"     ! HTTP {resp.status_code} non-retryable: {e}", flush=True)
+            return None
+
+    if DEBUG:
+        print("     ! exhausted retries", flush=True)
+    return None
+
 # ---------- Helpers ----------
 
 def safe_name(s: str) -> str:
@@ -67,30 +153,37 @@ def safe_name(s: str) -> str:
     s = s.strip().replace(" ", "_")
     return SAFE_NAME_RE.sub("", s)
 
+
 def fetch_json(url: str, params: Dict[str, str]) -> Dict:
-    """GET JSON with basic error handling."""
-    r = requests.get(url, params=params, timeout=REQUEST_TIMEOUT)
-    r.raise_for_status()
-    return r.json()
+    resp = get_with_retries(url, params=params, timeout=CSE_TIMEOUT, limiter=API_LIMITER, label="CSE JSON")
+    if resp is None:
+        raise requests.HTTPError("Failed to fetch JSON after retries")
+    return resp.json()
+
 
 def build_filename(rock: str, index: int) -> str:
     """Return canonical filename for a rock image (PNG)."""
     return f"{safe_name(rock)}_{index:03d}.png"
 
+
 def download_bytes(url: str) -> Optional[bytes]:
-    try:
-        with requests.get(url, timeout=REQUEST_TIMEOUT, stream=True, headers={"User-Agent": "Mozilla/5.0 (compatible; rock-scraper/1.2)"}) as r:
-            r.raise_for_status()
-            return r.content
-    except Exception as e:
-        print(f"  ! Failed to fetch {url}: {e}")
+    resp = get_with_retries(
+        url,
+        timeout=DOWNLOAD_TIMEOUT,
+        headers={"User-Agent": "Mozilla/5.0 (compatible; rock-scraper/1.3)"},
+        limiter=DL_LIMITER,
+        label="image",
+    )
+    if resp is None:
+        print(f"  ! Failed to fetch {url} after retries", flush=True)
         return None
+    return resp.content
+
 
 def image_bytes_to_png(image_bytes: bytes) -> Optional[bytes]:
     """Convert arbitrary image bytes to PNG bytes using Pillow. Returns None on failure."""
     try:
         with Image.open(io.BytesIO(image_bytes)) as im:
-            # Handle animated formats: take first frame
             if getattr(im, "is_animated", False):
                 im.seek(0)
             # Convert mode if needed (keep alpha if present)
@@ -110,11 +203,9 @@ def image_bytes_to_png(image_bytes: bytes) -> Optional[bytes]:
         print(f"    ! Pillow conversion error: {e}")
         return None
 
+
 def build_domain_clause(domains: List[str]) -> str:
-    """
-    Build a query clause like: (site:.edu OR site:.gov)
-    Accepts items like ".edu", ".gov", "edu" and normalizes to ".tld".
-    """
+    """Build a query clause like: (site:.edu OR site:.gov). Accepts ".edu", "edu", etc."""
     cleaned = []
     for d in domains:
         d = d.strip()
@@ -125,16 +216,14 @@ def build_domain_clause(domains: List[str]) -> str:
         elif "." not in d:
             cleaned.append(f"site:.{d}")
         else:
-            # looks like a host (example.gov) — treat as site filter
             cleaned.append(f"site:{d}")
     if not cleaned:
         return ""
     return "(" + " OR ".join(cleaned) + ")"
 
+
 def build_site_clause(sites: List[str]) -> str:
-    """
-    Build a query clause like: (site:usgs.gov OR site:si.edu)
-    """
+    """Build a query clause like: (site:usgs.gov OR site:si.edu)"""
     cleaned = []
     for s in sites:
         s = s.strip()
@@ -175,10 +264,10 @@ def search_images(api_key: str, cx: str, query: str, limit: int, rights: Optiona
         try:
             data = fetch_json(GOOGLE_SEARCH_URL, params)
         except requests.HTTPError as e:
-            print(f"  ! API error at start={start}: {e}")
+            print(f"  ! API error at start={start}: {e}", flush=True)
             break
         except Exception as e:
-            print(f"  ! Network error at start={start}: {e}")
+            print(f"  ! Network error at start={start}: {e}", flush=True)
             break
 
         items = data.get("items", []) or []
@@ -190,11 +279,12 @@ def search_images(api_key: str, cx: str, query: str, limit: int, rights: Optiona
         remaining -= got
         start += got
 
-        time.sleep(PAUSE_BETWEEN_API_CALLS)
-
     return results[:limit]
 
+# ---------- CLI entry ----------
+
 def main():
+    global DEBUG
     load_dotenv()
 
     parser = argparse.ArgumentParser(description="Download first N Google CSE image results per rock type, convert to PNG, and record credits.")
@@ -202,15 +292,14 @@ def main():
     parser.add_argument("--out", "-o", type=str, default="rock_images", help="Output root directory")
     parser.add_argument("--types", "-t", type=str, nargs="*", default=ROCK_TYPES, help="Subset of rock types to fetch")
     parser.add_argument("--query_suffix", type=str, default="rock sample", help='Suffix appended to each rock, e.g. `rock sample`')
-    parser.add_argument("--rights", type=str, default=None,
-                        help="Comma-separated usage rights for Google CSE (e.g., 'cc_publicdomain,cc_attribute').")
-    parser.add_argument("--public_domain", action="store_true",
-                        help="Shortcut for --rights cc_publicdomain")
-    parser.add_argument("--domains", type=str, default=None,
-                        help="Comma-separated list like '.edu,.gov' to add a site: TLD clause to the query.")
-    parser.add_argument("--sites", type=str, default=None,
-                        help="Comma-separated host list like 'usgs.gov,si.edu' to add site:host clauses to the query.")
+    parser.add_argument("--rights", type=str, default=None, help="Comma-separated usage rights for Google CSE (e.g., 'cc_publicdomain,cc_attribute').")
+    parser.add_argument("--public_domain", action="store_true", help="Shortcut for --rights cc_publicdomain")
+    parser.add_argument("--domains", type=str, default=None, help="Comma-separated list like '.edu,.gov' to add a site: TLD clause to the query.")
+    parser.add_argument("--sites", type=str, default=None, help="Comma-separated host list like 'usgs.gov,si.edu' to add site:host clauses to the query.")
+    parser.add_argument("--debug", action="store_true", help="Verbose HTTP/retry logging")
     args = parser.parse_args()
+
+    DEBUG = args.debug
 
     api_key = os.getenv("GOOGLE_API_KEY")
     cx = os.getenv("GOOGLE_CSE_CX")
@@ -224,7 +313,6 @@ def main():
     if args.public_domain and not args.rights:
         rights = "cc_publicdomain"
     if args.rights:
-        # Validate and join as pipes per API
         tokens = [t.strip() for t in args.rights.split(",") if t.strip()]
         invalid = [t for t in tokens if t not in RIGHTS_CHOICES]
         if invalid:
@@ -242,8 +330,8 @@ def main():
     credits_json_path = out_root / "credits.json"
 
     # Prepare credits collectors
-    credits_rows = []  # list of dicts for CSV
-    credits_json = []  # list of dicts for JSON
+    credits_rows: List[Dict[str, str]] = []
+    credits_json: List[Dict[str, str]] = []
 
     for rock in args.types:
         rock_dir = out_root / safe_name(rock)
@@ -270,7 +358,6 @@ def main():
                 print("  ! No link for a result, skipping.")
                 continue
 
-            # Download and convert to PNG
             print(f"  - Fetching: {link}")
             data = download_bytes(link)
             if not data:
@@ -281,7 +368,7 @@ def main():
                 continue
 
             saved += 1
-            filename = build_filename(rock, saved)
+            filename = f"{safe_name(rock)}_{saved:03d}.png"
             dest = rock_dir / filename
             try:
                 with open(dest, "wb") as f:
@@ -296,8 +383,6 @@ def main():
             except Exception as e:
                 print(f"    ! Write failed {dest}: {e}")
                 saved -= 1  # keep numbering contiguous if write fails
-
-            time.sleep(PAUSE_BETWEEN_DOWNLOADS)
 
     # Write credits files
     try:
@@ -317,6 +402,7 @@ def main():
         print(f"! Failed to write credits JSON: {e}")
 
     print("\nDone.")
+
 
 if __name__ == "__main__":
     main()
