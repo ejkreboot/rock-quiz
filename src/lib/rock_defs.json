@@ -1,0 +1,200 @@
+[
+  {
+    "name": "Andesite",
+    "type": "igneous",
+    "subtype": "extrusive (intermediate)",
+    "texture": "aphanitic to porphyritic (fine groundmass with feldspar/pyroxene phenocrysts)",
+    "commonColors": "medium gray",
+    "diagnostics": "fine overall; few visible quartz; often small white/gray phenocrysts",
+    "confusedWith": "rhyolite (lighter), basalt (darker), diorite (coarse-grained)"
+  },
+  {
+    "name": "Basalt",
+    "type": "igneous",
+    "subtype": "extrusive (mafic)",
+    "texture": "aphanitic; may be vesicular",
+    "commonColors": "dark gray to black",
+    "diagnostics": "very fine; heavy; may show vesicles; magnetite can make it weakly magnetic",
+    "confusedWith": "gabbro (coarse), andesite (lighter), scoria (very vesicular)"
+  },
+  {
+    "name": "Chert",
+    "type": "sedimentary",
+    "subtype": "chemical/biochemical (silica)",
+    "texture": "microcrystalline quartz; very fine",
+    "commonColors": "white, gray, tan, red, black",
+    "diagnostics": "conchoidal fracture; very hard (scratches glass); waxy/dull luster",
+    "confusedWith": "quartzite (granular), flint (dark chert)"
+  },
+  {
+    "name": "Coal",
+    "type": "sedimentary",
+    "subtype": "biochemical (plant carbon)",
+    "texture": "massive; brittle",
+    "commonColors": "black",
+    "diagnostics": "lightweight; sooty streak; shiny to dull; burns",
+    "confusedWith": "basalt (harder, no sooty streak)"
+  },
+  {
+    "name": "Conglomerate",
+    "type": "sedimentary",
+    "subtype": "clastic",
+    "texture": "rounded pebbles/cobbles in sand/silt matrix",
+    "commonColors": "varies with clasts; often tan/brown",
+    "diagnostics": "rounded clasts >2 mm; clast-supported or matrix-supported",
+    "confusedWith": "breccia (angular clasts)"
+  },
+  {
+    "name": "Gabbro",
+    "type": "igneous",
+    "subtype": "intrusive (mafic)",
+    "texture": "phaneritic (coarse); interlocking plagioclase + pyroxene",
+    "commonColors": "dark gray to black with light flecks",
+    "diagnostics": "coarse 'salt-and-pepper'; no visible quartz; heavy",
+    "confusedWith": "diorite (lighter), basalt (fine)"
+  },
+  {
+    "name": "Gneiss",
+    "type": "metamorphic",
+    "subtype": "foliated (high-grade)",
+    "texture": "coarse; banded (light/dark layers)",
+    "commonColors": "black/white banding",
+    "diagnostics": "distinct compositional bands; feldspar + quartz common",
+    "confusedWith": "schist (mica-rich, flaky), migmatite (swirly melt bands)"
+  },
+  {
+    "name": "Granite",
+    "type": "igneous",
+    "subtype": "intrusive (felsic)",
+    "texture": "phaneritic (coarse); quartz + K-feldspar + plagioclase",
+    "commonColors": "pink/white/gray with black mica",
+    "diagnostics": "visible quartz (glassy, gray) and K-feldspar (often pink)",
+    "confusedWith": "granodiorite (darker), diorite (no K-feldspar pink)"
+  },
+  {
+    "name": "Hornfels",
+    "type": "metamorphic",
+    "subtype": "nonfoliated (contact)",
+    "texture": "very fine, tough, splintery",
+    "commonColors": "dark gray to black",
+    "diagnostics": "hard, dense 'ringing' stone; no foliation; baked appearance",
+    "confusedWith": "basalt (igneous, may show vesicles), slate (cleavage)"
+  },
+  {
+    "name": "Limestone",
+    "type": "sedimentary",
+    "subtype": "chemical/biochemical (calcite)",
+    "texture": "micritic to fossiliferous; variable grain size",
+    "commonColors": "white, gray, tan",
+    "diagnostics": "reacts vigorously with dilute HCl; fossils common",
+    "confusedWith": "dolostone (weak/slow acid reaction), marble (sugary crystals)"
+  },
+  {
+    "name": "Marble",
+    "type": "metamorphic",
+    "subtype": "nonfoliated (recrystallized limestone)",
+    "texture": "medium- to coarse 'sugary' calcite/dolomite",
+    "commonColors": "white, pink, gray, banded",
+    "diagnostics": "reacts with acid; crystals interlock; softer than quartzite",
+    "confusedWith": "quartzite (very hard, no acid reaction), limestone (sedimentary textures)"
+  },
+  {
+    "name": "Migmatite",
+    "type": "metamorphic",
+    "subtype": "partially melted gneiss",
+    "texture": "mixed: dark melanosomes + light, swirly leucosomes",
+    "commonColors": "black/white swirls",
+    "diagnostics": "irregular folded/swirled light bands cutting gneissic fabric",
+    "confusedWith": "gneiss (straight bands), granite (uniform plutonic texture)"
+  },
+  {
+    "name": "Mudstone",
+    "type": "sedimentary",
+    "subtype": "clastic (mud)",
+    "texture": "very fine; massive; blocky breaks",
+    "commonColors": "gray, brown, red",
+    "diagnostics": "does NOT split into thin sheets; smooth feel",
+    "confusedWith": "shale (fissile), siltstone (gritty)"
+  },
+  {
+    "name": "Phyllite",
+    "type": "metamorphic",
+    "subtype": "foliated (between slate and schist)",
+    "texture": "fine; wavy foliation with silky sheen",
+    "commonColors": "gray to greenish",
+    "diagnostics": "satiny luster; minute mica give a sheen; faint wrinkling",
+    "confusedWith": "slate (dull, planar), schist (sparkly, coarse mica)"
+  },
+  {
+    "name": "Quartzite",
+    "type": "metamorphic",
+    "subtype": "nonfoliated (metamorphosed sandstone)",
+    "texture": "granoblastic; interlocking quartz; very hard",
+    "commonColors": "white, pink, gray",
+    "diagnostics": "scratches glass easily; breaks THROUGH grains; no acid reaction",
+    "confusedWith": "marble (acid reacts; softer; sugary calcite)"
+  },
+  {
+    "name": "Rhyolite",
+    "type": "igneous",
+    "subtype": "extrusive (felsic)",
+    "texture": "aphanitic to porphyritic; may be flow-banded",
+    "commonColors": "light gray, pink",
+    "diagnostics": "light-colored volcanic rock; quartz not visible but felsic look",
+    "confusedWith": "andesite (darker), granite (coarse)"
+  },
+  {
+    "name": "Sandstone",
+    "type": "sedimentary",
+    "subtype": "clastic (sand)",
+    "texture": "sand-sized grains; may show bedding/cross-beds",
+    "commonColors": "tan, red, gray, white",
+    "diagnostics": "gritty feel; individual grains visible; often quartz-rich",
+    "confusedWith": "siltstone (finer, slightly gritty), quartzite (metamorphic, very hard)"
+  },
+  {
+    "name": "Shale",
+    "type": "sedimentary",
+    "subtype": "clastic (mud)",
+    "texture": "very fine; fissile (splits into thin sheets)",
+    "commonColors": "gray, black, red, green",
+    "diagnostics": "breaks into paper-thin layers; smooth feel",
+    "confusedWith": "slate (harder, rings, slaty cleavage), mudstone (massive)"
+  },
+  {
+    "name": "Siltstone",
+    "type": "sedimentary",
+    "subtype": "clastic (silt)",
+    "texture": "fine; slightly gritty (between sand and mud)",
+    "commonColors": "tan, gray, brown",
+    "diagnostics": "grittier than shale/mudstone; lacks sand-size sparkle",
+    "confusedWith": "sandstone (coarser), mudstone (smoother)"
+  },
+  {
+    "name": "Slate",
+    "type": "metamorphic",
+    "subtype": "foliated (low-grade from shale)",
+    "texture": "very fine; planar slaty cleavage",
+    "commonColors": "dark gray, black, green, red",
+    "diagnostics": "splits into flat durable sheets; dull luster; 'ping' when tapped",
+    "confusedWith": "phyllite (silky sheen), shale (less hard, earthy break)"
+  },
+  {
+    "name": "Travertine",
+    "type": "sedimentary",
+    "subtype": "chemical limestone (spring/terrace deposits)",
+    "texture": "banded, porous; fibrous or concentric layers",
+    "commonColors": "white, cream, tan",
+    "diagnostics": "calcite; strong acid reaction; visible pores/laminae",
+    "confusedWith": "tufa (very porous variety), marble (metamorphic, crystalline)"
+  },
+  {
+    "name": "Tuff",
+    "type": "igneous",
+    "subtype": "pyroclastic (volcanic ash)",
+    "texture": "fragmental; ash matrix with pumice/lithic fragments",
+    "commonColors": "light gray, tan",
+    "diagnostics": "lightweight; may show shards/pumice; soft",
+    "confusedWith": "sedimentary siltstone (heavier), welded tuff/ignimbrite (denser, banded)"
+  }
+]

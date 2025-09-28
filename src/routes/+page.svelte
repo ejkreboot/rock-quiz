@@ -1,6 +1,10 @@
 <script>
   import { onMount } from 'svelte';
   import Svelecte from 'svelecte';
+  import Modal from '$lib/Modal.svelte';
+  import RockInfo from '$lib/RockInfo.svelte';
+  import rock_defs from '$lib/rock_defs.json';
+  let show = false;
 
   /** @type {Record<string,string[]>} */
   let manifest = {};
@@ -31,18 +35,6 @@
     rebuildFromSelection();
   }
 
-  function rebuildFromSelection() {
-    if (!ready) return;
-    // Use the selected list (or all classes if nothing chosen)
-    const chosen = (selectedList.length ? selectedList : classes)
-      .filter(lbl => (manifest[lbl]?.length ?? 0) > 0)
-      .sort((a,b)=>a.localeCompare(b));
-    buildPracticeDeck(chosen);
-    current = null;
-    revealed = false;
-      nextImage();
-
-  }
 
   function sampleUpTo(arr, n) {
     // partial Fisher–Yates: sample n without replacement
@@ -75,9 +67,22 @@ function buildPracticeDeck(labels = classes) {
   drawPile = shuffleInPlace(deck.slice());
 }
 
+  function chosenLabels() {
+    return (selectedList?.length ? selectedList : classes)
+      .filter(lbl => (manifest[lbl]?.length ?? 0) > 0)
+      .sort((a,b)=> a.localeCompare(b));
+  }
+
   function reshuffleDeck() {
-    // Re-sample new practice set for variety
-    buildPracticeDeck();
+    buildPracticeDeck(chosenLabels());   // <-- use filter
+    current = null;
+    revealed = false;
+    nextImage();
+  }
+
+  function rebuildFromSelection() {
+    if (!ready) return;
+    buildPracticeDeck(chosenLabels());   // keep these in sync
     current = null;
     revealed = false;
     nextImage();
@@ -240,6 +245,7 @@ function buildPracticeDeck(labels = classes) {
         <span class="hint">(Click Image For Answer)</span>
     {:else}
         <div class="answer">{current?.label}</div>
+        <button class="btn" on:click={() => (show = true)}>?</button>
     {/if}
     <button class="btn right" on:click={reshuffleDeck}>Shuffle Deck</button>
     </div>
@@ -268,5 +274,16 @@ function buildPracticeDeck(labels = classes) {
         placeholder="Choose rock types…"
         onChange={onSelectionChange}  
     />
-
 </div>
+
+<!-- Modal -->
+ 
+<Modal bind:open={show} title="Rock type details">
+  <RockInfo info={rock_defs.filter(rock => rock.name === current?.label)[0]} />
+  <div slot="footer" class="flex justify-end gap-2">
+    <button class="px-3 py-1.5 rounded-md bg-zinc-200" on:click={() => (show = false)}>
+      Close
+    </button>
+  </div>
+</Modal>
+
