@@ -8,7 +8,11 @@
   export let closeOnEsc = true;
   export let closeOnBackdrop = true;
   export let labelledBy = null;
-  export let maxWidth = "640px"; // control dialog width
+  export let maxWidth = "800px"; // control dialog width
+  
+  // New props for dynamic component rendering
+  export let component = null;
+  export let props = {};
 
   const dispatch = createEventDispatcher();
   let dialogEl;
@@ -100,7 +104,11 @@
       </header>
 
       <section class="modal-body">
-        <slot />
+        {#if component}
+          <svelte:component this={component} {...props} />
+        {:else}
+          <slot />
+        {/if}
       </section>
 
       <footer class="modal-footer">
@@ -109,155 +117,3 @@
     </div>
   </div>
 {/if}
-
-<style>
-  /* ---------- Theming (override from app if you like) ---------- */
-  :root {
-    --modal-accent: #0ea5e9;          /* highlight color */
-    --modal-bg: #ffffff;              /* surface color */
-    --modal-fg: #0b0b0b;              /* text color */
-    --modal-border: rgba(0,0,0,0.08);
-    --modal-shadow-1: 0 10px 20px rgba(0,0,0,0.12);
-    --modal-shadow-2: 0 6px 12px rgba(0,0,0,0.08);
-    --modal-radius: 14px;
-  }
-
-  /* ---------- Backdrop / centering ---------- */
-  .modal-backdrop {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    background: rgba(0, 0, 0, 0.45);
-    z-index: 1000;
-    backdrop-filter: blur(2px);
-    animation: modal-fade 140ms ease-out;
-  }
-
-  /* ---------- Dialog card ---------- */
-  .modal-dialog {
-    width: 100%;
-    max-width: var(--modal-max-width, 640px);
-    max-height: 85vh;
-    overflow: auto;
-    border-radius: var(--modal-radius);
-    background: var(--modal-bg);
-    color: var(--modal-fg);
-    border: 1px solid var(--modal-border);
-    box-shadow: var(--modal-shadow-1), var(--modal-shadow-2);
-    outline: none;
-    animation: modal-pop 180ms cubic-bezier(.2,.8,.2,1);
-    font-family: "Quicksand", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  }
-
-  /* ---------- Header ---------- */
-  .modal-header {
-    position: sticky;
-    top: 0;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 18px;
-    background:
-      linear-gradient(0deg, rgba(255,255,255,0.85), rgba(255,255,255,0.85));
-    border-bottom: 1px solid var(--modal-border);
-    backdrop-filter: blur(2px);
-  }
-  .modal-title {
-    margin: 0;
-    flex: 1;
-    min-width: 0;
-    font-family: "Rubik Distressed", "Quicksand", system-ui, sans-serif;
-    color: #bd2100;
-    font-size: clamp(20px, 2.2vw, 24px);
-    line-height: 1.25;
-    letter-spacing: 0.2px;
-  }
-
-  /* ---------- Close button ---------- */
-  .modal-close {
-    border: 0;
-    background: transparent;
-    inline-size: 34px;
-    block-size: 34px;
-    display: grid;
-    place-items: center;
-    border-radius: 999px;
-    cursor: pointer;
-    color: inherit;
-  }
-  .modal-close:hover { background: rgba(2, 132, 199, 0.08); }
-  .modal-close:focus-visible {
-    outline: 2px solid var(--modal-accent);
-    outline-offset: 2px;
-  }
-
-  /* ---------- Body & footer ---------- */
-  .modal-body  { padding: 18px; line-height: 1.6; }
-  .modal-footer{
-    padding: 12px 18px;
-    border-top: 1px solid var(--modal-border);
-    display: flex;
-    gap: 8px;
-    justify-content: flex-end;
-  }
-
-  /* Buttons you place in the footer (optional helper) */
-  .modal-btn {
-    border: 1px solid var(--modal-border);
-    background: #f6f7f9;
-    color: inherit;
-    padding: 8px 12px;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  .modal-btn.primary {
-    background: var(--modal-accent);
-    border-color: transparent;
-    color: #fff;
-  }
-  .modal-btn:hover { filter: brightness(0.98); }
-  .modal-btn:focus-visible {
-    outline: 2px solid var(--modal-accent);
-    outline-offset: 2px;
-  }
-
-  /* ---------- Pretty <pre> for JSON ---------- */
-  .modal-body pre {
-    margin: 0;
-    padding: 12px 14px;
-    background: #0f172a10;         /* subtle slate tint */
-    border: 1px solid var(--modal-border);
-    border-radius: 10px;
-    overflow: auto;
-    font: 500 14px/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    tab-size: 2;
-    white-space: pre;               /* keep formatting from JSON.stringify */
-  }
-
-  /* ---------- Dark mode ---------- */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --modal-bg: #0f1115;
-      --modal-fg: #e5e7eb;
-      --modal-border: rgba(255,255,255,0.12);
-      --modal-shadow-1: 0 14px 28px rgba(0,0,0,0.55);
-      --modal-shadow-2: 0 10px 10px rgba(0,0,0,0.35);
-    }
-    .modal-close:hover { background: rgba(255,255,255,0.06); }
-    .modal-header { background: linear-gradient(0deg, rgba(15,17,21,0.9), rgba(15,17,21,0.9)); }
-    .modal-body pre { background: #ffffff0f; }
-  }
-
-  /* ---------- Motion ---------- */
-  @keyframes modal-fade { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes modal-pop  {
-    from { transform: translateY(6px) scale(0.98); opacity: 0.96; }
-    to   { transform: translateY(0)   scale(1);     opacity: 1; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .modal-backdrop, .modal-dialog { animation: none !important; }
-  }
-</style>

@@ -15,6 +15,8 @@ Optional query helpers:
 - `--public_domain` shortcut for `--rights cc_publicdomain`.
 - `--domains` to bias search to certain TLDs (e.g., ".edu,.gov").
 - `--sites` to bias/limit search to specific hosts (e.g., "usgs.gov,si.edu").
+- `--public_sites` to RESTRICT searches to a curated set of public/educational sources
+  (currently .edu, .gov, and {usgs.gov, si.edu, naturalhistory.si.edu, nasa.gov, noaa.gov, nps.gov, blm.gov}).
 """
 from __future__ import annotations
 
@@ -65,16 +67,29 @@ RIGHTS_CHOICES = {
     "cc_nonderived",
 }
 
+# Curated public/educational sources for --public_sites
+PUBLIC_TLDS  = [".edu", ".gov"]
+PUBLIC_SITES = [
+    "usgs.gov",
+    "si.edu",
+    "naturalhistory.si.edu",
+    "nasa.gov",
+    "noaa.gov",
+    "nps.gov",
+    "blm.gov",
+    "wikipedia.org",
+    "wikimedia.org"
+]
+
 # ---------- HTTP helpers (session, limiter, retry) ----------
 
-# One shared Session is nicer to servers and faster
 SESSION = requests.Session()
-SESSION.headers.update({"User-Agent": "Mozilla/5.0 (compatible; rock-scraper/1.3)"})
+SESSION.headers.update({"User-Agent": "Mozilla/5.0 (compatible; rock-scraper/1.4)"})
 
 class RateLimiter:
     def __init__(self, min_interval: float):
         self.min_interval = float(min_interval)
-        self._next = 0.0  # monotonic time when next request is allowed
+        self._next = 0.0
 
     def wait(self):
         now = time.monotonic()
@@ -96,7 +111,6 @@ def _parse_retry_after(resp: requests.Response) -> Optional[float]:
     try:
         return float(ra)  # seconds form
     except ValueError:
-        # Date form present — be conservative
         return 2.0
 
 
@@ -149,7 +163,6 @@ def get_with_retries(
 # ---------- Helpers ----------
 
 def safe_name(s: str) -> str:
-    """Sanitize a piece of a filename/path."""
     s = s.strip().replace(" ", "_")
     return SAFE_NAME_RE.sub("", s)
 
@@ -162,7 +175,6 @@ def fetch_json(url: str, params: Dict[str, str]) -> Dict:
 
 
 def build_filename(rock: str, index: int) -> str:
-    """Return canonical filename for a rock image (PNG)."""
     return f"{safe_name(rock)}_{index:03d}.png"
 
 
@@ -170,7 +182,7 @@ def download_bytes(url: str) -> Optional[bytes]:
     resp = get_with_retries(
         url,
         timeout=DOWNLOAD_TIMEOUT,
-        headers={"User-Agent": "Mozilla/5.0 (compatible; rock-scraper/1.3)"},
+        headers={"User-Agent": "Mozilla/5.0 (compatible; rock-scraper/1.4)"},
         limiter=DL_LIMITER,
         label="image",
     )
@@ -181,12 +193,10 @@ def download_bytes(url: str) -> Optional[bytes]:
 
 
 def image_bytes_to_png(image_bytes: bytes) -> Optional[bytes]:
-    """Convert arbitrary image bytes to PNG bytes using Pillow. Returns None on failure."""
     try:
         with Image.open(io.BytesIO(image_bytes)) as im:
             if getattr(im, "is_animated", False):
                 im.seek(0)
-            # Convert mode if needed (keep alpha if present)
             if im.mode in ("RGBA", "LA"):
                 converted = im
             elif im.mode == "P":
@@ -205,7 +215,7 @@ def image_bytes_to_png(image_bytes: bytes) -> Optional[bytes]:
 
 
 def build_domain_clause(domains: List[str]) -> str:
-    """Build a query clause like: (site:.edu OR site:.gov). Accepts ".edu", "edu", etc."""
+    """Build a query clause like: (site:.edu OR site:.gov). Accepts '.edu', 'edu', or full hosts."""
     cleaned = []
     for d in domains:
         d = d.strip()
@@ -229,10 +239,7 @@ def build_site_clause(sites: List[str]) -> str:
         s = s.strip()
         if not s:
             continue
-        if not s.startswith("site:"):
-            cleaned.append(f"site:{s}")
-        else:
-            cleaned.append(s)
+        cleaned.append(f"site:{s}" if not s.startswith("site:") else s)
     if not cleaned:
         return ""
     return "(" + " OR ".join(cleaned) + ")"
@@ -240,10 +247,6 @@ def build_site_clause(sites: List[str]) -> str:
 # ---------- Core ----------
 
 def search_images(api_key: str, cx: str, query: str, limit: int, rights: Optional[str]) -> List[Dict]:
-    """
-    Use Google CSE to fetch up to `limit` image results for `query`.
-    Returns a list of items (dicts) from the API (may be fewer than limit).
-    """
     results: List[Dict] = []
     start = 1  # Google CSE is 1-indexed; max 10 per page
     remaining = limit
@@ -292,10 +295,17 @@ def main():
     parser.add_argument("--out", "-o", type=str, default="rock_images", help="Output root directory")
     parser.add_argument("--types", "-t", type=str, nargs="*", default=ROCK_TYPES, help="Subset of rock types to fetch")
     parser.add_argument("--query_suffix", type=str, default="rock sample", help='Suffix appended to each rock, e.g. `rock sample`')
+
+    # Licensing / filters
     parser.add_argument("--rights", type=str, default=None, help="Comma-separated usage rights for Google CSE (e.g., 'cc_publicdomain,cc_attribute').")
     parser.add_argument("--public_domain", action="store_true", help="Shortcut for --rights cc_publicdomain")
+
+    # Site scoping
     parser.add_argument("--domains", type=str, default=None, help="Comma-separated list like '.edu,.gov' to add a site: TLD clause to the query.")
     parser.add_argument("--sites", type=str, default=None, help="Comma-separated host list like 'usgs.gov,si.edu' to add site:host clauses to the query.")
+    parser.add_argument("--public_sites", action="store_true",
+                        help="Restrict to curated public/educational domains (.edu,.gov) and sites (usgs.gov, si.edu, naturalhistory.si.edu, nasa.gov, noaa.gov, nps.gov, blm.gov).")
+
     parser.add_argument("--debug", action="store_true", help="Verbose HTTP/retry logging")
     args = parser.parse_args()
 
@@ -320,8 +330,20 @@ def main():
         if tokens:
             rights = "|".join(tokens)
 
-    domain_clause = build_domain_clause([d for d in (args.domains.split(",") if args.domains else [])])
-    site_clause = build_site_clause([s for s in (args.sites.split(",") if args.sites else [])])
+    # Determine domain/site constraints
+    if args.public_sites:
+        if args.domains:
+            print("! --public_sites overrides --domains", flush=True)
+        if args.sites:
+            print("! --public_sites overrides --sites", flush=True)
+        domains_list = list(PUBLIC_TLDS)
+        sites_list   = list(PUBLIC_SITES)
+    else:
+        domains_list = [d for d in (args.domains.split(",") if args.domains else [])]
+        sites_list   = [s for s in (args.sites.split(",") if args.sites else [])]
+
+    domain_clause = build_domain_clause(domains_list)
+    site_clause   = build_site_clause(sites_list)
 
     out_root = Path(args.out)
     out_root.mkdir(parents=True, exist_ok=True)
@@ -329,7 +351,6 @@ def main():
     credits_csv_path = out_root / "credits.csv"
     credits_json_path = out_root / "credits.json"
 
-    # Prepare credits collectors
     credits_rows: List[Dict[str, str]] = []
     credits_json: List[Dict[str, str]] = []
 
@@ -375,7 +396,6 @@ def main():
                     f.write(png_bytes)
                 print(f"    -> Saved {dest.relative_to(out_root)}")
 
-                # Record credits
                 row = {"rock": rock, "file": str(dest.relative_to(out_root)), "url": link}
                 credits_rows.append(row)
                 credits_json.append(row)
@@ -384,7 +404,7 @@ def main():
                 print(f"    ! Write failed {dest}: {e}")
                 saved -= 1  # keep numbering contiguous if write fails
 
-    # Write credits files
+    # Write credits
     try:
         with open(credits_csv_path, "w", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=["rock","file","url"])

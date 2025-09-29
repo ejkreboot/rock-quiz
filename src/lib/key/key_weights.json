@@ -1,0 +1,154 @@
+{
+    "features": [
+        {
+            "key": "texture",
+            "label": "Overall texture",
+            "type": "one",
+            "options": [
+                {
+                    "id": "aphanitic",
+                    "label": "Fine (aphanitic)"
+                },
+                {
+                    "id": "phaneritic",
+                    "label": "Coarse (phaneritic)"
+                },
+                {
+                    "id": "fragmental",
+                    "label": "Fragmental / pyroclastic"
+                },
+                {
+                    "id": "foliated",
+                    "label": "Foliated / banded"
+                },
+                {
+                    "id": "nonfoliated",
+                    "label": "Non-foliated / massive"
+                }
+            ]
+        },
+        {
+            "key": "grain",
+            "label": "Grain size (if visible)",
+            "type": "one",
+            "options": [
+                {
+                    "id": "very_fine",
+                    "label": "Very fine / microcrystalline"
+                },
+                {
+                    "id": "silt",
+                    "label": "Silt-sized (slightly gritty)"
+                },
+                {
+                    "id": "sand",
+                    "label": "Sand-sized"
+                },
+                {
+                    "id": "mud",
+                    "label": "Mud / clay (smooth)"
+                }
+            ]
+        },
+        {
+            "key": "special",
+            "label": "Special tests",
+            "type": "multi",
+            "options": [
+                {
+                    "id": "acid",
+                    "label": "Fizzes with dilute acid"
+                },
+                {
+                    "id": "magnetic",
+                    "label": "Weakly magnetic"
+                },
+                {
+                    "id": "conchoidal",
+                    "label": "Conchoidal fracture"
+                }
+            ]
+        }
+    ],
+    "weights": {
+        "Andesite": {
+            "texture:aphanitic": 2
+        },
+        "Basalt": {
+            "texture:aphanitic": 3,
+            "special:magnetic": 1
+        },
+        "Chert": {
+            "grain:very_fine": 2,
+            "special:conchoidal": 3,
+            "texture:nonfoliated": 1
+        },
+        "Coal": {
+            "texture:nonfoliated": 2,
+            "grain:very_fine": 2
+        },
+        "Conglomerate": {
+            "texture:nonfoliated": 1,
+            "grain:sand": 2
+        },
+        "Gabbro": {
+            "texture:phaneritic": 3
+        },
+        "Gneiss": {
+            "texture:foliated": 4
+        },
+        "Granite": {
+            "texture:phaneritic": 3
+        },
+        "Hornfels": {
+            "texture:nonfoliated": 2,
+            "grain:very_fine": 2
+        },
+        "Limestone": {
+            "texture:nonfoliated": 1,
+            "special:acid": 4
+        },
+        "Marble": {
+            "texture:nonfoliated": 2,
+            "special:acid": 3
+        },
+        "Migmatite": {
+            "texture:foliated": 3
+        },
+        "Mudstone": {
+            "grain:mud": 3
+        },
+        "Phyllite": {
+            "texture:foliated": 3
+        },
+        "Quartzite": {
+            "texture:nonfoliated": 2,
+            "special:conchoidal": 1
+        },
+        "Rhyolite": {
+            "texture:aphanitic": 2
+        },
+        "Sandstone": {
+            "texture:nonfoliated": 1,
+            "grain:sand": 3
+        },
+        "Shale": {
+            "grain:mud": 3,
+            "texture:nonfoliated": 1
+        },
+        "Siltstone": {
+            "grain:silt": 3
+        },
+        "Slate": {
+            "texture:foliated": 2,
+            "grain:mud": 2
+        },
+        "Travertine": {
+            "texture:nonfoliated": 2,
+            "special:acid": 3
+        },
+        "Tuff": {
+            "texture:fragmental": 4
+        }
+    }
+}

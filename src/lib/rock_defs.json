@@ -6,7 +6,15 @@
     "texture": "aphanitic to porphyritic (fine groundmass with feldspar/pyroxene phenocrysts)",
     "commonColors": "medium gray",
     "diagnostics": "fine overall; few visible quartz; often small white/gray phenocrysts",
-    "confusedWith": "rhyolite (lighter), basalt (darker), diorite (coarse-grained)"
+    "confusedWith": "rhyolite (lighter), basalt (darker), diorite (coarse-grained)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/andesite-1-46b973654ee24beca4eab669b371ec78",
+      "title": "Andesite 1",
+      "author_name": "Sara Carena",
+      "author_url": "https://sketchfab.com/saracarena1",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
   },
   {
     "name": "Basalt",
@@ -15,7 +23,15 @@
     "texture": "aphanitic; may be vesicular",
     "commonColors": "dark gray to black",
     "diagnostics": "very fine; heavy; may show vesicles; magnetite can make it weakly magnetic",
-    "confusedWith": "gabbro (coarse), andesite (lighter), scoria (very vesicular)"
+    "confusedWith": "gabbro (coarse), andesite (lighter), scoria (very vesicular)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/basalt-hand-specimen-de438505683f412b8d7ade24395eee62",
+      "title": "Basalt hand specimen",
+      "author_name": "tomstevenson",
+      "author_url": "https://sketchfab.com/tomstevenson",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
   },
   {
     "name": "Chert",
@@ -24,7 +40,15 @@
     "texture": "microcrystalline quartz; very fine",
     "commonColors": "white, gray, tan, red, black",
     "diagnostics": "conchoidal fracture; very hard (scratches glass); waxy/dull luster",
-    "confusedWith": "quartzite (granular), flint (dark chert)"
+    "confusedWith": "quartzite (granular), flint (dark chert)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/chert-9959ccd7519a4411a30439d0bfbe6c44",
+      "title": "Chert",
+      "author_name": "GSGEQueens",
+      "author_url": "https://sketchfab.com/GSGEQueens",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
   },
   {
     "name": "Coal",
@@ -33,7 +57,15 @@
     "texture": "massive; brittle",
     "commonColors": "black",
     "diagnostics": "lightweight; sooty streak; shiny to dull; burns",
-    "confusedWith": "basalt (harder, no sooty streak)"
+    "confusedWith": "basalt (harder, no sooty streak)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/coal-c8d2447cc0ed4539aa13dc633596f387",
+      "title": "Coal",
+      "author_name": "EDUROCK EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
   },
   {
     "name": "Conglomerate",
@@ -42,7 +74,15 @@
     "texture": "rounded pebbles/cobbles in sand/silt matrix",
     "commonColors": "varies with clasts; often tan/brown",
     "diagnostics": "rounded clasts >2 mm; clast-supported or matrix-supported",
-    "confusedWith": "breccia (angular clasts)"
+    "confusedWith": "breccia (angular clasts)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/conglomerate-germany-488f0e4b00204547bbab79b9d554bd0b",
+      "title": "Conglomerate",
+      "author_name": "Sara Carena",
+      "author_url": "https://sketchfab.com/saracarena1",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
   },
   {
     "name": "Gabbro",
@@ -51,7 +91,15 @@
     "texture": "phaneritic (coarse); interlocking plagioclase + pyroxene",
     "commonColors": "dark gray to black with light flecks",
     "diagnostics": "coarse 'salt-and-pepper'; no visible quartz; heavy",
-    "confusedWith": "diorite (lighter), basalt (fine)"
+    "confusedWith": "diorite (lighter), basalt (fine)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/hornblende-gabbro-28-escondido-ca-8-9-2019-505e009a27db4fcf82b6cfa264892647",
+      "title": "Hornblende gabbro #28, Escondido CA, 8-9-2019",
+      "author_name": "rocksandminerals",
+      "author_url": "https://sketchfab.com/rocksandminerals",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
   },
   {
     "name": "Gneiss",
@@ -60,7 +108,15 @@
     "texture": "coarse; banded (light/dark layers)",
     "commonColors": "black/white banding",
     "diagnostics": "distinct compositional bands; feldspar + quartz common",
-    "confusedWith": "schist (mica-rich, flaky), migmatite (swirly melt bands)"
+    "confusedWith": "schist (mica-rich, flaky), migmatite (swirly melt bands)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/gneiss-1d539c5094fd4b24987c0b34f4f86ea4",
+      "title": "Gneiss",
+      "author_name": "Earth Sciences, University of Newcastle",
+      "author_url": "https://sketchfab.com/Landy42",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
   },
   {
     "name": "Granite",
@@ -69,7 +125,15 @@
     "texture": "phaneritic (coarse); quartz + K-feldspar + plagioclase",
     "commonColors": "pink/white/gray with black mica",
     "diagnostics": "visible quartz (glassy, gray) and K-feldspar (often pink)",
-    "confusedWith": "granodiorite (darker), diorite (no K-feldspar pink)"
+    "confusedWith": "granodiorite (darker), diorite (no K-feldspar pink)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/i-type-granite-52ab4825a157486e8f6124e38b117cfb",
+      "title": "I-type Granite",
+      "author_name": "UQ School of the Environment",
+      "author_url": "https://sketchfab.com/UQ_SEES",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
   },
   {
     "name": "Hornfels",
@@ -78,7 +142,15 @@
     "texture": "very fine, tough, splintery",
     "commonColors": "dark gray to black",
     "diagnostics": "hard, dense 'ringing' stone; no foliation; baked appearance",
-    "confusedWith": "basalt (igneous, may show vesicles), slate (cleavage)"
+    "confusedWith": "basalt (igneous, may show vesicles), slate (cleavage)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/hornfels-point-5725841a21ac4440971ded38c279f84f",
+      "title": "Hornfels point",
+      "author_name": "KwaZulu-Natal Museum DHS",
+      "author_url": "https://sketchfab.com/KwaZulu-Natal_Museum_DHS",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
   },
   {
     "name": "Limestone",
@@ -87,7 +159,15 @@
     "texture": "micritic to fossiliferous; variable grain size",
     "commonColors": "white, gray, tan",
     "diagnostics": "reacts vigorously with dilute HCl; fossils common",
-    "confusedWith": "dolostone (weak/slow acid reaction), marble (sugary crystals)"
+    "confusedWith": "dolostone (weak/slow acid reaction), marble (sugary crystals)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/limestone-bbcdce6590e045c7b7437aae4885d0f4",
+      "title": "Limestone",
+      "author_name": "EDUROCK EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
   },
   {
     "name": "Marble",
@@ -96,7 +176,15 @@
     "texture": "medium- to coarse 'sugary' calcite/dolomite",
     "commonColors": "white, pink, gray, banded",
     "diagnostics": "reacts with acid; crystals interlock; softer than quartzite",
-    "confusedWith": "quartzite (very hard, no acid reaction), limestone (sedimentary textures)"
+    "confusedWith": "quartzite (very hard, no acid reaction), limestone (sedimentary textures)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/marble-3e6a621e4b084e44b78e71e9eabfad99",
+      "title": "Marble",
+      "author_name": "EDUROCK EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
   },
   {
     "name": "Migmatite",
@@ -105,7 +193,15 @@
     "texture": "mixed: dark melanosomes + light, swirly leucosomes",
     "commonColors": "black/white swirls",
     "diagnostics": "irregular folded/swirled light bands cutting gneissic fabric",
-    "confusedWith": "gneiss (straight bands), granite (uniform plutonic texture)"
+    "confusedWith": "gneiss (straight bands), granite (uniform plutonic texture)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/roche-migmatite-structures-c-c-07aba43cfd7a47faae9ea184f4a10e58",
+      "title": "Roche - Migmatite structures C-C'",
+      "author_name": "Société Géologique de France",
+      "author_url": "https://sketchfab.com/sgfrance",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
   },
   {
     "name": "Mudstone",
@@ -114,7 +210,15 @@
     "texture": "very fine; massive; blocky breaks",
     "commonColors": "gray, brown, red",
     "diagnostics": "does NOT split into thin sheets; smooth feel",
-    "confusedWith": "shale (fissile), siltstone (gritty)"
+    "confusedWith": "shale (fissile), siltstone (gritty)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/mudstone-1a56bc9b1c7c4eb7a1cbb5acda9f2310",
+      "title": "Mudstone",
+      "author_name": "Dipartimento di Scienze della Terra - UniTo",
+      "author_url": "https://sketchfab.com/DstUniTo",
+      "license": "Unknown",
+      "license_url": "N/A"
+    }
   },
   {
     "name": "Phyllite",
@@ -123,7 +227,15 @@
     "texture": "fine; wavy foliation with silky sheen",
     "commonColors": "gray to greenish",
     "diagnostics": "satiny luster; minute mica give a sheen; faint wrinkling",
-    "confusedWith": "slate (dull, planar), schist (sparkly, coarse mica)"
+    "confusedWith": "slate (dull, planar), schist (sparkly, coarse mica)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/phyllite-7993de88170841999f364257303f014b",
+      "title": "Phyllite",
+      "author_name": "EDUROCK EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
   },
   {
     "name": "Quartzite",
@@ -132,7 +244,15 @@
     "texture": "granoblastic; interlocking quartz; very hard",
     "commonColors": "white, pink, gray",
     "diagnostics": "scratches glass easily; breaks THROUGH grains; no acid reaction",
-    "confusedWith": "marble (acid reacts; softer; sugary calcite)"
+    "confusedWith": "marble (acid reacts; softer; sugary calcite)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/quartzite-9902e1d81bca4df4abfed8bf7c13ab6a",
+      "title": "Quartzite",
+      "author_name": "EDUROCK EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
   },
   {
     "name": "Rhyolite",
@@ -141,7 +261,15 @@
     "texture": "aphanitic to porphyritic; may be flow-banded",
     "commonColors": "light gray, pink",
     "diagnostics": "light-colored volcanic rock; quartz not visible but felsic look",
-    "confusedWith": "andesite (darker), granite (coarse)"
+    "confusedWith": "andesite (darker), granite (coarse)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/flow-banded-rhyolite-2123888cf474412881859c33829507b7",
+      "title": "Flow-banded rhyolite",
+      "author_name": "Earth Sciences, University of Newcastle",
+      "author_url": "https://sketchfab.com/Landy42",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
   },
   {
     "name": "Sandstone",
@@ -150,7 +278,15 @@
     "texture": "sand-sized grains; may show bedding/cross-beds",
     "commonColors": "tan, red, gray, white",
     "diagnostics": "gritty feel; individual grains visible; often quartz-rich",
-    "confusedWith": "siltstone (finer, slightly gritty), quartzite (metamorphic, very hard)"
+    "confusedWith": "siltstone (finer, slightly gritty), quartzite (metamorphic, very hard)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/sandstone-c7c36cc003c348f3ba68ff47e4b907fa",
+      "title": "Sandstone",
+      "author_name": "EDUROCK EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
   },
   {
     "name": "Shale",
@@ -159,7 +295,15 @@
     "texture": "very fine; fissile (splits into thin sheets)",
     "commonColors": "gray, black, red, green",
     "diagnostics": "breaks into paper-thin layers; smooth feel",
-    "confusedWith": "slate (harder, rings, slaty cleavage), mudstone (massive)"
+    "confusedWith": "slate (harder, rings, slaty cleavage), mudstone (massive)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/shale-e899e354b81f421ab591f86990cb86bb",
+      "title": "Shale",
+      "author_name": "trclifton",
+      "author_url": "https://sketchfab.com/trclifton",
+      "license": "CC BY NC SA 4.0",
+      "license_url": "http://creativecommons.org/licenses/by-nc-sa/4.0/"
+    }
   },
   {
     "name": "Siltstone",
@@ -168,7 +312,15 @@
     "texture": "fine; slightly gritty (between sand and mud)",
     "commonColors": "tan, gray, brown",
     "diagnostics": "grittier than shale/mudstone; lacks sand-size sparkle",
-    "confusedWith": "sandstone (coarser), mudstone (smoother)"
+    "confusedWith": "sandstone (coarser), mudstone (smoother)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/siltstone-49-05-06-2020-bb0b48b63cf945fba1d91ce4987faaaf",
+      "title": "Siltstone #49 05-06-2020",
+      "author_name": "rocksandminerals",
+      "author_url": "https://sketchfab.com/rocksandminerals",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
   },
   {
     "name": "Slate",
@@ -177,7 +329,15 @@
     "texture": "very fine; planar slaty cleavage",
     "commonColors": "dark gray, black, green, red",
     "diagnostics": "splits into flat durable sheets; dull luster; 'ping' when tapped",
-    "confusedWith": "phyllite (silky sheen), shale (less hard, earthy break)"
+    "confusedWith": "phyllite (silky sheen), shale (less hard, earthy break)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/slate-8b76397ccbf94ac4a9d71bf2ce8a3592",
+      "title": "Slate",
+      "author_name": "Earth Sciences, University of Newcastle",
+      "author_url": "https://sketchfab.com/Landy42",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
   },
   {
     "name": "Travertine",
@@ -186,7 +346,15 @@
     "texture": "banded, porous; fibrous or concentric layers",
     "commonColors": "white, cream, tan",
     "diagnostics": "calcite; strong acid reaction; visible pores/laminae",
-    "confusedWith": "tufa (very porous variety), marble (metamorphic, crystalline)"
+    "confusedWith": "tufa (very porous variety), marble (metamorphic, crystalline)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/travertine-vc-block-4bdd3354e02c49c1b7ab5caf9be7bb9e",
+      "title": "Travertine VC Block",
+      "author_name": "Alimoğlu - Marble & Granite",
+      "author_url": "https://sketchfab.com/alimoglu",
+      "license": "Unknown",
+      "license_url": "N/A"
+    }
   },
   {
     "name": "Tuff",
@@ -195,6 +363,31 @@
     "texture": "fragmental; ash matrix with pumice/lithic fragments",
     "commonColors": "light gray, tan",
     "diagnostics": "lightweight; may show shards/pumice; soft",
-    "confusedWith": "sedimentary siltstone (heavier), welded tuff/ignimbrite (denser, banded)"
+    "confusedWith": "sedimentary siltstone (heavier), welded tuff/ignimbrite (denser, banded)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/bishop-tuff-05c27d3b5b25450290f2565a4f8a2cef",
+      "title": "Bishop Tuff",
+      "author_name": "Ron Schott",
+      "author_url": "https://sketchfab.com/haysrockdoc",
+      "license": "—",
+      "license_url": "https://sketchfab.com/3d-models/bishop-tuff-05c27d3b5b25450290f2565a4f8a2cef"
+    }
+  },
+  {
+    "name": "Breccia",
+    "type": "sedimentary",
+    "subtype": "clastic",
+    "texture": "angular clasts >2 mm; clast- or matrix-supported",
+    "commonColors": "varies",
+    "diagnostics": "angular clasts; otherwise like conglomerate",
+    "confusedWith": "conglomerate (rounded clasts)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/breccia-447f67bd2dd84bc99850c3e4b1ad58c5https://sketchfab.com/3d-models/breccia-e56d7649ff3841d5828957e7ef2e64db",
+      "title": "Breccia",
+      "author_name": "CQUniversity Australia",
+      "author_url": "https://sketchfab.com/CQUniversity",
+      "license": "Unknown",
+      "license_url": "N/A"
+    }
   }
 ]
