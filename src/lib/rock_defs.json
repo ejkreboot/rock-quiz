@@ -389,5 +389,368 @@
       "license": "Unknown",
       "license_url": "N/A"
     }
+  },
+  {
+    "name": "Diorite",
+    "type": "igneous",
+    "subtype": "intrusive (intermediate)",
+    "texture": "phaneritic; interlocking plagioclase + hornblende/biotite; little to no quartz",
+    "commonColors": "salt-and-pepper black and white",
+    "diagnostics": "coarse-grained; lacks pink K-feldspar; intermediate color index",
+    "confusedWith": "granite (more quartz + pink K-feldspar), gabbro (darker mafic), andesite (fine-grained)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Obsidian",
+    "type": "igneous",
+    "subtype": "extrusive (felsic glass)",
+    "texture": "glassy; conchoidal fracture; no visible crystals",
+    "commonColors": "black, dark brown, gray; banded varieties",
+    "diagnostics": "very sharp conchoidal fractures; vitreous luster; dense but not crystalline",
+    "confusedWith": "chert (granular feel, sedimentary), rhyolite (crystalline)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Peridotite",
+    "type": "igneous",
+    "subtype": "intrusive (ultramafic)",
+    "texture": "coarse-grained; olivine-dominant with pyroxene",
+    "commonColors": "olive-green to dark green",
+    "diagnostics": "very Mg/Fe-rich; heavy; abundant olivine grains",
+    "confusedWith": "serpentinite (waxy, slick, metamorphosed), gabbro (less green, more plagioclase)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Pumice",
+    "type": "igneous",
+    "subtype": "extrusive (felsic, vesicular)",
+    "texture": "highly vesicular frothy glass; very low density",
+    "commonColors": "white to light gray",
+    "diagnostics": "so light it may float; rough frothy feel; felsic",
+    "confusedWith": "scoria (darker, denser, thicker bubble walls)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Scoria",
+    "type": "igneous",
+    "subtype": "extrusive (mafic, vesicular)",
+    "texture": "vesicular with thin, sharp walls; denser than pumice",
+    "commonColors": "dark gray, black, red-brown",
+    "diagnostics": "mafic color; sinks in water; vesicles commonly larger than pumice",
+    "confusedWith": "basalt (few vesicles), cinders (same material in loose form), pumice (lighter color/weight)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/scoria-6dbd07399559472fba3f4c34c5bd7d0e",
+      "title": "Scoria - Download Free 3D model by Digital Atlas of Ancient Life (@DigitalAtlasOfAncientLife)",
+      "author_name": "Community members",
+      "author_url": "https://sketchfab.com/members",
+      "license": "CC0 Public Domain",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/"
+    }   
+},
+  {
+    "name": "Volcanic Breccia",
+    "type": "igneous",
+    "subtype": "pyroclastic (explosive)",
+    "texture": "angular volcanic clasts (>2 mm) set in ash/lapilli matrix",
+    "commonColors": "gray, tan, reddish; clast-dependent",
+    "diagnostics": "chaotic angular fragments of volcanic origin; matrix-supported or clast-supported",
+    "confusedWith": "sedimentary breccia (non-volcanic clasts), tuff (finer ash-dominated)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/volcanic-breccia-b6d8990b28894e6db71d49bec9459aae",
+      "title": "Volcanic breccia - 3D model by Earth Sciences, University of Newcastle (@Landy42)",
+      "author_name": "Earth Sciences, University of Newcastle",
+      "author_url": "https://sketchfab.com/Landy42",
+      "license": "",
+      "license_url": ""
+    }
+  },
+  {
+    "name": "Quartz sandstone",
+    "type": "sedimentary",
+    "subtype": "clastic (mature)",
+    "texture": "well-sorted, well-rounded quartz sand",
+    "commonColors": "white, light tan",
+    "diagnostics": "gritty; mostly quartz; resistant; may show cross-bedding",
+    "confusedWith": "quartzite (metamorphic, fuses grains; breaks through grains), siltstone (finer)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Dolostone",
+    "type": "sedimentary",
+    "subtype": "chemical (dolomite replacement)",
+    "texture": "fine to crystalline; often tan and sugary",
+    "commonColors": "tan, gray, brown, pinkish",
+    "diagnostics": "weak/slow reaction with cold acid (powder effervesces); typically more porous than limestone",
+    "confusedWith": "limestone (vigorous acid reaction), marble (coarser interlocking crystals)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/dolostone-spain-74731d8dd78d49769fa4183802c42e79",
+      "title": "Dolostone, Spain",
+      "author_name": "Sara Carena",
+      "author_url": "https://sketchfab.com/saracarena1",
+      "license": "CC Attribution-NonCommercial",
+      "license_url": "http://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  },
+  {
+    "name": "Augite",
+    "type": "mineral",
+    "subtype": "pyroxene (inosilicate)",
+    "texture": "blocky, short-prismatic crystals; uneven fracture",
+    "commonColors": "dark green to black",
+    "diagnostics": "2 cleavages at ~90°; dull to vitreous; high specific gravity",
+    "confusedWith": "hornblende (cleavage ~56°/124°), amphibole group",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/augite-42dd33f57da84d4aa6039e6627b0b34a",
+      "title": "augite",
+      "author_name": "rockdoc",
+      "author_url": "https://sketchfab.com/rockdoc",
+      "license": "CC BY SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    } 
+  },
+  {
+    "name": "Biotite",
+    "type": "mineral",
+    "subtype": "mica (phyllosilicate)",
+    "texture": "sheety; flexible elastic flakes",
+    "commonColors": "black to dark brown",
+    "diagnostics": "perfect basal cleavage; vitreous to pearly; dark pleochroism",
+    "confusedWith": "muscovite (colorless/silvery), chlorite (greener, lower luster)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/biotite-e5dcb6ae31a344f8b288b4de1789b58b",
+      "title": "biotite",
+      "author_name": "rockdoc",
+      "author_url": "https://sketchfab.com/rockdoc",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  {
+    "name": "Calcite",
+    "type": "mineral",
+    "subtype": "carbonate",
+    "texture": "massive to rhombohedral crystals",
+    "commonColors": "colorless, white, gray; many tints",
+    "diagnostics": "rhombohedral cleavage (3 not at 90°); strong acid reaction; double refraction in clear pieces",
+    "confusedWith": "dolomite (weaker acid reaction), quartz (harder, no cleavage)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Chalcopyrite",
+    "type": "mineral",
+    "subtype": "sulfide",
+    "texture": "massive to granular; sometimes tetrahedral crystals",
+    "commonColors": "brassy yellow (often iridescent tarnish)",
+    "diagnostics": "softer than pyrite (H~3.5–4); greenish-black streak; metallic luster",
+    "confusedWith": "pyrite (harder, paler streak), bornite (peacock colors, darker base)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/mineral-calcite-blue-858c88b7efd449b8b1f01ab6ae411c6e",
+      "title": "Mineral: Calcite (blue)",
+      "author_name": "Digital Atlas of Ancient Life",
+      "author_url": "https://sketchfab.com/DigitalAtlasOfAncientLife",
+      "license": "CC0 Public Domain",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/"
+    }
+    },
+  {
+    "name": "Feldspar",
+    "type": "mineral",
+    "subtype": "tectosilicate group (K-feldspar + plagioclase series)",
+    "texture": "blocky cleavage fragments",
+    "commonColors": "white, pink, gray, flesh-colored",
+    "diagnostics": "2 cleavages ~90°; perthitic lamellae (Kfs) or striations (Plag); hardness ~6",
+    "confusedWith": "quartz (no cleavage, conchoidal fracture), nepheline (softer, greasy luster)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/orthoclase-mineral-feldspar-8f3a88529df547c9bb50a811f9c81ece",
+      "title": "Orthoclase mineral (feldspar)",
+      "author_name": "Museo [UV] Historia Natural",
+      "author_url": "https://sketchfab.com/MUVHN",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  {
+    "name": "Fluorite",
+    "type": "mineral",
+    "subtype": "halide",
+    "texture": "cubic crystals common; also massive",
+    "commonColors": "purple, green, blue, yellow, colorless",
+    "diagnostics": "4 perfect cleavages (octahedral); hardness 4; vitreous",
+    "confusedWith": "quartz (harder), calcite (different cleavage & acid reaction)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Galena",
+    "type": "mineral",
+    "subtype": "sulfide",
+    "texture": "massive; cubic crystals",
+    "commonColors": "lead-gray metallic",
+    "diagnostics": "perfect cubic cleavage; very dense; gray-black streak",
+    "confusedWith": "hematite (reddish streak), graphite (greasy, very soft, low SG)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/galena-6271f1da96904bdaa63bf56cf872ff99",
+      "title": "Galena",
+      "author_name": "The Watt Institution",
+      "author_url": "https://sketchfab.com/wattinstitution",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  {
+    "name": "Goethite",
+    "type": "mineral",
+    "subtype": "iron oxyhydroxide",
+    "texture": "botryoidal, stalactitic, or massive earthy",
+    "commonColors": "brown to yellow-brown to black",
+    "diagnostics": "brown streak; dull to submetallic; often as weathering crusts",
+    "confusedWith": "limonite (mixture), hematite (red streak), manganese oxides (black, lighter streak)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/goethite-spain-40529d84d8944977b6de91962a1e17d1",
+      "title": "Goethite, Spain",
+      "author_name": "Sara Carena",
+      "author_url": "https://sketchfab.com/saracarena1",
+      "license": "CC Attribution-NonCommercial",
+      "license_url": "http://creativecommons.org/licenses/by-nc/4.0/"
+    } 
+ },
+  {
+    "name": "Graphite",
+    "type": "mineral",
+    "subtype": "native element (carbon)",
+    "texture": "massive flakes or foliated aggregates",
+    "commonColors": "steel-gray to black",
+    "diagnostics": "marks paper; greasy feel; very soft; metallic to earthy luster",
+    "confusedWith": "molybdenite (greasier, blue-gray tint), hematite (red streak, harder)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Gypsum",
+    "type": "mineral",
+    "subtype": "sulfate",
+    "texture": "tabular (selenite), fibrous (satin spar), or massive",
+    "commonColors": "colorless to white; can be pink/peach",
+    "diagnostics": "very soft (Mohs 2; fingernail scratches); one perfect cleavage; silky to pearly",
+    "confusedWith": "halite (salty taste, cubic cleavage), calcite (acid reaction, harder)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Halite",
+    "type": "mineral",
+    "subtype": "halide",
+    "texture": "cubic crystals or granular",
+    "commonColors": "colorless to white, pink, orange",
+    "diagnostics": "salty taste; perfect cubic cleavage; dissolves readily",
+    "confusedWith": "rock crystal quartz (harder, no taste), gypsum (softer, non-salty)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Hematite",
+    "type": "mineral",
+    "subtype": "oxide",
+    "texture": "earthy massive, specular (metallic), or botryoidal",
+    "commonColors": "steel-gray to black (specular) or red-brown (earthy)",
+    "diagnostics": "red to reddish-brown streak; relatively high SG; weakly magnetic when heated",
+    "confusedWith": "magnetite (magnetic, black streak), goethite (brown streak)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Hornblende",
+    "type": "mineral",
+    "subtype": "amphibole (inosilicate)",
+    "texture": "elongate prismatic crystals; splintery",
+    "commonColors": "black to dark green",
+    "diagnostics": "2 cleavages at ~56° and ~124°; vitreous; often in needles",
+    "confusedWith": "augite (pyroxene; ~90° cleavage), biotite (sheety cleavage)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Kaolinite",
+    "type": "mineral",
+    "subtype": "clay (phyllosilicate)",
+    "texture": "earthy, massive; very fine-grained",
+    "commonColors": "white to off-white",
+    "diagnostics": "powdery; sticks to tongue slightly; earthy smell when damp",
+    "confusedWith": "talc (soapy feel), chalk (calcite; acid reaction)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Magnetite",
+    "type": "mineral",
+    "subtype": "oxide",
+    "texture": "granular to octahedral crystals",
+    "commonColors": "black",
+    "diagnostics": "strongly magnetic; black streak; metallic to submetallic",
+    "confusedWith": "hematite (red streak), ilmenite (weakly magnetic, brownish streak)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Muscovite",
+    "type": "mineral",
+    "subtype": "mica (phyllosilicate)",
+    "texture": "sheety; elastic thin flakes",
+    "commonColors": "colorless to silvery",
+    "diagnostics": "perfect basal cleavage; transparent flakes; pearly to vitreous",
+    "confusedWith": "biotite (dark), talc (soapy, not elastic sheets)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Olivine",
+    "type": "mineral",
+    "subtype": "nesosilicate",
+    "texture": "granular sugary aggregates; sometimes stubby crystals",
+    "commonColors": "olive-green to yellow-green",
+    "diagnostics": "no cleavage; conchoidal to uneven fracture; H~6.5–7",
+    "confusedWith": "epidote (yellow-green but different cleavage), peridotite rock (olivine-rich aggregate)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Orthoclase",
+    "type": "mineral",
+    "subtype": "K-feldspar (tectosilicate)",
+    "texture": "blocky cleavage fragments; Carlsbad twins common",
+    "commonColors": "pink, salmon, white, cream",
+    "diagnostics": "2 cleavages at ~90°; hardness ~6; perthitic exsolution lamellae",
+    "confusedWith": "plagioclase (striations), microcline (grid twinning; greener tint)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Plagioclase",
+    "type": "mineral",
+    "subtype": "Na-Ca feldspar series (albite–anorthite)",
+    "texture": "blocky cleavage fragments with striations",
+    "commonColors": "white to gray; sometimes bluish (labradorite iridescence)",
+    "diagnostics": "2 cleavages ~90°; distinctive fine striations on cleavage faces",
+    "confusedWith": "orthoclase (no striations), quartz (no cleavage)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Quartz",
+    "type": "mineral",
+    "subtype": "tectosilicate (SiO2)",
+    "texture": "massive, granular, or hexagonal prisms terminated by pyramids",
+    "commonColors": "colorless, white, gray, purple (amethyst), many others",
+    "diagnostics": "no cleavage; conchoidal fracture; hardness 7; vitreous",
+    "confusedWith": "calcite (cleavage, acid), feldspar (cleavage, H~6)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Sulfur",
+    "type": "mineral",
+    "subtype": "native element",
+    "texture": "massive or orthorhombic crystals",
+    "commonColors": "bright yellow",
+    "diagnostics": "very low density; resinous to greasy luster; burns with blue flame, sulfur odor",
+    "confusedWith": "orpiment (more orange, arsenic sulfide), dyed calcite (harder, acid reaction)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+  },
+  {
+    "name": "Talc",
+    "type": "mineral",
+    "subtype": "phyllosilicate",
+    "texture": "massive, foliated; soapy feel",
+    "commonColors": "white, light green, gray",
+    "diagnostics": "Mohs hardness 1; pearly to greasy luster; easily scratched",
+    "confusedWith": "kaolinite (chalky, earthy), gypsum (softer feel but different cleavage/behavior)",
+    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
   }
 ]
