@@ -186,7 +186,10 @@
   
   
   <div class="wrap">
-    <h1>Rock ID Practice</h1>
+    <header class="app-header">
+      <h1>Rock ID Practice</h1>
+      <a href="/overview" class="overview-link">📚 Field Guide</a>
+    </header>
     <div class="toolbar">
       <button class="btn" on:click={nextImage}>Next Image</button>
       {#if !revealed}
@@ -264,6 +267,44 @@
 </Modal>
 
 <style>
+  .app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .app-header h1 {
+    margin: 0;
+  }
+  
+  .overview-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 80%, white 20%));
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .overview-link:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    text-decoration: none;
+  }
+  
+  .overview-link:active {
+    transform: translateY(0);
+  }
+
   .filter-section {
     display: flex;
     align-items: center;
