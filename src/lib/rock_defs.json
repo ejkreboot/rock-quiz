@@ -398,7 +398,14 @@
     "commonColors": "salt-and-pepper black and white",
     "diagnostics": "coarse-grained; lacks pink K-feldspar; intermediate color index",
     "confusedWith": "granite (more quartz + pink K-feldspar), gabbro (darker mafic), andesite (fine-grained)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/diorite-301bbc33e581435cbb71e09e33df5938",
+      "title": "Diorite",
+      "author_name": "Sara Carena",
+      "author_url": "https://sketchfab.com/saracarena1",
+      "license": "CC Attribution-NonCommercial",
+      "license_url": "http://creativecommons.org/licenses/by-nc/4.0/"
+    }
   },
   {
     "name": "Obsidian",
@@ -408,7 +415,14 @@
     "commonColors": "black, dark brown, gray; banded varieties",
     "diagnostics": "very sharp conchoidal fractures; vitreous luster; dense but not crystalline",
     "confusedWith": "chert (granular feel, sedimentary), rhyolite (crystalline)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/obsidian-sampler-surface-macro-91b688d688054328862fcbec715b693f",
+      "title": "Obsidian Sampler (Surface Macro)",
+      "author_name": "inciprocal",
+      "author_url": "https://sketchfab.com/inciprocal.com",
+      "license": "Unknown",
+      "license_url": ""
+    }  
   },
   {
     "name": "Peridotite",
@@ -418,8 +432,15 @@
     "commonColors": "olive-green to dark green",
     "diagnostics": "very Mg/Fe-rich; heavy; abundant olivine grains",
     "confusedWith": "serpentinite (waxy, slick, metamorphosed), gabbro (less green, more plagioclase)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
-  },
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/peridotite-italy-717ef0e167e54f0aac437b25f5145ffc",
+      "title": "Peridotite, Italy",
+      "author_name": "Sara Carena",
+      "author_url": "https://sketchfab.com/saracarena1",
+      "license": "CC Attribution-NonCommercial",
+      "license_url": "http://creativecommons.org/licenses/by-nc/4.0/"
+    }  
+},
   {
     "name": "Pumice",
     "type": "igneous",
@@ -428,7 +449,14 @@
     "commonColors": "white to light gray",
     "diagnostics": "so light it may float; rough frothy feel; felsic",
     "confusedWith": "scoria (darker, denser, thicker bubble walls)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/pumice-9c6168536ac24095bd902b407f1e4256",
+      "title": "Pumice",
+      "author_name": "phaneritic",
+      "author_url": "https://sketchfab.com/phaneritic",
+      "license": "Unknown",
+      "license_url": ""
+    }
   },
   {
     "name": "Scoria",
@@ -468,11 +496,18 @@
     "name": "Quartz sandstone",
     "type": "sedimentary",
     "subtype": "clastic (mature)",
-    "texture": "well-sorted, well-rounded quartz sand",
+    "texture": "well-sorted, well-rounded quartz sand without fusion of crystals",
     "commonColors": "white, light tan",
     "diagnostics": "gritty; mostly quartz; resistant; may show cross-bedding",
     "confusedWith": "quartzite (metamorphic, fuses grains; breaks through grains), siltstone (finer)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/light-gray-quartz-sandstone-f8d51ce77e994c8b9b1dd7a3793b7d36",
+      "title": "Light Gray Quartz Sandstone",
+      "author_name": "Dr. Parvinder Sethi",
+      "author_url": "https://sketchfab.com/parv",
+      "license": "CC Attribution-NonCommercial",
+      "license_url": "http://creativecommons.org/licenses/by-nc/4.0/"
+    }  
   },
   {
     "name": "Dolostone",
@@ -533,7 +568,14 @@
     "commonColors": "colorless, white, gray; many tints",
     "diagnostics": "rhombohedral cleavage (3 not at 90°); strong acid reaction; double refraction in clear pieces",
     "confusedWith": "dolomite (weaker acid reaction), quartz (harder, no cleavage)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/calcite-f842f5c568af4b808ad309ba3a8db538",
+      "title": "Calcite",
+      "author_name": "EDUROCK – EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
   },
   {
     "name": "Chalcopyrite",
@@ -577,8 +619,15 @@
     "commonColors": "purple, green, blue, yellow, colorless",
     "diagnostics": "4 perfect cleavages (octahedral); hardness 4; vitreous",
     "confusedWith": "quartz (harder), calcite (different cleavage & acid reaction)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
-  },
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/mineral-fluorite-5ed87d4487be495aac0a86632eb3880c",
+      "title": "Mineral: Fluorite",
+      "author_name": "Digital Atlas of Ancient Life",
+      "author_url": "https://sketchfab.com/DigitalAtlasOfAncientLife",
+      "license": "CC0 Public Domain",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/"
+    } 
+ },
   {
     "name": "Galena",
     "type": "mineral",
@@ -621,7 +670,14 @@
     "commonColors": "steel-gray to black",
     "diagnostics": "marks paper; greasy feel; very soft; metallic to earthy luster",
     "confusedWith": "molybdenite (greasier, blue-gray tint), hematite (red streak, harder)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/graphite-315ad9eee881488992c3b9f410afe41c",
+      "title": "Graphite",
+      "author_name": "SorbonNum",
+      "author_url": "https://sketchfab.com/SorbonNum",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
   },
   {
     "name": "Gypsum",
@@ -631,7 +687,14 @@
     "commonColors": "colorless to white; can be pink/peach",
     "diagnostics": "very soft (Mohs 2; fingernail scratches); one perfect cleavage; silky to pearly",
     "confusedWith": "halite (salty taste, cubic cleavage), calcite (acid reaction, harder)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/gypsum-de785119fe014b5e998a17e0fdcf6850",
+      "title": "Gypsum",
+      "author_name": "EDUROCK – EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
   },
   {
     "name": "Halite",
@@ -641,7 +704,14 @@
     "commonColors": "colorless to white, pink, orange",
     "diagnostics": "salty taste; perfect cubic cleavage; dissolves readily",
     "confusedWith": "rock crystal quartz (harder, no taste), gypsum (softer, non-salty)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/halite-323cf8eb403d459e9d0359d68ab1cf1d",
+      "title": "halite",
+      "author_name": "rockdoc",
+      "author_url": "https://sketchfab.com/rockdoc",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
   },
   {
     "name": "Hematite",
@@ -651,7 +721,14 @@
     "commonColors": "steel-gray to black (specular) or red-brown (earthy)",
     "diagnostics": "red to reddish-brown streak; relatively high SG; weakly magnetic when heated",
     "confusedWith": "magnetite (magnetic, black streak), goethite (brown streak)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/hematite-f87123b191804e4bac73ce34a42e073e",
+      "title": "Hematite",
+      "author_name": "EDUROCK – EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
   },
   {
     "name": "Hornblende",
@@ -661,7 +738,14 @@
     "commonColors": "black to dark green",
     "diagnostics": "2 cleavages at ~56° and ~124°; vitreous; often in needles",
     "confusedWith": "augite (pyroxene; ~90° cleavage), biotite (sheety cleavage)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/hornblende-bf90eb6f3a8f49e5b96d588c024747d6",
+      "title": "hornblende",
+      "author_name": "rockdoc",
+      "author_url": "https://sketchfab.com/rockdoc",
+      "license": "CC Attribution-NonCommercial",
+      "license_url": "http://creativecommons.org/licenses/by-nc/4.0/"
+    }
   },
   {
     "name": "Kaolinite",
@@ -671,7 +755,14 @@
     "commonColors": "white to off-white",
     "diagnostics": "powdery; sticks to tongue slightly; earthy smell when damp",
     "confusedWith": "talc (soapy feel), chalk (calcite; acid reaction)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/kaolinite-758701191aaa4878a2cf10aca568fd28",
+      "title": "Kaolinite",
+      "author_name": "EDUROCK – EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
   },
   {
     "name": "Magnetite",
@@ -681,7 +772,14 @@
     "commonColors": "black",
     "diagnostics": "strongly magnetic; black streak; metallic to submetallic",
     "confusedWith": "hematite (red streak), ilmenite (weakly magnetic, brownish streak)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/magnetite-d20fe6274cdd461ea0b4afcd349388d0",
+      "title": "magnetite",
+      "author_name": "rockdoc",
+      "author_url": "https://sketchfab.com/rockdoc",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+  }
   },
   {
     "name": "Muscovite",
@@ -691,7 +789,14 @@
     "commonColors": "colorless to silvery",
     "diagnostics": "perfect basal cleavage; transparent flakes; pearly to vitreous",
     "confusedWith": "biotite (dark), talc (soapy, not elastic sheets)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/muscovite-8588fb59d0f2492cb8dc3fd7e423a88f",
+      "title": "Muscovite",
+      "author_name": "rocksandminerals",
+      "author_url": "https://sketchfab.com/rocksandminerals",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
   },
   {
     "name": "Olivine",
@@ -701,27 +806,48 @@
     "commonColors": "olive-green to yellow-green",
     "diagnostics": "no cleavage; conchoidal to uneven fracture; H~6.5–7",
     "confusedWith": "epidote (yellow-green but different cleavage), peridotite rock (olivine-rich aggregate)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/olivine-75705dfbf0e04912af5b6ffe89d01838",
+      "title": "olivine",
+      "author_name": "rockdoc",
+      "author_url": "https://sketchfab.com/rockdoc",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
   },
   {
-    "name": "Orthoclase",
+    "name": "Orthoclase Feldspar",
     "type": "mineral",
     "subtype": "K-feldspar (tectosilicate)",
     "texture": "blocky cleavage fragments; Carlsbad twins common",
     "commonColors": "pink, salmon, white, cream",
     "diagnostics": "2 cleavages at ~90°; hardness ~6; perthitic exsolution lamellae",
     "confusedWith": "plagioclase (striations), microcline (grid twinning; greener tint)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/orthoclase-feldspar-a8ab6e5cc9cd4378aaef339e4e5684a6",
+      "title": "Orthoclase Feldspar",
+      "author_name": "Digital Atlas of Ancient Life",
+      "author_url": "https://sketchfab.com/DigitalAtlasOfAncientLife",
+      "license": "CC0 Public Domain",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
   },
   {
-    "name": "Plagioclase",
+    "name": "Plagioclase Feldspar",
     "type": "mineral",
     "subtype": "Na-Ca feldspar series (albite–anorthite)",
     "texture": "blocky cleavage fragments with striations",
     "commonColors": "white to gray; sometimes bluish (labradorite iridescence)",
     "diagnostics": "2 cleavages ~90°; distinctive fine striations on cleavage faces",
     "confusedWith": "orthoclase (no striations), quartz (no cleavage)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/plagioclase-feldspar-w-polysynthetic-twinning-3defaf46e71d4a7ca7cef2bd37a104ec",
+      "title": "Plagioclase Feldspar w/ Polysynthetic Twinning",
+      "author_name": "nate_siddle",
+      "author_url": "https://sketchfab.com/nate_sid",
+      "license": "CC Attribution-NonCommercial",
+      "license_url": "http://creativecommons.org/licenses/by-nc/4.0/"
+    }
   },
   {
     "name": "Quartz",
@@ -731,7 +857,14 @@
     "commonColors": "colorless, white, gray, purple (amethyst), many others",
     "diagnostics": "no cleavage; conchoidal fracture; hardness 7; vitreous",
     "confusedWith": "calcite (cleavage, acid), feldspar (cleavage, H~6)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/quartz-40dbf45ad43b485fa9188a5507e8fed4",
+      "title": "Quartz",
+      "author_name": "EDUROCK – EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
   },
   {
     "name": "Sulfur",
@@ -741,7 +874,14 @@
     "commonColors": "bright yellow",
     "diagnostics": "very low density; resinous to greasy luster; burns with blue flame, sulfur odor",
     "confusedWith": "orpiment (more orange, arsenic sulfide), dyed calcite (harder, acid reaction)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/sulfur-a7f23fb5f196403dbeb4e0e1f91f1e3c",
+      "title": "sulfur",
+      "author_name": "rockdoc",
+      "author_url": "https://sketchfab.com/rockdoc",
+      "license": "CC Attribution-ShareAlike",
+      "license_url": "http://creativecommons.org/licenses/by-sa/4.0/"
+    }
   },
   {
     "name": "Talc",
@@ -751,6 +891,13 @@
     "commonColors": "white, light green, gray",
     "diagnostics": "Mohs hardness 1; pearly to greasy luster; easily scratched",
     "confusedWith": "kaolinite (chalky, earthy), gypsum (softer feel but different cleavage/behavior)",
-    "model_3d": { "link": "", "title": "", "author_name": "", "author_url": "", "license": "", "license_url": "" }
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/talc-15132-06-24-2020-ce55f12abdcd4f408c5cf6792c76795b",
+      "title": "Talc #15132 06-24-2020",
+      "author_name": "rocksandminerals",
+      "author_url": "https://sketchfab.com/rocksandminerals",
+      "license": "",
+      "license_url": ""
+    }
   }
 ]

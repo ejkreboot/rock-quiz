@@ -23,8 +23,18 @@
   let headingId;
   $: headingId = labelledBy ?? (title ? `${uid}-title` : null);
 
-  function lockScroll() { if (browser) document.documentElement.style.overflow = "hidden"; }
-  function unlockScroll() { if (browser) document.documentElement.style.overflow = ""; }
+    function lockScroll() {
+      if (browser) {
+        document.documentElement.style.overflow = "hidden";
+        document.body.classList.add("modal-open");
+      }
+    }
+    function unlockScroll() {
+      if (browser) {
+        document.documentElement.style.overflow = "";
+        document.body.classList.remove("modal-open");
+      }
+    }
 
   const focusable =
     'a[href], button:not([disabled]), textarea, input, select, details, summary, [tabindex]:not([tabindex="-1"])';

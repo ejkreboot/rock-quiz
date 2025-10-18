@@ -1,167 +1,36 @@
 <script>
     import '../../lib/styles/geology.css';
     import { onMount } from 'svelte';
-    
+    import { Box as Cube } from 'lucide-svelte'; // 3D cube icon
+    import rocksManifest from '$lib/rocks-manifest.json';
+    import Modal from '$lib/Modal.svelte';
+    import RockModel from '$lib/RockModel.svelte';
+    import rock_defs from '$lib/rock_defs.json';
+
+    let modalOpen = false;
+    let modalComponent = null;
+    let modalProps = {};
+    let modalTitle = "";
+
+    function open3DModal(rockName) {
+        const def = rock_defs.find(r => r.name === rockName);
+        if (def && def.model_3d) {
+            modalComponent = RockModel;
+            modalProps = { name: def.name, ...def.model_3d };
+            modalTitle = `3D Model of ${def.name}`;
+            modalOpen = true;
+        }
+    }
+
     onMount(() => {
-        (function () {
-            const familiesEl = document?.getElementById('rid-families');
-            const examplesEl = document?.getElementById('rid-examples');
-            const clearBtn   = document?.getElementById('rid-clear');
-            const checks     = [...document?.querySelectorAll('#rock-id [data-trait]')];
-            
-            // ★ NEW: gallery nodes + manifest store
-            const galleryEl      = document?.getElementById('rid-gallery');
-            const galleryHintEl  = document?.getElementById('rid-gallery-hint');
-            let ROCKS_MANIFEST   = {};   // { "Andesite": ["/rocks/Andesite/..", ...], ... }
-            
-            // Quick normalizer so “Volcanic breccia” → “Volcanic Breccia”
-            const norm = (s='') => s
-            .toString()
-            .trim()
-            .replace(/\s+/g, ' ')
-            .toLowerCase()
-            .replace(/\b\w/g, c => c.toUpperCase());
-            
-            // Load manifest once (served from /static as /rocks-manifest.json)
-            fetch('/rocks-manifest.json')
-            .then(r => r.json())
-            .then(json => { ROCKS_MANIFEST = json || {}; })
-            .catch(() => { ROCKS_MANIFEST = {}; });
-            
-            const rules = [
-            { when:['glassy','vesicular'], fam:['Igneous (extrusive)'], ex:['Pumice (light)','Scoria (dark)'] },
-            { when:['glassy'], fam:['Igneous (extrusive glass)'], ex:['Obsidian'] },
-            { when:['vesicular'], fam:['Igneous (extrusive)'], ex:['Scoria','Vesicular Basalt','Pumice'] },
-            { when:['coarse_crystals'], fam:['Igneous (intrusive)'], ex:['Granite','Diorite','Gabbro','Peridotite'] },
-            { when:['fine_crystals'], fam:['Igneous (extrusive)'], ex:['Basalt','Andesite','Rhyolite'] },
-            { when:['angular_clasts'], fam:['Pyroclastic / Clastic'], ex:['Volcanic Breccia','Sedimentary Breccia'] },
-            { when:['rounded_clasts'], fam:['Clastic sedimentary'], ex:['Conglomerate'] },
-            { when:['bedding'], fam:['Clastic/Chemical sedimentary'], ex:['Sandstone','Shale','Limestone','Dolostone'] },
-            { when:['acid_strong'], fam:['Carbonate sedimentary/metamorphic'], ex:['Limestone','Chalk','Coquina','Fossiliferous limestone','Travertine','Marble (also reacts)'] },
-            { when:['acid_weak'], fam:['Carbonate (dolomite-rich)'], ex:['Dolostone','Dolomitic marble'] },
-            { when:['salty'], fam:['Evaporite sedimentary'], ex:['Rock Salt (Halite)'] },
-            { when:['very_soft'], fam:['Evaporite / Soft minerals'], ex:['Rock Gypsum (Mohs 2)'] },
-            { when:['magnetic'], fam:['Fe-rich / Mafic'], ex:['Magnetite (mineral)','Basalt (weak)'] },
-            { when:['foliated_shiny'], fam:['Metamorphic (medium–high grade)'], ex:['Schist'] },
-            { when:['foliated_dull'], fam:['Metamorphic (low grade)'], ex:['Slate','Phyllite'] },
-            { when:['banded_gneiss'], fam:['Metamorphic (high grade)'], ex:['Gneiss','Migmatite'] },
-            { when:['sugary_quartz','scratches_glass'], fam:['Metamorphic (quartz-rich)'], ex:['Quartzite'] },
-            { when:['sugary_calcite','acid_strong'], fam:['Metamorphic (carbonate)'], ex:['Marble'] },
-            { when:['fossils'], fam:['Biochemical sedimentary'], ex:['Fossiliferous limestone','Coquina','Chalk','Shale with fossils'] }
-            ];
-            
-            function renderMap(map, container, chip=false){
-                container.innerHTML='';
-                [...map.entries()].sort((a,b)=>b[1]-a[1]).forEach(([txt])=>{
-                    if(chip){
-                        const span=document.createElement('span');
-                        span.className='chip';
-                        span.textContent=txt;
-                        container.appendChild(span);
-                    } else {
-                        const li=document.createElement('li');
-                        li.textContent=txt;
-                        li.dataset.example = txt;            // ★ make clickable for gallery
-                        container.appendChild(li);
-                    }
-                });
-            }
-            
-            // ★ NEW: render gallery for a list of rock names (strings)
-            function renderGallery(names=[]){
-                if(!galleryEl) return;
-                galleryEl.innerHTML = '';
-                const wanted = [];
-                
-                // Take up to first 3 names with images
-                names.forEach(n=>{
-                    const key = norm(n).replace(/\s+\(.*?\)$/, ''); // strip brackets like "(light)"
-                    const altKeys = [key, key.replace('Rock ', ''), key.replace('Volcanic ', '')];
-                    let imgs = null;
-                    for(const k of altKeys){
-                        if(ROCKS_MANIFEST[k]) { imgs = ROCKS_MANIFEST[k]; break; }
-                    }
-                    if(imgs && imgs.length) {
-                        wanted.push({ name: key, imgs: imgs.slice(0, 6) }); // cap per rock
-                    }
-                });
-                
-                if(!wanted.length){
-                    galleryEl.innerHTML = '<div class="gallery-empty hint">No images found for the current suggestions.</div>';
-                    return;
-                }
-                
-                wanted.forEach(({name, imgs})=>{
-                    // section title card
-                    const h = document.createElement('h4');
-                    h.className = 'gallery-subtitle';
-                    h.textContent = name;
-                    galleryEl.appendChild(h);
-                    
-                    const row = document.createElement('div');
-                    row.className = 'thumb-row';
-                    imgs.forEach(src=>{
-                        const a   = document.createElement('a');
-                        a.href    = src;
-                        a.target  = '_blank';
-                        a.rel     = 'noopener noreferrer';
-                        
-                        const fig = document.createElement('figure');
-                        fig.className = 'thumb';
-                        const img = document.createElement('img');
-                        img.loading = 'lazy';
-                        img.decoding = 'async';
-                        img.alt = name;
-                        img.src = src;
-                        
-                        fig.appendChild(img);
-                        a.appendChild(fig);
-                        row.appendChild(a);
-                    });
-                    galleryEl.appendChild(row);
-                });
-            }
-            
-            function evaluate(){
-                const active = new Set(checks.filter(c=>c.checked).map(c=>c.dataset.trait));
-                const fam = new Map(), ex = new Map();
-                rules.forEach(r=>{
-                    if(r.when.every(t=>active.has(t))){
-                        (r.fam||[]).forEach(f=>fam.set(f,(fam.get(f)||0)+1));
-                        (r.ex||[]).forEach(e=>ex.set(e,(ex.get(e)||0)+1));
-                    }
-                });
-                if(!fam.size && !ex.size){
-                    familiesEl.innerHTML = '<span class="chip">Start with texture → fabric → tests</span>';
-                    examplesEl.innerHTML = '<li>Try toggling <em>coarse crystals</em> or <em>bedding</em> or <em>acid fizz</em>.</li>';
-                    renderGallery([]); // ★ clear
-                    return;
-                }
-                renderMap(fam, familiesEl, true);
-                examplesEl.innerHTML='';
-                const sorted = [...ex.entries()].sort((a,b)=>b[1]-a[1]).map(([t])=>t);
-                sorted.slice(0,10).forEach((t)=>{
-                    const li=document.createElement('li'); li.textContent=t; li.dataset.example=t; examplesEl.appendChild(li);
-                });
-                // ★ refresh gallery with top 3 example buckets
-                renderGallery(sorted.slice(0,3));
-            }
-            
-            // interactions
-            clearBtn?.addEventListener('click', ()=>{ checks.forEach(c=>c.checked=false); evaluate(); });
-            checks.forEach(c=>c.addEventListener('change', evaluate));
-            
-            // ★ clicking an example focuses the gallery on that rock
-            examplesEl?.addEventListener('click', (e)=>{
-                const li = e.target.closest('li[data-example]');
-                if(!li) return;
-                renderGallery([li.dataset.example]);
-                galleryHintEl && (galleryHintEl.textContent = `Showing images for “${li.dataset.example}”.`);
-            });
-            
-            evaluate();
-        })();
+        document.title = "Geology Field Guide - Minerals & Rocks Reference";
     });
+
+    function getRockThumbnail(name) {
+        // Normalize name for manifest lookup
+        if (!rocksManifest[name]) return null;
+        return rocksManifest[name][0];
+    }
 </script>
 
 <div class="wrap">
@@ -169,7 +38,7 @@
         <h1>🗿 Geology Field Guide</h1>
         <p class="intro-text">
             Comprehensive reference for minerals, igneous, sedimentary, and metamorphic rocks. See below for 
-            classification methods and an interactive rock ID helper. Below that is a full catalog of rock 
+            classification methods. Below that is a full catalog of rock 
             types and their characteristics.
         </p>
     </header>
@@ -225,75 +94,17 @@
                 </ul>
             </details>
         </div>
+        </section>  
         
-        <!-- Trait Picker -->
-        <section class="rid-tool">
-            <h2>🔎 Trait Picker</h2>
-            <p class="hint">Toggle traits you observe. Suggestions update instantly.</p>
-            
-            <div class="rid-grid">
-                <fieldset>
-                    <legend>Texture & Fabric</legend>
-                    <label><input type="checkbox" data-trait="glassy"> Glassy</label>
-                    <label><input type="checkbox" data-trait="vesicular"> Vesicular (bubbly)</label>
-                    <label><input type="checkbox" data-trait="coarse_crystals"> Coarse crystals</label>
-                    <label><input type="checkbox" data-trait="fine_crystals"> Fine crystals</label>
-                    <label><input type="checkbox" data-trait="angular_clasts"> Angular clasts</label>
-                    <label><input type="checkbox" data-trait="rounded_clasts"> Rounded clasts</label>
-                    <label><input type="checkbox" data-trait="bedding"> Bedding / layers</label>
-                    <label><input type="checkbox" data-trait="foliated_shiny"> Foliated (shiny micas)</label>
-                    <label><input type="checkbox" data-trait="foliated_dull"> Foliated (dull/slaty)</label>
-                    <label><input type="checkbox" data-trait="banded_gneiss"> Banded light/dark</label>
-                </fieldset>
-                
-                <fieldset>
-                    <legend>Simple Tests</legend>
-                    <label><input type="checkbox" data-trait="acid_strong"> Fizzes strongly with acid</label>
-                    <label><input type="checkbox" data-trait="acid_weak"> Weak/slow acid reaction (powder)</label>
-                    <label><input type="checkbox" data-trait="salty"> Salty taste</label>
-                    <label><input type="checkbox" data-trait="very_soft"> Very soft (fingernail scratches)</label>
-                    <label><input type="checkbox" data-trait="magnetic"> Magnetic</label>
-                    <label><input type="checkbox" data-trait="scratches_glass"> Scratches glass easily</label>
-                </fieldset>
-                
-                <fieldset>
-                    <legend>Other Clues</legend>
-                    <label><input type="checkbox" data-trait="fossils"> Fossils present</label>
-                    <label><input type="checkbox" data-trait="sugary_calcite"> Sugary calcite texture</label>
-                    <label><input type="checkbox" data-trait="sugary_quartz"> Sugary quartz texture</label>
-                </fieldset>
-            </div>
-            
-            <div class="rid-actions">
-                <button type="button" class="btn" id="rid-clear">Reset</button>
-            </div>
-            
-            <div class="rid-output">
-                <h3>Likely Families</h3>
-                <div id="rid-families" class="chips"></div>
-                <h3>Examples to Compare</h3>
-                <ul id="rid-examples" class="examples"></ul>
-                <p class="hint">Combine traits: <em>vesicular + dark</em> → Scoria; <em>glassy + vesicular</em> → Pumice.</p>
-            </div>
-            <div class="rid-gallery">
-                <h3>Image Gallery</h3>
-                <div id="rid-gallery" class="gallery-grid" aria-live="polite"></div>
-                <p class="hint" id="rid-gallery-hint">
-                    Click an example above to focus the gallery, or toggle traits to refresh suggestions.
-                </p>
-            </div>
-        </section>
-    </section>
     
-    
-    <!-- ========== /Rock ID Helper ========== -->
-    
-    <section class="category-section">
-        <h2 class="category-title">🧪 Minerals</h2>
-        <div class="specimens-grid">
+                    <details class="category-section">
+                            <summary class="category-title">🧪 Minerals</summary>
+                            <div class="specimens-grid">
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Augite <span class="specimen-type">(pyroxene)</span></h3>
+                                                <h3 class="specimen-name">Augite <span class="specimen-type">(pyroxene)</span>{#if getRockThumbnail('Augite')}<img class="rock-thumb" src={getRockThumbnail('Augite')} alt="Augite thumbnail" loading="lazy" />{/if}
+                                                    <button class="model-btn" on:click={() => open3DModal('Augite')} title="View 3D Model"><Cube size={18} /></button>
+                                                </h3>
                 <div class="specimen-description">Dark green to black; blocky, stubby crystals; 2 cleavages at ~90°.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> Ca-Fe-Mg silicate</div>
@@ -303,7 +114,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Biotite <span class="specimen-type">(mica)</span></h3>
+                                                <h3 class="specimen-name">Biotite <span class="specimen-type">(mica)</span>{#if getRockThumbnail('Biotite')}<img class="rock-thumb" src={getRockThumbnail('Biotite')} alt="Biotite thumbnail" loading="lazy" />{/if}
+                                                    <button class="model-btn" on:click={() => open3DModal('Biotite')} title="View 3D Model"><Cube size={18} /></button>
+                                                </h3>
                 <div class="specimen-description">Black/brown; splits into flexible sheets; glassy luster.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> K-Fe-Mg mica</div>
@@ -313,7 +126,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Calcite</h3>
+                                                <h3 class="specimen-name">Calcite{#if getRockThumbnail('Calcite')}<img class="rock-thumb" src={getRockThumbnail('Calcite')} alt="Calcite thumbnail" loading="lazy" />{/if}
+                                                    <button class="model-btn" on:click={() => open3DModal('Calcite')} title="View 3D Model"><Cube size={18} /></button>
+                                                </h3>
                 <div class="specimen-description">White or colorless; reacts vigorously with acid; rhombohedral cleavage (3 not at 90°).</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> CaCO₃</div>
@@ -323,7 +138,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Chalcopyrite</h3>
+                                                <h3 class="specimen-name">Chalcopyrite{#if getRockThumbnail('Chalcopyrite')}<img class="rock-thumb" src={getRockThumbnail('Chalcopyrite')} alt="Chalcopyrite thumbnail" loading="lazy" />{/if}
+                                                    <button class="model-btn" on:click={() => open3DModal('Chalcopyrite')} title="View 3D Model"><Cube size={18} /></button>
+                                                </h3>
                 <div class="specimen-description">Brass-yellow metallic; tarnishes iridescent purple; softer than pyrite.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> CuFeS₂</div>
@@ -333,7 +150,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Fluorite</h3>
+                                                <h3 class="specimen-name">Fluorite{#if getRockThumbnail('Fluorite')}<img class="rock-thumb" src={getRockThumbnail('Fluorite')} alt="Fluorite thumbnail" loading="lazy" />{/if}
+                                                    <button class="model-btn" on:click={() => open3DModal('Fluorite')} title="View 3D Model"><Cube size={18} /></button>
+                                                </h3>
                 <div class="specimen-description">Purple, green, or clear; 4 perfect cleavages (octahedral); glassy.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> CaF₂</div>
@@ -343,7 +162,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Galena</h3>
+                                                <h3 class="specimen-name">Galena{#if getRockThumbnail('Galena')}<img class="rock-thumb" src={getRockThumbnail('Galena')} alt="Galena thumbnail" loading="lazy" />{/if}
+                                                    <button class="model-btn" on:click={() => open3DModal('Galena')} title="View 3D Model"><Cube size={18} /></button>
+                                                </h3>
                 <div class="specimen-description">Metallic silver-gray; cubic cleavage (3 at 90°); very dense.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> PbS</div>
@@ -353,7 +174,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Garnet</h3>
+                                                <h3 class="specimen-name">Garnet{#if getRockThumbnail('Garnet')}<img class="rock-thumb" src={getRockThumbnail('Garnet')} alt="Garnet thumbnail" loading="lazy" />{/if}
+                                                    <button class="model-btn" on:click={() => open3DModal('Garnet')} title="View 3D Model"><Cube size={18} /></button>
+                                                </h3>
                 <div class="specimen-description">Commonly red/brown; glassy dodecahedral crystals; no cleavage.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> Fe-Mg-Ca-Al silicate</div>
@@ -363,7 +186,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Goethite</h3>
+                                                <h3 class="specimen-name">Goethite{#if getRockThumbnail('Goethite')}<img class="rock-thumb" src={getRockThumbnail('Goethite')} alt="Goethite thumbnail" loading="lazy" />{/if}
+                                                    <button class="model-btn" on:click={() => open3DModal('Goethite')} title="View 3D Model"><Cube size={18} /></button>
+                                                </h3>
                 <div class="specimen-description">Brown to black; earthy to submetallic; brownish streak.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> FeO(OH)</div>
@@ -373,7 +198,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Graphite</h3>
+                                                <h3 class="specimen-name">Graphite{#if getRockThumbnail('Graphite')}<img class="rock-thumb" src={getRockThumbnail('Graphite')} alt="Graphite thumbnail" loading="lazy" />{/if}
+                                                    <button class="model-btn" on:click={() => open3DModal('Graphite')} title="View 3D Model"><Cube size={18} /></button>
+                                                </h3>
                 <div class="specimen-description">Silvery gray; greasy feel; very soft; marks paper.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> Carbon</div>
@@ -383,7 +210,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Gypsum</h3>
+                                                <h3 class="specimen-name">Gypsum{#if getRockThumbnail('Gypsum')}<img class="rock-thumb" src={getRockThumbnail('Gypsum')} alt="Gypsum thumbnail" loading="lazy" />{/if}
+                                                    <button class="model-btn" on:click={() => open3DModal('Gypsum')} title="View 3D Model"><Cube size={18} /></button>
+                                                </h3>
                 <div class="specimen-description">Colorless to white; very soft (scratched by fingernail); one perfect cleavage.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> CaSO₄·2H₂O</div>
@@ -393,7 +222,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Halite</h3>
+                                                <h3 class="specimen-name">Halite{#if getRockThumbnail('Halite')}<img class="rock-thumb" src={getRockThumbnail('Halite')} alt="Halite thumbnail" loading="lazy" />{/if}
+                                                    <button class="model-btn" on:click={() => open3DModal('Halite')} title="View 3D Model"><Cube size={18} /></button>
+                                                </h3>
                 <div class="specimen-description">Colorless; cubic cleavage; salty taste.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> NaCl</div>
@@ -403,7 +234,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Hematite</h3>
+                <h3 class="specimen-name">Hematite{#if getRockThumbnail('Hematite')}<img class="rock-thumb" src={getRockThumbnail('Hematite')} alt="Hematite thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Hematite')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Metallic to earthy red/brown; reddish streak; heavy.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> Fe₂O₃</div>
@@ -413,7 +246,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Hornblende <span class="specimen-type">(amphibole)</span></h3>
+                <h3 class="specimen-name">Hornblende <span class="specimen-type">(amphibole)</span>{#if getRockThumbnail('Hornblende')}<img class="rock-thumb" src={getRockThumbnail('Hornblende')} alt="Hornblende thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Hornblende')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Black; splintery habit; 2 cleavages at 60° and 120°.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> Ca-Na-Mg-Fe amphibole</div>
@@ -423,7 +258,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Kaolinite</h3>
+                <h3 class="specimen-name">Kaolinite{#if getRockThumbnail('Kaolinite')}<img class="rock-thumb" src={getRockThumbnail('Kaolinite')} alt="Kaolinite thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Kaolinite')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">White, dull, powdery; earthy odor when damp; very soft.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> Al₂Si₂O₅(OH)₄</div>
@@ -433,7 +270,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Magnetite</h3>
+                <h3 class="specimen-name">Magnetite{#if getRockThumbnail('Magnetite')}<img class="rock-thumb" src={getRockThumbnail('Magnetite')} alt="Magnetite thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Magnetite')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Black; magnetic; metallic to submetallic.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> Fe₃O₄</div>
@@ -443,7 +282,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Muscovite <span class="specimen-type">(mica)</span></h3>
+                <h3 class="specimen-name">Muscovite <span class="specimen-type">(mica)</span>{#if getRockThumbnail('Muscovite')}<img class="rock-thumb" src={getRockThumbnail('Muscovite')} alt="Muscovite thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Muscovite')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Colorless to silvery; splits into elastic sheets.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> K-Al silicate mica</div>
@@ -453,7 +294,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Olivine</h3>
+                <h3 class="specimen-name">Olivine{#if getRockThumbnail('Olivine')}<img class="rock-thumb" src={getRockThumbnail('Olivine')} alt="Olivine thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Olivine')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Olive-green; granular (sugary texture); no cleavage.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> (Mg,Fe)₂SiO₄</div>
@@ -463,7 +306,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Plagioclase feldspar</h3>
+                <h3 class="specimen-name">Plagioclase feldspar{#if getRockThumbnail('Plagioclase Feldspar')}<img class="rock-thumb" src={getRockThumbnail('Plagioclase Feldspar')} alt="Plagioclase Feldspar thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Plagioclase Feldspar')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">White to gray; striations on cleavage faces; 2 cleavages ~90°.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> Na-Ca feldspar series</div>
@@ -472,7 +317,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Potassium feldspar</h3>
+                <h3 class="specimen-name">Potassium feldspar{#if getRockThumbnail('Orthoclase Feldspar')}<img class="rock-thumb" src={getRockThumbnail('Orthoclase Feldspar')} alt="Orthoclase Feldspar thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Orthoclase Feldspar')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Pink to white; often with exsolution lamellae; 2 cleavages ~90°.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> K-Al-Si feldspar</div>
@@ -491,7 +338,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Quartz</h3>
+                <h3 class="specimen-name">Quartz{#if getRockThumbnail('Quartz')}<img class="rock-thumb" src={getRockThumbnail('Quartz')} alt="Quartz thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Quartz')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Colorless to many colors; glassy; conchoidal fracture; no cleavage.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> SiO₂</div>
@@ -511,7 +360,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Sulfur</h3>
+                <h3 class="specimen-name">Sulfur{#if getRockThumbnail('Sulfur')}<img class="rock-thumb" src={getRockThumbnail('Sulfur')} alt="Sulfur thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Sulfur')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Bright yellow; smells when rubbed; soft.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> Native element</div>
@@ -520,7 +371,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Talc</h3>
+                <h3 class="specimen-name">Talc{#if getRockThumbnail('Talc')}<img class="rock-thumb" src={getRockThumbnail('Talc')} alt="Talc thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Talc')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">White to green; pearly; very soft (soapy feel).</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> Mg silicate</div>
@@ -529,14 +382,17 @@
                 </div>
             </div>
         </div>
-    </section>
+        </details>
     
-    <section class="category-section">
-        <h2 class="category-title">🌋 Igneous Rocks</h2>
-        <div class="specimens-grid">
+    
+                <details class="category-section">
+                    <summary class="category-title">🌋 Igneous Rocks</summary>
+                    <div class="specimens-grid">
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Andesite</h3>
+                <h3 class="specimen-name">Andesite{#if getRockThumbnail('Andesite')}<img class="rock-thumb" src={getRockThumbnail('Andesite')} alt="Andesite thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Andesite')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Gray; fine-grained; intermediate composition; often porphyritic.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Minerals:</strong> Plagioclase, amphibole, pyroxene</div>
@@ -546,7 +402,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Basalt</h3>
+                <h3 class="specimen-name">Basalt{#if getRockThumbnail('Basalt')}<img class="rock-thumb" src={getRockThumbnail('Basalt')} alt="Basalt thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Basalt')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Black; fine-grained; mafic; sometimes vesicular.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Minerals:</strong> Pyroxene, Ca-plagioclase, olivine</div>
@@ -556,7 +414,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Diorite</h3>
+                <h3 class="specimen-name">Diorite{#if getRockThumbnail('Diorite')}<img class="rock-thumb" src={getRockThumbnail('Diorite')} alt="Diorite thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Diorite')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">"Salt and pepper" coarse-grained mix of white and black minerals.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Minerals:</strong> Plagioclase + hornblende</div>
@@ -565,7 +425,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Gabbro</h3>
+                <h3 class="specimen-name">Gabbro{#if getRockThumbnail('Gabbro')}<img class="rock-thumb" src={getRockThumbnail('Gabbro')} alt="Gabbro thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Gabbro')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Coarse-grained dark rock; mostly pyroxene + plagioclase.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Intrusive equivalent of:</strong> <em>Basalt</em></div>
@@ -573,7 +435,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Granite</h3>
+                <h3 class="specimen-name">Granite{#if getRockThumbnail('Granite')}<img class="rock-thumb" src={getRockThumbnail('Granite')} alt="Granite thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Granite')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Coarse-grained; pink or gray; quartz + feldspar + mica.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Type:</strong> Felsic, continental crust</div>
@@ -582,7 +446,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Obsidian</h3>
+                <h3 class="specimen-name">Obsidian{#if getRockThumbnail('Obsidian')}<img class="rock-thumb" src={getRockThumbnail('Obsidian')} alt="Obsidian thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Obsidian')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Glassy black volcanic glass; conchoidal fracture; sharp edges.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Note:</strong> Same composition as rhyolite but cooled too fast for crystals</div>
@@ -590,7 +456,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Peridotite</h3>
+                <h3 class="specimen-name">Peridotite{#if getRockThumbnail('Peridotite')}<img class="rock-thumb" src={getRockThumbnail('Peridotite')} alt="Peridotite thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Peridotite')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Coarse-grained; greenish (olivine-rich); ultramafic.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Note:</strong> Mantle rock; parent to basaltic magma</div>
@@ -599,7 +467,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Pumice</h3>
+                <h3 class="specimen-name">Pumice{#if getRockThumbnail('Pumice')}<img class="rock-thumb" src={getRockThumbnail('Pumice')} alt="Pumice thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Pumice')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Light gray; frothy; very light and floats; felsic.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Note:</strong> Vesicular volcanic glass from explosive eruptions</div>
@@ -607,7 +477,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Rhyolite</h3>
+                <h3 class="specimen-name">Rhyolite{#if getRockThumbnail('Rhyolite')}<img class="rock-thumb" src={getRockThumbnail('Rhyolite')} alt="Rhyolite thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Rhyolite')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Light-colored; fine-grained; felsic; often with quartz phenocrysts.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Extrusive equivalent of:</strong> <em>Granite</em></div>
@@ -615,7 +487,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Scoria</h3>
+                <h3 class="specimen-name">Scoria{#if getRockThumbnail('Scoria')}<img class="rock-thumb" src={getRockThumbnail('Scoria')} alt="Scoria thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Scoria')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Dark red/black; vesicular; heavier than pumice; mafic.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Note:</strong> Basaltic lava with gas bubbles</div>
@@ -623,7 +497,20 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Volcanic breccia</h3>
+                <h3 class="specimen-name">Tuff{#if getRockThumbnail('Tuff')}<img class="rock-thumb" src={getRockThumbnail('Tuff')} alt="Tuff thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Tuff')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
+                <div class="specimen-description">Consolidated volcanic ash; fine-grained; can be welded or unwelded.</div>
+                <div class="specimen-details">
+                    <div class="detail-item"><strong>Formation:</strong> Explosive volcanic eruptions and ash falls</div>
+                    <div class="detail-item"><strong>Texture:</strong> Pyroclastic (fragmental)</div>
+                </div>
+            </div>
+            
+            <div class="specimen-card">
+                <h3 class="specimen-name">Volcanic breccia{#if getRockThumbnail('Volcanic Breccia')}<img class="rock-thumb" src={getRockThumbnail('Volcanic Breccia')} alt="Volcanic Breccia thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Volcanic Breccia')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Angular volcanic fragments cemented together.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Formation:</strong> Explosive eruptions or volcanic landslides</div>
@@ -631,31 +518,27 @@
             </div>
             
         </div>
-    </section>
+        </details>
     
-    <section class="category-section">
-        <h2 class="category-title">🪨 Sedimentary Rocks</h2>
-        <div class="specimens-grid">
+    
+                <details class="category-section">
+                    <summary class="category-title">🪨 Sedimentary Rocks</summary>
+                    <div class="specimens-grid">
             <div class="specimen-card">
-                <h3 class="specimen-name">Arkose sandstone</h3>
+                <h3 class="specimen-name">Arkose sandstone{#if getRockThumbnail('Arkose')}<img class="rock-thumb" src={getRockThumbnail('Arkose')} alt="Arkose thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Arkose')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Coarse-grained; pinkish; rich in feldspar.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Environment:</strong> Alluvial fans near granitic source</div>
                     <div class="detail-item"><strong>Matures into:</strong> <em>Quartz sandstone</em></div>
                 </div>
             </div>
-            
+                        
             <div class="specimen-card">
-                <h3 class="specimen-name">Breccia</h3>
-                <div class="specimen-description">Angular rock fragments in a finer matrix.</div>
-                <div class="specimen-details">
-                    <div class="detail-item"><strong>Formation:</strong> Near source areas (faults, talus slopes)</div>
-                    <div class="detail-item"><strong>Related to:</strong> <em>Conglomerate</em> (rounded clasts)</div>
-                </div>
-            </div>
-            
-            <div class="specimen-card">
-                <h3 class="specimen-name">Chert</h3>
+                <h3 class="specimen-name">Chert{#if getRockThumbnail('Chert')}<img class="rock-thumb" src={getRockThumbnail('Chert')} alt="Chert thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Chert')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Hard, dense; conchoidal fracture; dull to waxy luster.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> Microcrystalline quartz</div>
@@ -665,7 +548,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Coal</h3>
+                <h3 class="specimen-name">Coal{#if getRockThumbnail('Coal')}<img class="rock-thumb" src={getRockThumbnail('Coal')} alt="Coal thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Coal')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Black; lightweight; sooty streak; organic origin.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Formation:</strong> Compaction of plant material in swamps</div>
@@ -674,7 +559,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Conglomerate</h3>
+                <h3 class="specimen-name">Conglomerate{#if getRockThumbnail('Conglomerate')}<img class="rock-thumb" src={getRockThumbnail('Conglomerate')} alt="Conglomerate thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Conglomerate')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Rounded pebbles cemented together.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Environment:</strong> Rivers or beaches with strong currents</div>
@@ -682,7 +569,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Dolostone</h3>
+                <h3 class="specimen-name">Dolostone{#if getRockThumbnail('Dolostone')}<img class="rock-thumb" src={getRockThumbnail('Dolostone')} alt="Dolostone thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Dolostone')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Reacts weakly with acid when powdered; tan-gray color.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> CaMg(CO₃)₂</div>
@@ -692,7 +581,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Limestone</h3>
+                <h3 class="specimen-name">Limestone{#if getRockThumbnail('Limestone')}<img class="rock-thumb" src={getRockThumbnail('Limestone')} alt="Limestone thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Limestone')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Reacts with acid; usually gray to tan.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> Calcite</div>
@@ -703,7 +594,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Quartz sandstone</h3>
+                <h3 class="specimen-name">Quartz sandstone{#if getRockThumbnail('Quartz sandstone')}<img class="rock-thumb" src={getRockThumbnail('Quartz sandstone')} alt="Quartz sandstone thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Quartz sandstone')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Gritty; mostly quartz; often light-colored.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Environment:</strong> Beach or desert</div>
@@ -712,7 +605,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Rock gypsum</h3>
+                <h3 class="specimen-name">Gypsum{#if getRockThumbnail('Gypsum')}<img class="rock-thumb" src={getRockThumbnail('Gypsum')} alt="Gypsum thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Rock gypsum')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Soft; white/pink; scratched by fingernail.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Type:</strong> Evaporite deposit; CaSO₄·2H₂O</div>
@@ -720,7 +615,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Rock salt</h3>
+                <h3 class="specimen-name">Rock salt{#if getRockThumbnail('Rock salt')}<img class="rock-thumb" src={getRockThumbnail('Rock salt')} alt="Rock salt thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Rock salt')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Transparent cubic crystals; salty taste.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Type:</strong> Evaporite deposit; NaCl</div>
@@ -728,7 +625,33 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Shale</h3>
+                <h3 class="specimen-name">Mudstone{#if getRockThumbnail('Mudstone')}<img class="rock-thumb" src={getRockThumbnail('Mudstone')} alt="Mudstone thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Mudstone')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
+                <div class="specimen-description">Fine-grained; non-fissile (doesn't split easily); blocky fracture.</div>
+                <div class="specimen-details">
+                    <div class="detail-item"><strong>Composition:</strong> Clay and silt</div>
+                    <div class="detail-item"><strong>Environment:</strong> Quiet water environments</div>
+                    <div class="detail-item"><strong>Related to:</strong> <em>Shale</em> (fissile) and <em>Siltstone</em> (coarser)</div>
+                </div>
+            </div>
+            
+            <div class="specimen-card">
+                <h3 class="specimen-name">Sandstone{#if getRockThumbnail('Sandstone')}<img class="rock-thumb" src={getRockThumbnail('Sandstone')} alt="Sandstone thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Sandstone')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
+                <div class="specimen-description">Medium-grained; composed of sand-sized particles; often cross-bedded.</div>
+                <div class="specimen-details">
+                    <div class="detail-item"><strong>Environment:</strong> Desert, beach, or shallow marine</div>
+                    <div class="detail-item"><strong>Metamorphic equivalent:</strong> <em>Quartzite</em></div>
+                    <div class="detail-item"><strong>Subtypes:</strong> <em>Arkose</em>, <em>Quartz sandstone</em></div>
+                </div>
+            </div>
+
+            <div class="specimen-card">
+                <h3 class="specimen-name">Shale{#if getRockThumbnail('Shale')}<img class="rock-thumb" src={getRockThumbnail('Shale')} alt="Shale thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Shale')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Fine-grained; splits into thin sheets; dull luster.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Composition:</strong> Clay minerals</div>
@@ -736,14 +659,41 @@
                     <div class="detail-item"><strong>Metamorphic sequence:</strong> <em>Slate → Phyllite → Schist → Gneiss</em></div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <section class="category-section">
-        <h2 class="category-title">🔥 Metamorphic Rocks</h2>
-        <div class="specimens-grid">
+            
             <div class="specimen-card">
-                <h3 class="specimen-name">Amphibolite</h3>
+                <h3 class="specimen-name">Siltstone{#if getRockThumbnail('Siltstone')}<img class="rock-thumb" src={getRockThumbnail('Siltstone')} alt="Siltstone thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Siltstone')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
+                <div class="specimen-description">Fine-grained; gritty feel when rubbed; intermediate between sandstone and shale.</div>
+                <div class="specimen-details">
+                    <div class="detail-item"><strong>Grain size:</strong> Silt (1/16 - 1/256 mm)</div>
+                    <div class="detail-item"><strong>Environment:</strong> Quiet water with some current activity</div>
+                    <div class="detail-item"><strong>Related to:</strong> <em>Mudstone</em> and <em>Shale</em></div>
+                </div>
+            </div>
+            
+            <div class="specimen-card">
+                <h3 class="specimen-name">Travertine{#if getRockThumbnail('Travertine')}<img class="rock-thumb" src={getRockThumbnail('Travertine')} alt="Travertine thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Travertine')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
+                <div class="specimen-description">Porous limestone; often banded; forms around hot springs.</div>
+                <div class="specimen-details">
+                    <div class="detail-item"><strong>Formation:</strong> Precipitation from calcium-rich groundwater</div>
+                    <div class="detail-item"><strong>Environment:</strong> Hot springs, caves, or streams</div>
+                    <div class="detail-item"><strong>Related to:</strong> <em>Limestone</em></div>
+                </div>
+            </div>
+        </div>
+        </details>
+    
+    
+                <details class="category-section">
+                    <summary class="category-title">🔥 Metamorphic Rocks</summary>
+                    <div class="specimens-grid">
+            <div class="specimen-card">
+                <h3 class="specimen-name">Amphibolite{#if getRockThumbnail('Amphibolite')}<img class="rock-thumb" src={getRockThumbnail('Amphibolite')} alt="Amphibolite thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Amphibolite')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Dark, coarse-grained; amphibole-rich; may show weak foliation.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Parent:</strong> <em>Basalt</em> or <em>Gabbro</em></div>
@@ -752,7 +702,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Gneiss</h3>
+                <h3 class="specimen-name">Gneiss{#if getRockThumbnail('Gneiss')}<img class="rock-thumb" src={getRockThumbnail('Gneiss')} alt="Gneiss thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Gneiss')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Alternating light/dark bands; coarse foliation.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Parent:</strong> <em>Granite</em> or <em>Schist</em></div>
@@ -761,7 +713,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Metaconglomerate</h3>
+                <h3 class="specimen-name">Metaconglomerate{#if getRockThumbnail('Metaconglomerate')}<img class="rock-thumb" src={getRockThumbnail('Metaconglomerate')} alt="Metaconglomerate thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Metaconglomerate')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Pebbles deformed or stretched within finer matrix.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Parent:</strong> <em>Conglomerate</em></div>
@@ -770,7 +724,21 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Marble</h3>
+                <h3 class="specimen-name">Hornfels{#if getRockThumbnail('Hornfels')}<img class="rock-thumb" src={getRockThumbnail('Hornfels')} alt="Hornfels thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Hornfels')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
+                <div class="specimen-description">Fine-grained; hard; non-foliated; contact metamorphic rock.</div>
+                <div class="specimen-details">
+                    <div class="detail-item"><strong>Parent:</strong> Various rocks (shale, sandstone, etc.)</div>
+                    <div class="detail-item"><strong>Formation:</strong> Contact metamorphism near igneous intrusions</div>
+                    <div class="detail-item"><strong>Grade:</strong> Medium–high</div>
+                </div>
+            </div>
+
+            <div class="specimen-card">
+                <h3 class="specimen-name">Marble{#if getRockThumbnail('Marble')}<img class="rock-thumb" src={getRockThumbnail('Marble')} alt="Marble thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Marble')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Crystalline; reacts with acid; sugary texture; usually white.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Parent:</strong> <em>Limestone</em> or <em>Dolostone</em></div>
@@ -778,7 +746,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Phyllite</h3>
+                <h3 class="specimen-name">Phyllite{#if getRockThumbnail('Phyllite')}<img class="rock-thumb" src={getRockThumbnail('Phyllite')} alt="Phyllite thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Phyllite')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Silky sheen; fine-grained; wavy foliation.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Parent:</strong> <em>Slate</em> (from shale)</div>
@@ -787,7 +757,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Quartzite</h3>
+                <h3 class="specimen-name">Quartzite{#if getRockThumbnail('Quartzite')}<img class="rock-thumb" src={getRockThumbnail('Quartzite')} alt="Quartzite thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Quartzite')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Hard; sugary texture; scratches glass; fused quartz grains.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Parent:</strong> <em>Quartz sandstone</em></div>
@@ -796,7 +768,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Schist</h3>
+                <h3 class="specimen-name">Schist{#if getRockThumbnail('Schist')}<img class="rock-thumb" src={getRockThumbnail('Schist')} alt="Schist thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Schist')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Sparkly mica-rich foliation; medium to coarse-grained.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Parent:</strong> <em>Phyllite</em> or <em>Shale</em></div>
@@ -805,7 +779,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Serpentinite</h3>
+                <h3 class="specimen-name">Serpentinite{#if getRockThumbnail('Serpentinite')}<img class="rock-thumb" src={getRockThumbnail('Serpentinite')} alt="Serpentinite thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Serpentinite')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Greenish, waxy luster; slick feel; derived from ultramafic rock.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Parent:</strong> <em>Peridotite</em> (hydrated olivine)</div>
@@ -814,7 +790,9 @@
             </div>
             
             <div class="specimen-card">
-                <h3 class="specimen-name">Slate</h3>
+                <h3 class="specimen-name">Slate{#if getRockThumbnail('Slate')}<img class="rock-thumb" src={getRockThumbnail('Slate')} alt="Slate thumbnail" loading="lazy" />{/if}
+                    <button class="model-btn" on:click={() => open3DModal('Slate')} title="View 3D Model"><Cube size={18} /></button>
+                </h3>
                 <div class="specimen-description">Dark gray; very fine-grained; splits into flat sheets with a "ping" sound.</div>
                 <div class="specimen-details">
                     <div class="detail-item"><strong>Parent:</strong> <em>Shale</em></div>
@@ -822,10 +800,54 @@
                 </div>
             </div>
         </div>
-    </section>
+        </details>
 </div>
 
+<Modal
+    bind:open={modalOpen}
+    component={modalComponent}
+    props={modalProps}
+    title={modalTitle}
+/>
+
 <style>
+    .model-btn {
+        appearance: none;
+        border: 1px solid color-mix(in srgb, var(--accent) 45%, #ccc 55%);
+        background: white;
+        color: var(--ink);
+        padding: .35rem .55rem;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform .04s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+        margin-left: 0.5em;
+        vertical-align: middle;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+    .model-btn:hover {
+        border-color: var(--accent);
+        background: color-mix(in srgb, var(--accent) 12%, white 88%);
+        box-shadow: 0 6px 18px rgba(0,0,0,.08);
+    }
+    .model-btn:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 40%, transparent);
+    }
+    .model-btn:active { 
+        transform: translateY(1px); 
+    }
+    .rock-thumb {
+        width: 38px;
+        height: 38px;
+        object-fit: cover;
+        border-radius: 6px;
+        margin-right: 0.5em;
+        vertical-align: middle;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+    }
     /* Custom styles for the overview page using geology.css variables */
     .intro-section {
         text-align: center;
@@ -896,6 +918,10 @@
         align-items: center;
         gap: 0.5rem;
         flex-wrap: wrap;
+    }
+    .specimen-name img.rock-thumb {
+        margin-left: auto;
+        margin-right: 0;
     }
     
     .specimen-type {
@@ -1020,42 +1046,5 @@
     }
     .rid-accordion ul{ margin:.5rem 0 .2rem 1.1rem }
     
-    .rid-tool{
-        margin-top: 1rem;
-        background: #fff;
-        border: 1px solid rgba(0,0,0,.08);
-        border-radius: var(--radius);
-        padding: 1rem;
-        box-shadow: var(--shadow);
-    }
-    .rid-tool h2{
-        font-family: 'Quicksand', system-ui, sans-serif;
-        margin: .25rem 0 .2rem;
-        color: var(--title);
-    }
-    .rid-grid{
-        display:grid;
-        gap:.8rem;
-        grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
-    }
-    fieldset{
-        border: 1px solid rgba(0,0,0,.08);
-        border-radius: 12px;
-        padding: .6rem .8rem;
-        background: var(--card-bg);
-    }
-    legend{ color: var(--muted); padding: 0 .4rem; }
-    label{ display:block; margin:.25rem 0; color: var(--ink); }
-    .rid-actions{ margin:.6rem 0; }
-    .chips{ display:flex; gap:.5rem; flex-wrap:wrap; }
-    .chip{
-        background: var(--card-bg);
-        border: 1px solid rgba(0,0,0,.08);
-        border-radius: 999px;
-        padding: .22rem .6rem;
-        font-weight: 700;
-        color: var(--accent);
-    }
-    .examples{ margin:.4rem 0 0 1rem; }
 </style>
 
