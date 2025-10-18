@@ -196,14 +196,14 @@
         <button
           class="btn"
           on:click={openModel}
-          disabled={!currentRockDef?.model_3d}
+          disabled={currentRockDef?.model_3d?.link==""}
           aria-label="View 3D model"
         >
           <Cube size={18} />
         </button>
-      <button class="btn" on:click={openInfo}>?</button>
+      <button class="btn" on:click={openInfo}>Info</button>
     {/if}
-    <button class="btn right" on:click={reshuffleDeck}>Shuffle Deck</button>
+<!--    <button class="btn right" on:click={reshuffleDeck}>Shuffle Deck</button>-->
   </div>
   
   {#if current}
@@ -219,19 +219,22 @@
     </button>
   {/if}
   
-  {#if creditURL}
     <div class="credit">
       Image may be subject to copyright. Source:
-      <a href={creditURL} target="_blank" rel="noopener noreferrer">{creditHost}</a>
+      {#if creditURL}
+         <a href={creditURL} target="_blank" rel="noopener noreferrer">{creditHost}</a>
+      {:else}
+        Unknown.
+      {/if}
     </div>
-  {/if}
   
   <div class="filter-section">
     <span class="filter-label">Filter rocks:</span>
     <div class="filter-select">
       <Svelecte
         multiple 
-        options={classes}         
+        options={classes}        
+        closeOnSelect={false} 
         bind:value={selectedList}
         renderer={svgRenderer} 
         collapseSelection="always" 
@@ -277,6 +280,12 @@
     min-width: 300px;
     max-width: 100%;
     flex: 1;
+  }
+
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    color: gray;
   }
   
   @media (max-width: 640px) {
