@@ -7,6 +7,8 @@ node_modules
 .wrangler
 /.svelte-kit
 /build
+/scripts/incoming_rocks
+/scripts/cropped
 
 # OS
 .DS_Store

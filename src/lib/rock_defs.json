@@ -899,5 +899,23 @@
       "license": "",
       "license_url": ""
     }
+  },
+  {
+    "name": "Garnet",
+    "type": "mineral",
+    "subtype": "nesosilicate (metamorphic indicator)",
+    "texture": "euhedral to subhedral crystals; dodecahedral or trapezohedral habit",
+    "commonColors": "red, orange, yellow, green, purple, brown",
+    "diagnostics": "Mohs hardness 6.5-7.5; vitreous luster; no cleavage; high specific gravity; dodecahedral crystals",
+    "confusedWith": "ruby/spinel (hexagonal habit), tourmaline (different crystal habit), pyrope (garnet variety)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/garnet-rough-draft-8bc71e4d66aa4a42a2d7c06097e97ee2",
+      "title": "Garnet (Rough Draft)",
+      "author_name": "ESUEarthSci",
+      "author_url": "https://sketchfab.com/ESUEarthSci",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
   }
+
 ]

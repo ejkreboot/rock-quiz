@@ -111,6 +111,9 @@
             <slot name="header" />
           {/if}
         </div>
+        <button class="modal-close-btn" on:click={close} title="Close" type="button">
+          ×
+        </button>
       </header>
 
       <section class="modal-body">
@@ -127,3 +130,58 @@
     </div>
   </div>
 {/if}
+
+<style>
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #f5f1eb 0%, #e8ddd4 100%);
+    color: #5d4e37;
+    border-bottom: 1px solid #d4c4b0;
+  }
+
+  .modal-header-left {
+    flex: 1;
+  }
+
+  .modal-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #5d4e37;
+  }
+
+  .modal-close-btn {
+    background: none;
+    border: none;
+    color: #5d4e37;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+    font-size: 1.5rem;
+    line-height: 1;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-close-btn:hover {
+    background: rgba(93, 78, 55, 0.1);
+  }
+
+  .modal-body {
+    flex: 1;
+    overflow: auto;
+  }
+
+  .modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #e9ecef;
+    background: #f8f9fa;
+  }
+</style>

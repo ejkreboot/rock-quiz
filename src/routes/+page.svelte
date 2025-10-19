@@ -13,7 +13,7 @@
     <div class="hero-icon">
       <Mountain size={56} />
     </div>
-    <h1>Rock & Mineral ID</h1>
+    <h1>Rock & Mineral Review</h1>
     <p class="tagline">Master geology through interactive learning</p>
   </section>
 
@@ -60,7 +60,7 @@
   :global(body) {
     margin: 0;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #fefcfb 0%, #f7f3f0 100%);
+    background: linear-gradient(135deg, #f4f1eb 0%, #e8ddd4 20%, #d4c4b0 100%);
     min-height: 100vh;
   }
 
@@ -84,7 +84,7 @@
   .hero-icon {
     margin-bottom: 1rem;
     opacity: 0.7;
-    color: var(--accent);
+    color: #8B5A2B;
   }
 
   .hero h1 {
@@ -128,12 +128,12 @@
   }
 
   .nav-card.quiz {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #8B5A2B 0%, #A0522D 40%, #CD853F 100%);
     color: white;
   }
 
   .nav-card.guide {
-    background: linear-gradient(135deg, #f093fb, #f5576c);
+    background: linear-gradient(135deg, #556B2F 0%, #6B8E23 40%, #8FBC8F 100%);
     color: white;
   }
 
@@ -174,12 +174,12 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--text);
-    background: rgba(255, 255, 255, 0.8);
+    color: #5d4e37;
+    background: rgba(255, 255, 255, 0.9);
     padding: 0.75rem 1.25rem;
     border-radius: 50px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(139, 90, 43, 0.15);
+    border: 1px solid rgba(139, 90, 43, 0.1);
     font-weight: 500;
   }
 

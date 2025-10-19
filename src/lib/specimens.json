@@ -1,0 +1,596 @@
+[
+  {
+    "name": "Augite",
+    "category": "Minerals",
+    "type": "pyroxene",
+    "description": "Dark green to black; blocky, stubby crystals; 2 cleavages at ~90°.",
+    "details": [
+      { "label": "Composition", "value": "Ca-Fe-Mg silicate" },
+      { "label": "Formation", "value": "Crystallizes in mafic/intermediate igneous rocks" },
+      { "label": "Occurs in", "value": "Basalt, Gabbro, Andesite" }
+    ]
+  },
+  {
+    "name": "Biotite",
+    "category": "Minerals",
+    "type": "mica",
+    "description": "Black/brown; splits into flexible sheets; glassy luster.",
+    "details": [
+      { "label": "Composition", "value": "K-Fe-Mg mica" },
+      { "label": "Formation", "value": "Intermediate–felsic magmas or metamorphism" },
+      { "label": "Occurs in", "value": "Granite, Schist, Gneiss" }
+    ]
+  },
+  {
+    "name": "Calcite",
+    "category": "Minerals",
+    "type": "",
+    "description": "Colorless to white; rhombohedral cleavage; reacts with acid.",
+    "details": [
+      { "label": "Composition", "value": "CaCO₃ (calcium carbonate)" },
+      { "label": "Formation", "value": "Precipitates from water or biological processes" },
+      { "label": "Occurs in", "value": "Limestone, Marble, cave formations" }
+    ]
+  },
+  {
+    "name": "Chalcopyrite",
+    "category": "Minerals",
+    "type": "",
+    "description": "Brassy yellow; softer than pyrite; greenish-black streak.",
+    "details": [
+      { "label": "Composition", "value": "CuFeS₂ (copper iron sulfide)" },
+      { "label": "Formation", "value": "Hydrothermal veins and contact metamorphism" },
+      { "label": "Occurs in", "value": "Copper ore deposits, sulfide veins" }
+    ]
+  },
+  {
+    "name": "Fluorite",
+    "category": "Minerals",
+    "type": "",
+    "description": "Cubic crystals; 4 perfect cleavages; variety of colors.",
+    "details": [
+      { "label": "Composition", "value": "CaF₂ (calcium fluoride)" },
+      { "label": "Formation", "value": "Hydrothermal veins and cavities" },
+      { "label": "Occurs in", "value": "Granite pegmatites, limestone cavities" }
+    ]
+  },
+  {
+    "name": "Galena",
+    "category": "Minerals", 
+    "type": "",
+    "description": "Lead-gray metallic; perfect cubic cleavage; very dense.",
+    "details": [
+      { "label": "Composition", "value": "PbS (lead sulfide)" },
+      { "label": "Formation", "value": "Hydrothermal veins" },
+      { "label": "Occurs in", "value": "Lead ore deposits, sulfide veins" }
+    ]
+  },
+  {
+    "name": "Garnet",
+    "category": "Minerals",
+    "type": "",
+    "description": "Red to brown; dodecahedral crystals; no cleavage; high hardness.",
+    "details": [
+      { "label": "Composition", "value": "Variable silicate (Fe, Mg, Ca, Al)" },
+      { "label": "Formation", "value": "High-grade metamorphism" },
+      { "label": "Occurs in", "value": "Schist, Gneiss, contact metamorphic rocks" }
+    ]
+  },
+  {
+    "name": "Goethite",
+    "category": "Minerals",
+    "type": "",
+    "description": "Brown to yellow-brown; earthy to metallic; brown streak.",
+    "details": [
+      { "label": "Composition", "value": "FeO(OH) (iron oxyhydroxide)" },
+      { "label": "Formation", "value": "Weathering of iron minerals" },
+      { "label": "Occurs in", "value": "Iron ore deposits, weathered zones" }
+    ]
+  },
+  {
+    "name": "Graphite",
+    "category": "Minerals",
+    "type": "",
+    "description": "Steel-gray to black; marks paper; greasy feel; very soft.",
+    "details": [
+      { "label": "Composition", "value": "C (carbon)" },
+      { "label": "Formation", "value": "High-grade metamorphism of organic matter" },
+      { "label": "Occurs in", "value": "Metamorphic rocks, especially marble" }
+    ]
+  },
+  {
+    "name": "Gypsum",
+    "category": "Minerals",
+    "type": "",
+    "description": "Very soft (H=2); colorless to white; one perfect cleavage.",
+    "details": [
+      { "label": "Composition", "value": "CaSO₄·2H₂O (hydrated calcium sulfate)" },
+      { "label": "Formation", "value": "Evaporation of saline water" },
+      { "label": "Occurs in", "value": "Evaporite deposits, caves" }
+    ]
+  },
+  {
+    "name": "Halite",
+    "category": "Minerals",
+    "type": "",
+    "description": "Salty taste; perfect cubic cleavage; dissolves readily.",
+    "details": [
+      { "label": "Composition", "value": "NaCl (sodium chloride)" },
+      { "label": "Formation", "value": "Evaporation of seawater" },
+      { "label": "Occurs in", "value": "Evaporite deposits, salt domes" }
+    ]
+  },
+  {
+    "name": "Hematite",
+    "category": "Minerals",
+    "type": "",
+    "description": "Steel-gray to red-brown; red streak; weakly magnetic when heated.",
+    "details": [
+      { "label": "Composition", "value": "Fe₂O₃ (iron oxide)" },
+      { "label": "Formation", "value": "Oxidation of iron minerals" },
+      { "label": "Occurs in", "value": "Iron ore deposits, sedimentary rocks" }
+    ]
+  },
+  {
+    "name": "Hornblende",
+    "category": "Minerals",
+    "type": "amphibole",
+    "description": "Black to dark green; elongate prismatic crystals; 2 cleavages at 56°/124°.",
+    "details": [
+      { "label": "Composition", "value": "Complex Ca-Mg-Fe-Al silicate" },
+      { "label": "Formation", "value": "Intermediate igneous rocks and metamorphism" },
+      { "label": "Occurs in", "value": "Diorite, Amphibolite, Gneiss" }
+    ]
+  },
+  {
+    "name": "Kaolinite",
+    "category": "Minerals",
+    "type": "clay",
+    "description": "Earthy, massive; very fine-grained; sticks to tongue slightly.",
+    "details": [
+      { "label": "Composition", "value": "Al₂Si₂O₅(OH)₄ (aluminum silicate hydroxide)" },
+      { "label": "Formation", "value": "Weathering of feldspar" },
+      { "label": "Occurs in", "value": "Soils, sedimentary rocks" }
+    ]
+  },
+  {
+    "name": "Magnetite",
+    "category": "Minerals",
+    "type": "",
+    "description": "Black; strongly magnetic; black streak; metallic luster.",
+    "details": [
+      { "label": "Composition", "value": "Fe₃O₄ (iron oxide)" },
+      { "label": "Formation", "value": "Crystallizes from mafic magmas" },
+      { "label": "Occurs in", "value": "Igneous rocks, metamorphic rocks, black sands" }
+    ]
+  },
+  {
+    "name": "Muscovite",
+    "category": "Minerals",
+    "type": "mica",
+    "description": "Colorless to silvery; elastic thin flakes; perfect cleavage.",
+    "details": [
+      { "label": "Composition", "value": "KAl₂(Si₃Al)O₁₀(OH)₂ (potassium aluminum silicate)" },
+      { "label": "Formation", "value": "Felsic igneous rocks and metamorphism" },
+      { "label": "Occurs in", "value": "Granite, Schist, Phyllite" }
+    ]
+  },
+  {
+    "name": "Olivine",
+    "category": "Minerals",
+    "type": "",
+    "description": "Olive-green; granular sugary aggregates; no cleavage.",
+    "details": [
+      { "label": "Composition", "value": "(Mg,Fe)₂SiO₄ (magnesium iron silicate)" },
+      { "label": "Formation", "value": "Early crystallization from mafic/ultramafic magmas" },
+      { "label": "Occurs in", "value": "Basalt, Gabbro, Peridotite" }
+    ]
+  },
+  {
+    "name": "Orthoclase Feldspar",
+    "category": "Minerals",
+    "type": "K-feldspar",
+    "description": "Pink to white; blocky cleavage fragments; 2 cleavages at ~90°.",
+    "details": [
+      { "label": "Composition", "value": "KAlSi₃O₈ (potassium aluminum silicate)" },
+      { "label": "Formation", "value": "Crystallizes from felsic magmas" },
+      { "label": "Occurs in", "value": "Granite, Rhyolite, Arkose" }
+    ]
+  },
+  {
+    "name": "Plagioclase Feldspar",
+    "category": "Minerals",
+    "type": "Na-Ca feldspar",
+    "description": "White to gray; distinctive striations on cleavage faces.",
+    "details": [
+      { "label": "Composition", "value": "(Na,Ca)(Al,Si)₄O₈ (sodium calcium aluminum silicate)" },
+      { "label": "Formation", "value": "Crystallizes from diverse magma compositions" },
+      { "label": "Occurs in", "value": "Most igneous rocks, Anorthosite" }
+    ]
+  },
+  {
+    "name": "Quartz",
+    "category": "Minerals",
+    "type": "",
+    "description": "No cleavage; conchoidal fracture; hardness 7; vitreous luster.",
+    "details": [
+      { "label": "Composition", "value": "SiO₂ (silicon dioxide)" },
+      { "label": "Formation", "value": "Late crystallization from felsic magmas or precipitation" },
+      { "label": "Occurs in", "value": "Granite, Rhyolite, Sandstone, veins" }
+    ]
+  },
+  {
+    "name": "Sulfur",
+    "category": "Minerals",
+    "type": "",
+    "description": "Bright yellow; very low density; burns with blue flame.",
+    "details": [
+      { "label": "Composition", "value": "S (sulfur)" },
+      { "label": "Formation", "value": "Volcanic sublimation or bacterial reduction" },
+      { "label": "Occurs in", "value": "Volcanic areas, hot springs" }
+    ]
+  },
+  {
+    "name": "Talc",
+    "category": "Minerals",
+    "type": "",
+    "description": "Softest mineral (H=1); soapy feel; pearly to greasy luster.",
+    "details": [
+      { "label": "Composition", "value": "Mg₃Si₄O₁₀(OH)₂ (magnesium silicate hydroxide)" },
+      { "label": "Formation", "value": "Metamorphism of magnesium-rich rocks" },
+      { "label": "Occurs in", "value": "Ultramafic rocks, soapstone" }
+    ]
+  },
+  {
+    "name": "Mica",
+    "category": "Minerals",
+    "type": "sheet silicate",
+    "description": "Perfect cleavage in sheets; flexible; pearly to vitreous luster.",
+    "details": [
+      { "label": "Composition", "value": "Variable (muscovite/biotite group)" },
+      { "label": "Formation", "value": "Igneous crystallization and metamorphism" },
+      { "label": "Occurs in", "value": "Granite, Schist, Gneiss" }
+    ]
+  },
+  {
+    "name": "Andesite",
+    "category": "Igneous Rocks",
+    "type": "extrusive (intermediate)",
+    "description": "Fine overall; few visible quartz; often small white/gray phenocrysts.",
+    "details": [
+      { "label": "Texture", "value": "Aphanitic to porphyritic" },
+      { "label": "Formation", "value": "Volcanic eruptions at convergent margins" },
+      { "label": "Environment", "value": "Stratovolcanoes, island arcs" }
+    ]
+  },
+  {
+    "name": "Basalt",
+    "category": "Igneous Rocks",
+    "type": "extrusive (mafic)",
+    "description": "Very fine; heavy; may show vesicles; weakly magnetic.",
+    "details": [
+      { "label": "Texture", "value": "Aphanitic; may be vesicular" },
+      { "label": "Formation", "value": "Volcanic eruptions of mafic magma" },
+      { "label": "Environment", "value": "Ocean floors, continental flood basalts" }
+    ]
+  },
+  {
+    "name": "Breccia",
+    "category": "Sedimentary Rocks",
+    "type": "clastic",
+    "description": "Angular clasts; otherwise like conglomerate.",
+    "details": [
+      { "label": "Texture", "value": "Angular clasts >2 mm" },
+      { "label": "Formation", "value": "Rapid erosion and deposition" },
+      { "label": "Environment", "value": "Fault zones, landslides, volcanic areas" }
+    ]
+  },
+  {
+    "name": "Chert",
+    "category": "Sedimentary Rocks",
+    "type": "chemical/biochemical (silica)",
+    "description": "Conchoidal fracture; very hard; waxy/dull luster.",
+    "details": [
+      { "label": "Texture", "value": "Microcrystalline quartz" },
+      { "label": "Formation", "value": "Precipitation of silica or replacement" },
+      { "label": "Environment", "value": "Marine environments, limestone replacement" }
+    ]
+  },
+  {
+    "name": "Coal",
+    "category": "Sedimentary Rocks",
+    "type": "biochemical (plant carbon)",
+    "description": "Lightweight; sooty streak; shiny to dull; burns.",
+    "details": [
+      { "label": "Texture", "value": "Massive; brittle" },
+      { "label": "Formation", "value": "Burial and compression of plant matter" },
+      { "label": "Environment", "value": "Swamps, marshes (ancient)" }
+    ]
+  },
+  {
+    "name": "Conglomerate",
+    "category": "Sedimentary Rocks",
+    "type": "clastic",
+    "description": "Rounded clasts >2 mm; clast-supported or matrix-supported.",
+    "details": [
+      { "label": "Texture", "value": "Rounded pebbles/cobbles in matrix" },
+      { "label": "Formation", "value": "High-energy transport and deposition" },
+      { "label": "Environment", "value": "River channels, beaches, alluvial fans" }
+    ]
+  },
+  {
+    "name": "Diorite",
+    "category": "Igneous Rocks",
+    "type": "intrusive (intermediate)",
+    "description": "Coarse-grained; lacks pink K-feldspar; intermediate color.",
+    "details": [
+      { "label": "Texture", "value": "Phaneritic; interlocking crystals" },
+      { "label": "Formation", "value": "Slow cooling of intermediate magma" },
+      { "label": "Environment", "value": "Continental margins, batholiths" }
+    ]
+  },
+  {
+    "name": "Dolostone",
+    "category": "Sedimentary Rocks",
+    "type": "chemical (dolomite replacement)",
+    "description": "Weak/slow reaction with cold acid; typically more porous than limestone.",
+    "details": [
+      { "label": "Texture", "value": "Fine to crystalline; often sugary" },
+      { "label": "Formation", "value": "Replacement of limestone by Mg-rich fluids" },
+      { "label": "Environment", "value": "Marine evaporative conditions" }
+    ]
+  },
+  {
+    "name": "Gabbro",
+    "category": "Igneous Rocks",
+    "type": "intrusive (mafic)",
+    "description": "Coarse 'salt-and-pepper'; no visible quartz; heavy.",
+    "details": [
+      { "label": "Texture", "value": "Phaneritic; interlocking plagioclase + pyroxene" },
+      { "label": "Formation", "value": "Slow cooling of mafic magma" },
+      { "label": "Environment", "value": "Ocean floor, large intrusions" }
+    ]
+  },
+  {
+    "name": "Gneiss",
+    "category": "Metamorphic Rocks",
+    "type": "foliated (high-grade)",
+    "description": "Distinct compositional bands; feldspar + quartz common.",
+    "details": [
+      { "label": "Texture", "value": "Coarse; banded (light/dark layers)" },
+      { "label": "Formation", "value": "High-grade metamorphism" },
+      { "label": "Environment", "value": "Deep crustal levels, mountain cores" }
+    ]
+  },
+  {
+    "name": "Granite",
+    "category": "Igneous Rocks", 
+    "type": "intrusive (felsic)",
+    "description": "Visible quartz (glassy, gray) and K-feldspar (often pink).",
+    "details": [
+      { "label": "Texture", "value": "Phaneritic; quartz + K-feldspar + plagioclase" },
+      { "label": "Formation", "value": "Slow cooling of felsic magma" },
+      { "label": "Environment", "value": "Continental crust, batholiths" }
+    ]
+  },
+  {
+    "name": "Hornfels",
+    "category": "Metamorphic Rocks",
+    "type": "nonfoliated (contact)",
+    "description": "Hard, dense 'ringing' stone; no foliation; baked appearance.",
+    "details": [
+      { "label": "Texture", "value": "Very fine, tough, splintery" },
+      { "label": "Formation", "value": "Contact metamorphism near intrusions" },
+      { "label": "Environment", "value": "Aureoles around igneous intrusions" }
+    ]
+  },
+  {
+    "name": "Limestone",
+    "category": "Sedimentary Rocks",
+    "type": "chemical/biochemical (calcite)",
+    "description": "Reacts vigorously with dilute HCl; fossils common.",
+    "details": [
+      { "label": "Texture", "value": "Micritic to fossiliferous" },
+      { "label": "Formation", "value": "Precipitation of calcite or accumulation of shells" },
+      { "label": "Environment", "value": "Shallow marine, reefs" }
+    ]
+  },
+  {
+    "name": "Marble",
+    "category": "Metamorphic Rocks",
+    "type": "nonfoliated (recrystallized limestone)",
+    "description": "Reacts with acid; crystals interlock; softer than quartzite.",
+    "details": [
+      { "label": "Texture", "value": "Medium- to coarse 'sugary' calcite/dolomite" },
+      { "label": "Formation", "value": "Metamorphism of limestone or dolostone" },
+      { "label": "Environment", "value": "Contact and regional metamorphism" }
+    ]
+  },
+  {
+    "name": "Migmatite",
+    "category": "Metamorphic Rocks",
+    "type": "partially melted gneiss",
+    "description": "Irregular folded/swirled light bands cutting gneissic fabric.",
+    "details": [
+      { "label": "Texture", "value": "Mixed: dark melanosomes + light leucosomes" },
+      { "label": "Formation", "value": "Partial melting during extreme metamorphism" },
+      { "label": "Environment", "value": "Deep crustal levels, high-grade terranes" }
+    ]
+  },
+  {
+    "name": "Mudstone",
+    "category": "Sedimentary Rocks",
+    "type": "clastic (mud)",
+    "description": "Does NOT split into thin sheets; smooth feel.",
+    "details": [
+      { "label": "Texture", "value": "Very fine; massive; blocky breaks" },
+      { "label": "Formation", "value": "Deposition of mud in quiet water" },
+      { "label": "Environment", "value": "Lakes, lagoons, deep marine" }
+    ]
+  },
+  {
+    "name": "Obsidian",
+    "category": "Igneous Rocks",
+    "type": "extrusive (felsic glass)",
+    "description": "Very sharp conchoidal fractures; vitreous luster; dense but not crystalline.",
+    "details": [
+      { "label": "Texture", "value": "Glassy; no visible crystals" },
+      { "label": "Formation", "value": "Rapid cooling of felsic lava" },
+      { "label": "Environment", "value": "Volcanic domes, lava flows" }
+    ]
+  },
+  {
+    "name": "Peridotite",
+    "category": "Igneous Rocks",
+    "type": "intrusive (ultramafic)",
+    "description": "Very Mg/Fe-rich; heavy; abundant olivine grains.",
+    "details": [
+      { "label": "Texture", "value": "Coarse-grained; olivine-dominant" },
+      { "label": "Formation", "value": "Crystallization of ultramafic magma" },
+      { "label": "Environment", "value": "Upper mantle, ophiolites" }
+    ]
+  },
+  {
+    "name": "Phyllite",
+    "category": "Metamorphic Rocks",
+    "type": "foliated (between slate and schist)",
+    "description": "Satiny luster; minute mica give a sheen; faint wrinkling.",
+    "details": [
+      { "label": "Texture", "value": "Fine; wavy foliation with silky sheen" },
+      { "label": "Formation", "value": "Low- to medium-grade metamorphism of shale" },
+      { "label": "Environment", "value": "Regional metamorphism, fold belts" }
+    ]
+  },
+  {
+    "name": "Pumice",
+    "category": "Igneous Rocks",
+    "type": "extrusive (felsic, vesicular)",
+    "description": "So light it may float; rough frothy feel; felsic.",
+    "details": [
+      { "label": "Texture", "value": "Highly vesicular frothy glass" },
+      { "label": "Formation", "value": "Gas-rich explosive volcanic eruptions" },
+      { "label": "Environment", "value": "Explosive volcanism, pyroclastic flows" }
+    ]
+  },
+  {
+    "name": "Quartzite",
+    "category": "Metamorphic Rocks",
+    "type": "nonfoliated (metamorphosed sandstone)",
+    "description": "Scratches glass easily; breaks THROUGH grains; no acid reaction.",
+    "details": [
+      { "label": "Texture", "value": "Granoblastic; interlocking quartz" },
+      { "label": "Formation", "value": "Metamorphism of quartz-rich sandstone" },
+      { "label": "Environment", "value": "Regional and contact metamorphism" }
+    ]
+  },
+  {
+    "name": "Quartz sandstone",
+    "category": "Sedimentary Rocks",
+    "type": "clastic (mature)",
+    "description": "Gritty; mostly quartz; resistant; may show cross-bedding.",
+    "details": [
+      { "label": "Texture", "value": "Well-sorted, well-rounded quartz sand" },
+      { "label": "Formation", "value": "Weathering and transport of quartz-rich rocks" },
+      { "label": "Environment", "value": "Beaches, deserts, mature river systems" }
+    ]
+  },
+  {
+    "name": "Rhyolite",
+    "category": "Igneous Rocks",
+    "type": "extrusive (felsic)",
+    "description": "Light-colored volcanic rock; quartz not visible but felsic look.",
+    "details": [
+      { "label": "Texture", "value": "Aphanitic to porphyritic; may be flow-banded" },
+      { "label": "Formation", "value": "Explosive eruption of felsic magma" },
+      { "label": "Environment", "value": "Continental volcanism, calderas" }
+    ]
+  },
+  {
+    "name": "Sandstone",
+    "category": "Sedimentary Rocks",
+    "type": "clastic (sand)",
+    "description": "Gritty feel; individual grains visible; often quartz-rich.",
+    "details": [
+      { "label": "Texture", "value": "Sand-sized grains; may show bedding" },
+      { "label": "Formation", "value": "Cementation of sand-sized particles" },
+      { "label": "Environment", "value": "Beaches, rivers, deserts, shallow marine" }
+    ]
+  },
+  {
+    "name": "Scoria",
+    "category": "Igneous Rocks",
+    "type": "extrusive (mafic, vesicular)",
+    "description": "Mafic color; sinks in water; vesicles commonly larger than pumice.",
+    "details": [
+      { "label": "Texture", "value": "Vesicular with thin, sharp walls" },
+      { "label": "Formation", "value": "Gas-rich basaltic eruptions" },
+      { "label": "Environment", "value": "Cinder cones, strombolian eruptions" }
+    ]
+  },
+  {
+    "name": "Shale",
+    "category": "Sedimentary Rocks",
+    "type": "clastic (mud)",
+    "description": "Breaks into paper-thin layers; smooth feel.",
+    "details": [
+      { "label": "Texture", "value": "Very fine; fissile (splits into sheets)" },
+      { "label": "Formation", "value": "Compaction of mud in quiet water" },
+      { "label": "Environment", "value": "Deep marine, lakes, river floodplains" }
+    ]
+  },
+  {
+    "name": "Siltstone",
+    "category": "Sedimentary Rocks",
+    "type": "clastic (silt)",
+    "description": "Grittier than shale/mudstone; lacks sand-size sparkle.",
+    "details": [
+      { "label": "Texture", "value": "Fine; slightly gritty" },
+      { "label": "Formation", "value": "Deposition of silt-sized particles" },
+      { "label": "Environment", "value": "River deltas, offshore marine" }
+    ]
+  },
+  {
+    "name": "Slate",
+    "category": "Metamorphic Rocks",
+    "type": "foliated (low-grade from shale)",
+    "description": "Splits into flat durable sheets; dull luster; 'ping' when tapped.",
+    "details": [
+      { "label": "Texture", "value": "Very fine; planar slaty cleavage" },
+      { "label": "Formation", "value": "Low-grade metamorphism of shale" },
+      { "label": "Environment", "value": "Regional metamorphism, fold belts" }
+    ]
+  },
+  {
+    "name": "Travertine",
+    "category": "Sedimentary Rocks",
+    "type": "chemical limestone",
+    "description": "Calcite; strong acid reaction; visible pores/laminae.",
+    "details": [
+      { "label": "Texture", "value": "Banded, porous; fibrous layers" },
+      { "label": "Formation", "value": "Precipitation from hot springs" },
+      { "label": "Environment", "value": "Hot springs, cave deposits" }
+    ]
+  },
+  {
+    "name": "Tuff",
+    "category": "Igneous Rocks",
+    "type": "pyroclastic (volcanic ash)",
+    "description": "Lightweight; may show shards/pumice; soft.",
+    "details": [
+      { "label": "Texture", "value": "Fragmental; ash matrix with fragments" },
+      { "label": "Formation", "value": "Consolidation of volcanic ash" },
+      { "label": "Environment", "value": "Explosive volcanism, ash falls" }
+    ]
+  },
+  {
+    "name": "Volcanic Breccia",
+    "category": "Igneous Rocks",
+    "type": "pyroclastic (explosive)",
+    "description": "Chaotic angular fragments of volcanic origin; matrix-supported or clast-supported.",
+    "details": [
+      { "label": "Texture", "value": "Angular volcanic clasts >2 mm" },
+      { "label": "Formation", "value": "Explosive volcanic eruptions" },
+      { "label": "Environment", "value": "Near volcanic vents, pyroclastic flows" }
+    ]
+  }
+]
