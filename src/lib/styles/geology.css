@@ -96,8 +96,8 @@ body.modal-open .wrap {
 
 
 .card {
-    width: 900px;
-    height: 620px;
+    width: 800px;
+    height: 550px;
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(0,0,0,.12);
@@ -118,15 +118,15 @@ body.modal-open .wrap {
 }
 
 .rock-frame img {
-    width: min(900px, 100%);
-    aspect-ratio: 900 / 620;
+    width: min(800px, 100%);
+    aspect-ratio: 800 / 550;
     object-fit: contain;     /* always letterboxes, never crops */
     object-position: center;
     display: block;
 }
 
 .credit {
-    width: 900px;
+    width: 800px;
     max-width: 100%;
     margin: 8px auto 0;
     text-align: center;
@@ -261,8 +261,8 @@ body.modal-open .wrap {
 /* ----------- RESPONSIVE LAYOUT ------------ */
 @media (max-width: 960px) {
     .card {
-        width: min(900px, 100%);
-        aspect-ratio: 900 / 620; /* shrinks proportionally on narrow screens */
+        width: min(800px, 100%);
+        aspect-ratio: 800 / 550; /* shrinks proportionally on narrow screens */
         height: auto;
     }
 }

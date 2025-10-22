@@ -10,6 +10,10 @@
   import { bookmarks } from '$lib/stores/bookmarks.js';
   import rockMetadata from '$lib/rock_metadata.json';
   
+  // Component references
+  let svelecteRef;
+  let filterSectionRef;
+  
   // Data state
   let manifest = {};
   let classes = [];
@@ -58,6 +62,23 @@
     ready = true;
     buildPracticeDeck();
     nextImage();
+    
+    // Add click-outside handler for Svelecte
+    const handleClickOutside = (event) => {
+      if (filterSectionRef && !filterSectionRef.contains(event.target)) {
+        // Check if Svelecte is open and close it
+        if (svelecteRef && svelecteRef.getSelection && svelecteRef.close) {
+          svelecteRef.close();
+        }
+      }
+    };
+    
+    document.addEventListener('click', handleClickOutside);
+    
+    // Cleanup function
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
   });
   
   function onSelectionChange() {
@@ -296,13 +317,14 @@
 <!--    <button class="btn right" on:click={reshuffleDeck}>Shuffle Deck</button>-->
   </div>
   
-  {#if current}
-    <button
-      class="card"
-      on:click={reveal}
-      aria-label="Show the rock type for this image"
-      title="Click to reveal"
-    >
+  <div class="card-wrapper">
+    {#if current}
+      <button
+        class="card"
+        on:click={reveal}
+        aria-label="Show the rock type for this image"
+        title="Click to reveal"
+      >
       <div class="card-header">
         <BookmarkButton 
           rockId={current.label}
@@ -316,7 +338,8 @@
       </div>
     </button>
   {/if}
-  
+  </div>
+
     <div class="credit">
       Image may be subject to copyright. Source:
       {#if creditURL}
@@ -326,10 +349,12 @@
       {/if}
     </div>
   
-  <div class="filter-section">
-    <span class="filter-label">Filter rocks:</span>
-    <div class="filter-select">
-      <Svelecte
+  <div class="card-container">
+    <div class="filter-section" bind:this={filterSectionRef}>
+      <span class="filter-label">Filter rocks:</span>
+      <div class="filter-select">
+        <Svelecte
+        bind:this={svelecteRef}
         multiple 
         options={organizedOptions}        
         closeOnSelect={false} 
@@ -345,6 +370,7 @@
       />
     </div>
   </div>
+</div>
 
 </div>
 
@@ -402,6 +428,18 @@
     transform: translateY(0);
   }
 
+  .card-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+  }
+
+  .card-container {
+    width: 800px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
   .filter-section {
     display: flex;
     align-items: center;
@@ -446,6 +484,10 @@
   }
   
   @media (max-width: 640px) {
+    .card-container {
+      width: 100%;
+    }
+    
     .filter-section {
       flex-direction: column;
       align-items: stretch;
