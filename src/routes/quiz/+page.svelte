@@ -6,6 +6,8 @@
   import RockInfo from '$lib/RockInfo.svelte';
   import RockModel from '$lib/RockModel.svelte';
   import Navigation from '$lib/Navigation.svelte';
+  import BookmarkButton from '$lib/BookmarkButton.svelte';
+  import { bookmarks } from '$lib/stores/bookmarks.js';
   import rock_defs from '$lib/rock_defs.json';
   
   // Data state
@@ -49,6 +51,9 @@
     } catch (e) {
       console.warn("credits.json not found or invalid:", e);
     }
+    
+    // Load bookmarks
+    bookmarks.load();
     
     ready = true;
     buildPracticeDeck();
@@ -298,6 +303,14 @@
       aria-label="Show the rock type for this image"
       title="Click to reveal"
     >
+      <div class="card-header">
+        <BookmarkButton 
+          rockId={current.label}
+          isBookmarked={bookmarks.isBookmarked(current.label, $bookmarks)}
+          onToggle={bookmarks.toggle}
+          className="card-bookmark"
+        />
+      </div>
       <div class="rock-frame">
         <img src={current.url} alt="Rock sample" loading="eager" />
       </div>
@@ -411,6 +424,25 @@
     opacity: 0.5;
     cursor: not-allowed;
     color: gray;
+  }
+  
+  .card-header {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 10;
+  }
+  
+  :global(.card-bookmark) {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  :global(.card-bookmark:hover) {
+    background: rgba(255, 255, 255, 0.95);
   }
   
   @media (max-width: 640px) {

@@ -1,6 +1,8 @@
 <script>
     import { Box as Cube } from 'lucide-svelte';
     import { createEventDispatcher } from 'svelte';
+    import BookmarkButton from './BookmarkButton.svelte';
+    import { bookmarks } from './stores/bookmarks.js';
     
     export let specimen;
     export let thumbnail = null;
@@ -18,6 +20,15 @@
 </script>
 
 <div class="specimen-card">
+    <div class="card-header">
+        <BookmarkButton 
+            rockId={specimen.name}
+            isBookmarked={bookmarks.isBookmarked(specimen.name, $bookmarks)}
+            onToggle={bookmarks.toggle}
+            className="specimen-bookmark"
+        />
+    </div>
+    
     <h3 class="specimen-name">
         {specimen.name}
         {#if specimen.type}
@@ -71,6 +82,26 @@
         background: white;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
+        position: relative;
+    }
+    
+    .card-header {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        z-index: 10;
+    }
+    
+    :global(.specimen-bookmark) {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(4px);
+        border-radius: 6px;
+        padding: 4px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    :global(.specimen-bookmark:hover) {
+        background: rgba(255, 255, 255, 0.95);
     }
     
     .specimen-card:hover {
@@ -80,7 +111,7 @@
     
     .specimen-name {
         font-size: 1.3rem;
-        margin: 0 0 1rem 0;
+        margin: 0 40px 1rem 0;
         color: #2c3e50;
         display: flex;
         align-items: center;

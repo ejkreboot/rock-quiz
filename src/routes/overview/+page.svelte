@@ -9,6 +9,7 @@
     import ImageCarousel from '$lib/ImageCarousel.svelte';
     import SpecimenCard from '$lib/SpecimenCard.svelte';
     import Navigation from '$lib/Navigation.svelte';
+    import { bookmarks } from '$lib/stores/bookmarks.js';
 
     let modalOpen = false;
     let modalComponent = null;
@@ -62,6 +63,8 @@
 
     onMount(() => {
         document.title = "Geology Field Guide - Minerals & Rocks Reference";
+        // Load bookmarks
+        bookmarks.load();
     });
 
     // Category order for display

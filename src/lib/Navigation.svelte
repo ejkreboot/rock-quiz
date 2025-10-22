@@ -1,8 +1,15 @@
 <script>
     import { page } from '$app/stores';
-    import { Mountain, Brain, BookOpen } from 'lucide-svelte';
+    import { Mountain, Brain, BookOpen, Star } from 'lucide-svelte';
+    import { bookmarks } from './stores/bookmarks.js';
+    import { onMount } from 'svelte';
     
     $: currentPath = $page.url.pathname;
+    
+    // Load bookmarks on mount
+    onMount(() => {
+        bookmarks.load();
+    });
 </script>
 
 <nav class="site-nav">
@@ -38,6 +45,18 @@
                 <BookOpen size={18} />
                 <span>Field Guide</span>
             </a>
+            
+            <a 
+                href="/review" 
+                class="nav-link {currentPath === '/review' ? 'active' : ''}"
+                title="Review Bookmarked Rocks"
+            >
+                <Star size={18} />
+                <span>Review</span>
+                {#if $bookmarks.size > 0}
+                    <span class="bookmark-count">{$bookmarks.size}</span>
+                {/if}
+            </a>
         </div>
     </div>
 </nav>
@@ -50,6 +69,7 @@
         top: 0;
         z-index: 100;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        font-family: 'Quicksand', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
     }
     
     .nav-container {
@@ -63,7 +83,7 @@
     }
     
     .nav-brand {
-        font-size: 1.5rem;
+        font-size: clamp(0.6rem, 2vw, 1.5rem);
         font-weight: 700;
         color: #5d4e37;
         text-decoration: none;
@@ -106,13 +126,29 @@
         font-size: 0.9rem;
     }
     
-    @media (max-width: 768px) {
+    .bookmark-count {
+        background: #ffd700;
+        color: #5d4e37;
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 2px 6px;
+        border-radius: 50%;
+        margin-left: 4px;
+        min-width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+    }
+    
+    @media (max-width: 900px) {
         .nav-container {
             padding: 0 1rem;
         }
         
         .nav-brand {
-            font-size: 1.3rem;
+            font-size: clamp(0.6rem, 2vw, 1.3rem);
         }
         
         .nav-link span {
