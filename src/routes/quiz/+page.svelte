@@ -390,6 +390,11 @@
 </Modal>
 
 <style>
+  :global(body) {
+    background: linear-gradient(135deg, #f5f1eb 0%, #e8ddd4 50%, #d4c4b0 100%);
+    min-height: 100vh;
+  }
+  
   .app-header {
     display: flex;
     justify-content: space-between;
