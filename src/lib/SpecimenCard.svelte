@@ -31,8 +31,8 @@
     
     <h3 class="specimen-name">
         {specimen.name}
-        {#if specimen.type}
-            <span class="specimen-type">({specimen.type})</span>
+        {#if specimen.specimen_type}
+            <span class="specimen-type">({specimen.specimen_type})</span>
         {/if}
         
         {#if thumbnail}

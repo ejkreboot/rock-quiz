@@ -24,30 +24,12 @@ GOOGLE_CSE_CX  = os.getenv("GOOGLE_CSE_CX", "").strip()
 
 # The list from your review sheet (feel free to trim/edit)
 MINERALS = [
- "Augite","Biotite","Calcite","Chalcopyrite","Fluorite","Galena","Garnet","Goethite",
- "Graphite","Gypsum","Halite","Hematite","Hornblende","Kaolinite","Magnetite",
- "Muscovite","Olivine","Plagioclase feldspar","Potassium feldspar","Pyrite","Quartz",
- "Sphalerite","Sulfur","Talc"
+ "Amphibolite", "Chalk", "Coquina", "Limonite", "Micrite Limestone", "Oolitic Limestone", "Oolitic Limestone", "Schist", "Sphalerite"
 ]
-IGNEOUS = [
- "Andesite","Basalt","Diorite","Gabbro","Granite","Obsidian","Peridotite",
- "Pumice","Rhyolite","Scoria","Volcanic breccia"
-]
-SEDIMENTARY = [
- "Arkose sandstone","Breccia","Chert","Coal","Conglomerate","Dolostone",
- "Limestone chalk","Limestone coquina","Limestone fossiliferous","Limestone micritic",
- "Limestone oolitic","Quartz sandstone","Rock gypsum","Rock salt","Shale"
-]
-METAMORPHIC = [
- "Amphibolite","Gneiss","Metaconglomerate","Marble","Phyllite",
- "Quartzite","Schist","Serpentinite","Slate"
-]
+
 
 CATEGORIES = {
     "minerals": MINERALS,
-    "igneous": IGNEOUS,
-    "sedimentary": SEDIMENTARY,
-    "metamorphic": METAMORPHIC,
 }
 
 # ----------------------------

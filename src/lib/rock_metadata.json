@@ -1,0 +1,2055 @@
+{
+  "Andesite": {
+    "name": "Andesite",
+    "category": "Igneous Rocks",
+    "description": "Fine overall; few visible quartz; often small white/gray phenocrysts.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Aphanitic to porphyritic"
+      },
+      {
+        "label": "Formation",
+        "value": "Volcanic eruptions at convergent margins"
+      },
+      {
+        "label": "Environment",
+        "value": "Stratovolcanoes, island arcs"
+      }
+    ],
+    "specimen_type": "extrusive (intermediate)",
+    "rock_type": "igneous",
+    "subtype": "extrusive (intermediate)",
+    "texture": "aphanitic to porphyritic (fine groundmass with feldspar/pyroxene phenocrysts)",
+    "commonColors": "medium gray",
+    "diagnostics": "fine overall; few visible quartz; often small white/gray phenocrysts",
+    "confusedWith": "rhyolite (lighter), basalt (darker), diorite (coarse-grained)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/andesite-1-46b973654ee24beca4eab669b371ec78",
+      "title": "Andesite 1",
+      "author_name": "Sara Carena",
+      "author_url": "https://sketchfab.com/saracarena1",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  },
+  "Augite": {
+    "name": "Augite",
+    "category": "Minerals",
+    "description": "Dark green to black; blocky, stubby crystals; 2 cleavages at ~90\u00b0.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "Ca-Fe-Mg silicate"
+      },
+      {
+        "label": "Formation",
+        "value": "Crystallizes in mafic/intermediate igneous rocks"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Basalt, Gabbro, Andesite"
+      }
+    ],
+    "specimen_type": "pyroxene",
+    "rock_type": "mineral",
+    "subtype": "pyroxene (inosilicate)",
+    "texture": "blocky, short-prismatic crystals; uneven fracture",
+    "commonColors": "dark green to black",
+    "diagnostics": "2 cleavages at ~90\u00b0; dull to vitreous; high specific gravity",
+    "confusedWith": "hornblende (cleavage ~56\u00b0/124\u00b0), amphibole group",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/augite-42dd33f57da84d4aa6039e6627b0b34a",
+      "title": "augite",
+      "author_name": "rockdoc",
+      "author_url": "https://sketchfab.com/rockdoc",
+      "license": "CC BY SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  },
+  "Basalt": {
+    "name": "Basalt",
+    "category": "Igneous Rocks",
+    "description": "Very fine; heavy; may show vesicles; weakly magnetic.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Aphanitic; may be vesicular"
+      },
+      {
+        "label": "Formation",
+        "value": "Volcanic eruptions of mafic magma"
+      },
+      {
+        "label": "Environment",
+        "value": "Ocean floors, continental flood basalts"
+      }
+    ],
+    "specimen_type": "extrusive (mafic)",
+    "rock_type": "igneous",
+    "subtype": "extrusive (mafic)",
+    "texture": "aphanitic; may be vesicular",
+    "commonColors": "dark gray to black",
+    "diagnostics": "very fine; heavy; may show vesicles; magnetite can make it weakly magnetic",
+    "confusedWith": "gabbro (coarse), andesite (lighter), scoria (very vesicular)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/basalt-hand-specimen-de438505683f412b8d7ade24395eee62",
+      "title": "Basalt hand specimen",
+      "author_name": "tomstevenson",
+      "author_url": "https://sketchfab.com/tomstevenson",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Biotite": {
+    "name": "Biotite",
+    "category": "Minerals",
+    "description": "Black/brown; splits into flexible sheets; glassy luster.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "K-Fe-Mg mica"
+      },
+      {
+        "label": "Formation",
+        "value": "Intermediate\u2013felsic magmas or metamorphism"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Granite, Schist, Gneiss"
+      }
+    ],
+    "specimen_type": "mica",
+    "rock_type": "mineral",
+    "subtype": "mica (phyllosilicate)",
+    "texture": "sheety; flexible elastic flakes",
+    "commonColors": "black to dark brown",
+    "diagnostics": "perfect basal cleavage; vitreous to pearly; dark pleochroism",
+    "confusedWith": "muscovite (colorless/silvery), chlorite (greener, lower luster)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/biotite-e5dcb6ae31a344f8b288b4de1789b58b",
+      "title": "biotite",
+      "author_name": "rockdoc",
+      "author_url": "https://sketchfab.com/rockdoc",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Breccia": {
+    "name": "Breccia",
+    "category": "Sedimentary Rocks",
+    "description": "Angular clasts; otherwise like conglomerate.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Angular clasts >2 mm"
+      },
+      {
+        "label": "Formation",
+        "value": "Rapid erosion and deposition"
+      },
+      {
+        "label": "Environment",
+        "value": "Fault zones, landslides, volcanic areas"
+      }
+    ],
+    "specimen_type": "clastic",
+    "rock_type": "sedimentary",
+    "subtype": "clastic",
+    "texture": "angular clasts >2 mm; clast- or matrix-supported",
+    "commonColors": "varies",
+    "diagnostics": "angular clasts; otherwise like conglomerate",
+    "confusedWith": "conglomerate (rounded clasts)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/breccia-447f67bd2dd84bc99850c3e4b1ad58c5https://sketchfab.com/3d-models/breccia-e56d7649ff3841d5828957e7ef2e64db",
+      "title": "Breccia",
+      "author_name": "CQUniversity Australia",
+      "author_url": "https://sketchfab.com/CQUniversity",
+      "license": "Unknown",
+      "license_url": "N/A"
+    }
+  },
+  "Calcite": {
+    "name": "Calcite",
+    "category": "Minerals",
+    "description": "Colorless to white; rhombohedral cleavage; reacts with acid.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "CaCO\u2083 (calcium carbonate)"
+      },
+      {
+        "label": "Formation",
+        "value": "Precipitates from water or biological processes"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Limestone, Marble, cave formations"
+      }
+    ],
+    "rock_type": "mineral",
+    "subtype": "carbonate",
+    "texture": "massive to rhombohedral crystals",
+    "commonColors": "colorless, white, gray; many tints",
+    "diagnostics": "rhombohedral cleavage (3 not at 90\u00b0); strong acid reaction; double refraction in clear pieces",
+    "confusedWith": "dolomite (weaker acid reaction), quartz (harder, no cleavage)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/calcite-f842f5c568af4b808ad309ba3a8db538",
+      "title": "Calcite",
+      "author_name": "EDUROCK \u2013 EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Chalcopyrite": {
+    "name": "Chalcopyrite",
+    "category": "Minerals",
+    "description": "Brassy yellow; softer than pyrite; greenish-black streak.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "CuFeS\u2082 (copper iron sulfide)"
+      },
+      {
+        "label": "Formation",
+        "value": "Hydrothermal veins and contact metamorphism"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Copper ore deposits, sulfide veins"
+      }
+    ],
+    "rock_type": "mineral",
+    "subtype": "sulfide",
+    "texture": "massive to granular; sometimes tetrahedral crystals",
+    "commonColors": "brassy yellow (often iridescent tarnish)",
+    "diagnostics": "softer than pyrite (H~3.5\u20134); greenish-black streak; metallic luster",
+    "confusedWith": "pyrite (harder, paler streak), bornite (peacock colors, darker base)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/mineral-calcite-blue-858c88b7efd449b8b1f01ab6ae411c6e",
+      "title": "Mineral: Calcite (blue)",
+      "author_name": "Digital Atlas of Ancient Life",
+      "author_url": "https://sketchfab.com/DigitalAtlasOfAncientLife",
+      "license": "CC0 Public Domain",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  },
+  "Chert": {
+    "name": "Chert",
+    "category": "Sedimentary Rocks",
+    "description": "Conchoidal fracture; very hard; waxy/dull luster.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Microcrystalline quartz"
+      },
+      {
+        "label": "Formation",
+        "value": "Precipitation of silica or replacement"
+      },
+      {
+        "label": "Environment",
+        "value": "Marine environments, limestone replacement"
+      }
+    ],
+    "specimen_type": "chemical/biochemical (silica)",
+    "rock_type": "sedimentary",
+    "subtype": "chemical/biochemical (silica)",
+    "texture": "microcrystalline quartz; very fine",
+    "commonColors": "white, gray, tan, red, black",
+    "diagnostics": "conchoidal fracture; very hard (scratches glass); waxy/dull luster",
+    "confusedWith": "quartzite (granular), flint (dark chert)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/chert-9959ccd7519a4411a30439d0bfbe6c44",
+      "title": "Chert",
+      "author_name": "GSGEQueens",
+      "author_url": "https://sketchfab.com/GSGEQueens",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Coal": {
+    "name": "Coal",
+    "category": "Sedimentary Rocks",
+    "description": "Lightweight; sooty streak; shiny to dull; burns.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Massive; brittle"
+      },
+      {
+        "label": "Formation",
+        "value": "Burial and compression of plant matter"
+      },
+      {
+        "label": "Environment",
+        "value": "Swamps, marshes (ancient)"
+      }
+    ],
+    "specimen_type": "biochemical (plant carbon)",
+    "rock_type": "sedimentary",
+    "subtype": "biochemical (plant carbon)",
+    "texture": "massive; brittle",
+    "commonColors": "black",
+    "diagnostics": "lightweight; sooty streak; shiny to dull; burns",
+    "confusedWith": "basalt (harder, no sooty streak)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/coal-c8d2447cc0ed4539aa13dc633596f387",
+      "title": "Coal",
+      "author_name": "EDUROCK EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Conglomerate": {
+    "name": "Conglomerate",
+    "category": "Sedimentary Rocks",
+    "description": "Rounded clasts >2 mm; clast-supported or matrix-supported.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Rounded pebbles/cobbles in matrix"
+      },
+      {
+        "label": "Formation",
+        "value": "High-energy transport and deposition"
+      },
+      {
+        "label": "Environment",
+        "value": "River channels, beaches, alluvial fans"
+      }
+    ],
+    "specimen_type": "clastic",
+    "rock_type": "sedimentary",
+    "subtype": "clastic",
+    "texture": "rounded pebbles/cobbles in sand/silt matrix",
+    "commonColors": "varies with clasts; often tan/brown",
+    "diagnostics": "rounded clasts >2 mm; clast-supported or matrix-supported",
+    "confusedWith": "breccia (angular clasts)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/conglomerate-germany-488f0e4b00204547bbab79b9d554bd0b",
+      "title": "Conglomerate",
+      "author_name": "Sara Carena",
+      "author_url": "https://sketchfab.com/saracarena1",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  },
+  "Diorite": {
+    "name": "Diorite",
+    "category": "Igneous Rocks",
+    "description": "Coarse-grained; lacks pink K-feldspar; intermediate color.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Phaneritic; interlocking crystals"
+      },
+      {
+        "label": "Formation",
+        "value": "Slow cooling of intermediate magma"
+      },
+      {
+        "label": "Environment",
+        "value": "Continental margins, batholiths"
+      }
+    ],
+    "specimen_type": "intrusive (intermediate)",
+    "rock_type": "igneous",
+    "subtype": "intrusive (intermediate)",
+    "texture": "phaneritic; interlocking plagioclase + hornblende/biotite; little to no quartz",
+    "commonColors": "salt-and-pepper black and white",
+    "diagnostics": "coarse-grained; lacks pink K-feldspar; intermediate color index",
+    "confusedWith": "granite (more quartz + pink K-feldspar), gabbro (darker mafic), andesite (fine-grained)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/diorite-301bbc33e581435cbb71e09e33df5938",
+      "title": "Diorite",
+      "author_name": "Sara Carena",
+      "author_url": "https://sketchfab.com/saracarena1",
+      "license": "CC Attribution-NonCommercial",
+      "license_url": "http://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  },
+  "Dolostone": {
+    "name": "Dolostone",
+    "category": "Sedimentary Rocks",
+    "description": "Weak/slow reaction with cold acid; typically more porous than limestone.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Fine to crystalline; often sugary"
+      },
+      {
+        "label": "Formation",
+        "value": "Replacement of limestone by Mg-rich fluids"
+      },
+      {
+        "label": "Environment",
+        "value": "Marine evaporative conditions"
+      }
+    ],
+    "specimen_type": "chemical (dolomite replacement)",
+    "rock_type": "sedimentary",
+    "subtype": "chemical (dolomite replacement)",
+    "texture": "fine to crystalline; often tan and sugary",
+    "commonColors": "tan, gray, brown, pinkish",
+    "diagnostics": "weak/slow reaction with cold acid (powder effervesces); typically more porous than limestone",
+    "confusedWith": "limestone (vigorous acid reaction), marble (coarser interlocking crystals)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/dolostone-spain-74731d8dd78d49769fa4183802c42e79",
+      "title": "Dolostone, Spain",
+      "author_name": "Sara Carena",
+      "author_url": "https://sketchfab.com/saracarena1",
+      "license": "CC Attribution-NonCommercial",
+      "license_url": "http://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  },
+  "Orthoclase Feldspar": {
+    "name": "Orthoclase Feldspar",
+    "category": "Minerals",
+    "description": "Pink to white; blocky cleavage fragments; 2 cleavages at ~90\u00b0.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "KAlSi\u2083O\u2088 (potassium aluminum silicate)"
+      },
+      {
+        "label": "Formation",
+        "value": "Crystallizes from felsic magmas"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Granite, Rhyolite, Arkose"
+      }
+    ],
+    "specimen_type": "K-feldspar",
+    "rock_type": "mineral",
+    "subtype": "K-feldspar (tectosilicate)",
+    "texture": "blocky cleavage fragments; Carlsbad twins common",
+    "commonColors": "pink, salmon, white, cream",
+    "diagnostics": "2 cleavages at ~90\u00b0; hardness ~6; perthitic exsolution lamellae",
+    "confusedWith": "plagioclase (striations), microcline (grid twinning; greener tint)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/orthoclase-feldspar-a8ab6e5cc9cd4378aaef339e4e5684a6",
+      "title": "Orthoclase Feldspar",
+      "author_name": "Digital Atlas of Ancient Life",
+      "author_url": "https://sketchfab.com/DigitalAtlasOfAncientLife",
+      "license": "CC0 Public Domain",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  },
+  "Plagioclase Feldspar": {
+    "name": "Plagioclase Feldspar",
+    "category": "Minerals",
+    "description": "White to gray; distinctive striations on cleavage faces.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "(Na,Ca)(Al,Si)\u2084O\u2088 (sodium calcium aluminum silicate)"
+      },
+      {
+        "label": "Formation",
+        "value": "Crystallizes from diverse magma compositions"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Most igneous rocks, Anorthosite"
+      }
+    ],
+    "specimen_type": "Na-Ca feldspar",
+    "rock_type": "mineral",
+    "subtype": "Na-Ca feldspar series (albite\u2013anorthite)",
+    "texture": "blocky cleavage fragments with striations",
+    "commonColors": "white to gray; sometimes bluish (labradorite iridescence)",
+    "diagnostics": "2 cleavages ~90\u00b0; distinctive fine striations on cleavage faces",
+    "confusedWith": "orthoclase (no striations), quartz (no cleavage)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/plagioclase-feldspar-w-polysynthetic-twinning-3defaf46e71d4a7ca7cef2bd37a104ec",
+      "title": "Plagioclase Feldspar w/ Polysynthetic Twinning",
+      "author_name": "nate_siddle",
+      "author_url": "https://sketchfab.com/nate_sid",
+      "license": "CC Attribution-NonCommercial",
+      "license_url": "http://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  },
+  "Fluorite": {
+    "name": "Fluorite",
+    "category": "Minerals",
+    "description": "Cubic crystals; 4 perfect cleavages; variety of colors.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "CaF\u2082 (calcium fluoride)"
+      },
+      {
+        "label": "Formation",
+        "value": "Hydrothermal veins and cavities"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Granite pegmatites, limestone cavities"
+      }
+    ],
+    "rock_type": "mineral",
+    "subtype": "halide",
+    "texture": "cubic crystals common; also massive",
+    "commonColors": "purple, green, blue, yellow, colorless",
+    "diagnostics": "4 perfect cleavages (octahedral); hardness 4; vitreous",
+    "confusedWith": "quartz (harder), calcite (different cleavage & acid reaction)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/mineral-fluorite-5ed87d4487be495aac0a86632eb3880c",
+      "title": "Mineral: Fluorite",
+      "author_name": "Digital Atlas of Ancient Life",
+      "author_url": "https://sketchfab.com/DigitalAtlasOfAncientLife",
+      "license": "CC0 Public Domain",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  },
+  "Gabbro": {
+    "name": "Gabbro",
+    "category": "Igneous Rocks",
+    "description": "Coarse 'salt-and-pepper'; no visible quartz; heavy.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Phaneritic; interlocking plagioclase + pyroxene"
+      },
+      {
+        "label": "Formation",
+        "value": "Slow cooling of mafic magma"
+      },
+      {
+        "label": "Environment",
+        "value": "Ocean floor, large intrusions"
+      }
+    ],
+    "specimen_type": "intrusive (mafic)",
+    "rock_type": "igneous",
+    "subtype": "intrusive (mafic)",
+    "texture": "phaneritic (coarse); interlocking plagioclase + pyroxene",
+    "commonColors": "dark gray to black with light flecks",
+    "diagnostics": "coarse 'salt-and-pepper'; no visible quartz; heavy",
+    "confusedWith": "diorite (lighter), basalt (fine)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/hornblende-gabbro-28-escondido-ca-8-9-2019-505e009a27db4fcf82b6cfa264892647",
+      "title": "Hornblende gabbro #28, Escondido CA, 8-9-2019",
+      "author_name": "rocksandminerals",
+      "author_url": "https://sketchfab.com/rocksandminerals",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Galena": {
+    "name": "Galena",
+    "category": "Minerals",
+    "description": "Lead-gray metallic; perfect cubic cleavage; very dense.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "PbS (lead sulfide)"
+      },
+      {
+        "label": "Formation",
+        "value": "Hydrothermal veins"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Lead ore deposits, sulfide veins"
+      }
+    ],
+    "rock_type": "mineral",
+    "subtype": "sulfide",
+    "texture": "massive; cubic crystals",
+    "commonColors": "lead-gray metallic",
+    "diagnostics": "perfect cubic cleavage; very dense; gray-black streak",
+    "confusedWith": "hematite (reddish streak), graphite (greasy, very soft, low SG)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/galena-6271f1da96904bdaa63bf56cf872ff99",
+      "title": "Galena",
+      "author_name": "The Watt Institution",
+      "author_url": "https://sketchfab.com/wattinstitution",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Garnet": {
+    "name": "Garnet",
+    "category": "Minerals",
+    "description": "Red to brown; dodecahedral crystals; no cleavage; high hardness.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "Variable silicate (Fe, Mg, Ca, Al)"
+      },
+      {
+        "label": "Formation",
+        "value": "High-grade metamorphism"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Schist, Gneiss, contact metamorphic rocks"
+      }
+    ],
+    "rock_type": "mineral",
+    "subtype": "nesosilicate (metamorphic indicator)",
+    "texture": "euhedral to subhedral crystals; dodecahedral or trapezohedral habit",
+    "commonColors": "red, orange, yellow, green, purple, brown",
+    "diagnostics": "Mohs hardness 6.5-7.5; vitreous luster; no cleavage; high specific gravity; dodecahedral crystals",
+    "confusedWith": "ruby/spinel (hexagonal habit), tourmaline (different crystal habit), pyrope (garnet variety)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/garnet-rough-draft-8bc71e4d66aa4a42a2d7c06097e97ee2",
+      "title": "Garnet (Rough Draft)",
+      "author_name": "ESUEarthSci",
+      "author_url": "https://sketchfab.com/ESUEarthSci",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Gneiss": {
+    "name": "Gneiss",
+    "category": "Metamorphic Rocks",
+    "description": "Distinct compositional bands; feldspar + quartz common.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Coarse; banded (light/dark layers)"
+      },
+      {
+        "label": "Formation",
+        "value": "High-grade metamorphism"
+      },
+      {
+        "label": "Environment",
+        "value": "Deep crustal levels, mountain cores"
+      }
+    ],
+    "specimen_type": "foliated (high-grade)",
+    "rock_type": "metamorphic",
+    "subtype": "foliated (high-grade)",
+    "texture": "coarse; banded (light/dark layers)",
+    "commonColors": "black/white banding",
+    "diagnostics": "distinct compositional bands; feldspar + quartz common",
+    "confusedWith": "schist (mica-rich, flaky), migmatite (swirly melt bands)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/gneiss-1d539c5094fd4b24987c0b34f4f86ea4",
+      "title": "Gneiss",
+      "author_name": "Earth Sciences, University of Newcastle",
+      "author_url": "https://sketchfab.com/Landy42",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  },
+  "Goethite": {
+    "name": "Goethite",
+    "category": "Minerals",
+    "description": "Brown to yellow-brown; earthy to metallic; brown streak.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "FeO(OH) (iron oxyhydroxide)"
+      },
+      {
+        "label": "Formation",
+        "value": "Weathering of iron minerals"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Iron ore deposits, weathered zones"
+      }
+    ],
+    "rock_type": "mineral",
+    "subtype": "iron oxyhydroxide",
+    "texture": "botryoidal, stalactitic, or massive earthy",
+    "commonColors": "brown to yellow-brown to black",
+    "diagnostics": "brown streak; dull to submetallic; often as weathering crusts",
+    "confusedWith": "limonite (mixture), hematite (red streak), manganese oxides (black, lighter streak)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/goethite-spain-40529d84d8944977b6de91962a1e17d1",
+      "title": "Goethite, Spain",
+      "author_name": "Sara Carena",
+      "author_url": "https://sketchfab.com/saracarena1",
+      "license": "CC Attribution-NonCommercial",
+      "license_url": "http://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  },
+  "Granite": {
+    "name": "Granite",
+    "category": "Igneous Rocks",
+    "description": "Visible quartz (glassy, gray) and K-feldspar (often pink).",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Phaneritic; quartz + K-feldspar + plagioclase"
+      },
+      {
+        "label": "Formation",
+        "value": "Slow cooling of felsic magma"
+      },
+      {
+        "label": "Environment",
+        "value": "Continental crust, batholiths"
+      }
+    ],
+    "specimen_type": "intrusive (felsic)",
+    "rock_type": "igneous",
+    "subtype": "intrusive (felsic)",
+    "texture": "phaneritic (coarse); quartz + K-feldspar + plagioclase",
+    "commonColors": "pink/white/gray with black mica",
+    "diagnostics": "visible quartz (glassy, gray) and K-feldspar (often pink)",
+    "confusedWith": "granodiorite (darker), diorite (no K-feldspar pink)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/i-type-granite-52ab4825a157486e8f6124e38b117cfb",
+      "title": "I-type Granite",
+      "author_name": "UQ School of the Environment",
+      "author_url": "https://sketchfab.com/UQ_SEES",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Graphite": {
+    "name": "Graphite",
+    "category": "Minerals",
+    "description": "Steel-gray to black; marks paper; greasy feel; very soft.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "C (carbon)"
+      },
+      {
+        "label": "Formation",
+        "value": "High-grade metamorphism of organic matter"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Metamorphic rocks, especially marble"
+      }
+    ],
+    "rock_type": "mineral",
+    "subtype": "native element (carbon)",
+    "texture": "massive flakes or foliated aggregates",
+    "commonColors": "steel-gray to black",
+    "diagnostics": "marks paper; greasy feel; very soft; metallic to earthy luster",
+    "confusedWith": "molybdenite (greasier, blue-gray tint), hematite (red streak, harder)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/graphite-315ad9eee881488992c3b9f410afe41c",
+      "title": "Graphite",
+      "author_name": "SorbonNum",
+      "author_url": "https://sketchfab.com/SorbonNum",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Gypsum": {
+    "name": "Gypsum",
+    "category": "Minerals",
+    "description": "Very soft (H=2); colorless to white; one perfect cleavage.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "CaSO\u2084\u00b72H\u2082O (hydrated calcium sulfate)"
+      },
+      {
+        "label": "Formation",
+        "value": "Evaporation of saline water"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Evaporite deposits, caves"
+      }
+    ],
+    "rock_type": "mineral",
+    "subtype": "sulfate",
+    "texture": "tabular (selenite), fibrous (satin spar), or massive",
+    "commonColors": "colorless to white; can be pink/peach",
+    "diagnostics": "very soft (Mohs 2; fingernail scratches); one perfect cleavage; silky to pearly",
+    "confusedWith": "halite (salty taste, cubic cleavage), calcite (acid reaction, harder)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/gypsum-de785119fe014b5e998a17e0fdcf6850",
+      "title": "Gypsum",
+      "author_name": "EDUROCK \u2013 EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Halite": {
+    "name": "Halite",
+    "category": "Minerals",
+    "description": "Salty taste; perfect cubic cleavage; dissolves readily.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "NaCl (sodium chloride)"
+      },
+      {
+        "label": "Formation",
+        "value": "Evaporation of seawater"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Evaporite deposits, salt domes"
+      }
+    ],
+    "rock_type": "mineral",
+    "subtype": "halide",
+    "texture": "cubic crystals or granular",
+    "commonColors": "colorless to white, pink, orange",
+    "diagnostics": "salty taste; perfect cubic cleavage; dissolves readily",
+    "confusedWith": "rock crystal quartz (harder, no taste), gypsum (softer, non-salty)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/halite-323cf8eb403d459e9d0359d68ab1cf1d",
+      "title": "halite",
+      "author_name": "rockdoc",
+      "author_url": "https://sketchfab.com/rockdoc",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Hematite": {
+    "name": "Hematite",
+    "category": "Minerals",
+    "description": "Steel-gray to red-brown; red streak; weakly magnetic when heated.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "Fe\u2082O\u2083 (iron oxide)"
+      },
+      {
+        "label": "Formation",
+        "value": "Oxidation of iron minerals"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Iron ore deposits, sedimentary rocks"
+      }
+    ],
+    "rock_type": "mineral",
+    "subtype": "oxide",
+    "texture": "earthy massive, specular (metallic), or botryoidal",
+    "commonColors": "steel-gray to black (specular) or red-brown (earthy)",
+    "diagnostics": "red to reddish-brown streak; relatively high SG; weakly magnetic when heated",
+    "confusedWith": "magnetite (magnetic, black streak), goethite (brown streak)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/hematite-f87123b191804e4bac73ce34a42e073e",
+      "title": "Hematite",
+      "author_name": "EDUROCK \u2013 EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Hornblende": {
+    "name": "Hornblende",
+    "category": "Minerals",
+    "description": "Black to dark green; elongate prismatic crystals; 2 cleavages at 56\u00b0/124\u00b0.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "Complex Ca-Mg-Fe-Al silicate"
+      },
+      {
+        "label": "Formation",
+        "value": "Intermediate igneous rocks and metamorphism"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Diorite, Amphibolite, Gneiss"
+      }
+    ],
+    "specimen_type": "amphibole",
+    "rock_type": "mineral",
+    "subtype": "amphibole (inosilicate)",
+    "texture": "elongate prismatic crystals; splintery",
+    "commonColors": "black to dark green",
+    "diagnostics": "2 cleavages at ~56\u00b0 and ~124\u00b0; vitreous; often in needles",
+    "confusedWith": "augite (pyroxene; ~90\u00b0 cleavage), biotite (sheety cleavage)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/hornblende-bf90eb6f3a8f49e5b96d588c024747d6",
+      "title": "hornblende",
+      "author_name": "rockdoc",
+      "author_url": "https://sketchfab.com/rockdoc",
+      "license": "CC Attribution-NonCommercial",
+      "license_url": "http://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  },
+  "Hornfels": {
+    "name": "Hornfels",
+    "category": "Metamorphic Rocks",
+    "description": "Hard, dense 'ringing' stone; no foliation; baked appearance.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Very fine, tough, splintery"
+      },
+      {
+        "label": "Formation",
+        "value": "Contact metamorphism near intrusions"
+      },
+      {
+        "label": "Environment",
+        "value": "Aureoles around igneous intrusions"
+      }
+    ],
+    "specimen_type": "nonfoliated (contact)",
+    "rock_type": "metamorphic",
+    "subtype": "nonfoliated (contact)",
+    "texture": "very fine, tough, splintery",
+    "commonColors": "dark gray to black",
+    "diagnostics": "hard, dense 'ringing' stone; no foliation; baked appearance",
+    "confusedWith": "basalt (igneous, may show vesicles), slate (cleavage)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/hornfels-point-5725841a21ac4440971ded38c279f84f",
+      "title": "Hornfels point",
+      "author_name": "KwaZulu-Natal Museum DHS",
+      "author_url": "https://sketchfab.com/KwaZulu-Natal_Museum_DHS",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  },
+  "Kaolinite": {
+    "name": "Kaolinite",
+    "category": "Minerals",
+    "description": "Earthy, massive; very fine-grained; sticks to tongue slightly.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "Al\u2082Si\u2082O\u2085(OH)\u2084 (aluminum silicate hydroxide)"
+      },
+      {
+        "label": "Formation",
+        "value": "Weathering of feldspar"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Soils, sedimentary rocks"
+      }
+    ],
+    "specimen_type": "clay",
+    "rock_type": "mineral",
+    "subtype": "clay (phyllosilicate)",
+    "texture": "earthy, massive; very fine-grained",
+    "commonColors": "white to off-white",
+    "diagnostics": "powdery; sticks to tongue slightly; earthy smell when damp",
+    "confusedWith": "talc (soapy feel), chalk (calcite; acid reaction)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/kaolinite-758701191aaa4878a2cf10aca568fd28",
+      "title": "Kaolinite",
+      "author_name": "EDUROCK \u2013 EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Limestone": {
+    "name": "Limestone",
+    "category": "Sedimentary Rocks",
+    "description": "Reacts vigorously with dilute HCl; fossils common.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Micritic to fossiliferous"
+      },
+      {
+        "label": "Formation",
+        "value": "Precipitation of calcite or accumulation of shells"
+      },
+      {
+        "label": "Environment",
+        "value": "Shallow marine, reefs"
+      }
+    ],
+    "specimen_type": "chemical/biochemical (calcite)",
+    "rock_type": "sedimentary",
+    "subtype": "chemical/biochemical (calcite)",
+    "texture": "micritic to fossiliferous; variable grain size",
+    "commonColors": "white, gray, tan",
+    "diagnostics": "reacts vigorously with dilute HCl; fossils common",
+    "confusedWith": "dolostone (weak/slow acid reaction), marble (sugary crystals)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/limestone-bbcdce6590e045c7b7437aae4885d0f4",
+      "title": "Limestone",
+      "author_name": "EDUROCK EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Magnetite": {
+    "name": "Magnetite",
+    "category": "Minerals",
+    "description": "Black; strongly magnetic; black streak; metallic luster.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "Fe\u2083O\u2084 (iron oxide)"
+      },
+      {
+        "label": "Formation",
+        "value": "Crystallizes from mafic magmas"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Igneous rocks, metamorphic rocks, black sands"
+      }
+    ],
+    "rock_type": "mineral",
+    "subtype": "oxide",
+    "texture": "granular to octahedral crystals",
+    "commonColors": "black",
+    "diagnostics": "strongly magnetic; black streak; metallic to submetallic",
+    "confusedWith": "hematite (red streak), ilmenite (weakly magnetic, brownish streak)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/magnetite-d20fe6274cdd461ea0b4afcd349388d0",
+      "title": "magnetite",
+      "author_name": "rockdoc",
+      "author_url": "https://sketchfab.com/rockdoc",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Marble": {
+    "name": "Marble",
+    "category": "Metamorphic Rocks",
+    "description": "Reacts with acid; crystals interlock; softer than quartzite.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Medium- to coarse 'sugary' calcite/dolomite"
+      },
+      {
+        "label": "Formation",
+        "value": "Metamorphism of limestone or dolostone"
+      },
+      {
+        "label": "Environment",
+        "value": "Contact and regional metamorphism"
+      }
+    ],
+    "specimen_type": "nonfoliated (recrystallized limestone)",
+    "rock_type": "metamorphic",
+    "subtype": "nonfoliated (recrystallized limestone)",
+    "texture": "medium- to coarse 'sugary' calcite/dolomite",
+    "commonColors": "white, pink, gray, banded",
+    "diagnostics": "reacts with acid; crystals interlock; softer than quartzite",
+    "confusedWith": "quartzite (very hard, no acid reaction), limestone (sedimentary textures)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/marble-3e6a621e4b084e44b78e71e9eabfad99",
+      "title": "Marble",
+      "author_name": "EDUROCK EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Migmatite": {
+    "name": "Migmatite",
+    "category": "Metamorphic Rocks",
+    "description": "Irregular folded/swirled light bands cutting gneissic fabric.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Mixed: dark melanosomes + light leucosomes"
+      },
+      {
+        "label": "Formation",
+        "value": "Partial melting during extreme metamorphism"
+      },
+      {
+        "label": "Environment",
+        "value": "Deep crustal levels, high-grade terranes"
+      }
+    ],
+    "specimen_type": "partially melted gneiss",
+    "rock_type": "metamorphic",
+    "subtype": "partially melted gneiss",
+    "texture": "mixed: dark melanosomes + light, swirly leucosomes",
+    "commonColors": "black/white swirls",
+    "diagnostics": "irregular folded/swirled light bands cutting gneissic fabric",
+    "confusedWith": "gneiss (straight bands), granite (uniform plutonic texture)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/roche-migmatite-structures-c-c-07aba43cfd7a47faae9ea184f4a10e58",
+      "title": "Roche - Migmatite structures C-C'",
+      "author_name": "Soci\u00e9t\u00e9 G\u00e9ologique de France",
+      "author_url": "https://sketchfab.com/sgfrance",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  },
+  "Mudstone": {
+    "name": "Mudstone",
+    "category": "Sedimentary Rocks",
+    "description": "Does NOT split into thin sheets; smooth feel.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Very fine; massive; blocky breaks"
+      },
+      {
+        "label": "Formation",
+        "value": "Deposition of mud in quiet water"
+      },
+      {
+        "label": "Environment",
+        "value": "Lakes, lagoons, deep marine"
+      }
+    ],
+    "specimen_type": "clastic (mud)",
+    "rock_type": "sedimentary",
+    "subtype": "clastic (mud)",
+    "texture": "very fine; massive; blocky breaks",
+    "commonColors": "gray, brown, red",
+    "diagnostics": "does NOT split into thin sheets; smooth feel",
+    "confusedWith": "shale (fissile), siltstone (gritty)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/mudstone-1a56bc9b1c7c4eb7a1cbb5acda9f2310",
+      "title": "Mudstone",
+      "author_name": "Dipartimento di Scienze della Terra - UniTo",
+      "author_url": "https://sketchfab.com/DstUniTo",
+      "license": "Unknown",
+      "license_url": "N/A"
+    }
+  },
+  "Muscovite": {
+    "name": "Muscovite",
+    "category": "Minerals",
+    "description": "Colorless to silvery; elastic thin flakes; perfect cleavage.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "KAl\u2082(Si\u2083Al)O\u2081\u2080(OH)\u2082 (potassium aluminum silicate)"
+      },
+      {
+        "label": "Formation",
+        "value": "Felsic igneous rocks and metamorphism"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Granite, Schist, Phyllite"
+      }
+    ],
+    "specimen_type": "mica",
+    "rock_type": "mineral",
+    "subtype": "mica (phyllosilicate)",
+    "texture": "sheety; elastic thin flakes",
+    "commonColors": "colorless to silvery",
+    "diagnostics": "perfect basal cleavage; transparent flakes; pearly to vitreous",
+    "confusedWith": "biotite (dark), talc (soapy, not elastic sheets)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/muscovite-8588fb59d0f2492cb8dc3fd7e423a88f",
+      "title": "Muscovite",
+      "author_name": "rocksandminerals",
+      "author_url": "https://sketchfab.com/rocksandminerals",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Obsidian": {
+    "name": "Obsidian",
+    "category": "Igneous Rocks",
+    "description": "Very sharp conchoidal fractures; vitreous luster; dense but not crystalline.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Glassy; no visible crystals"
+      },
+      {
+        "label": "Formation",
+        "value": "Rapid cooling of felsic lava"
+      },
+      {
+        "label": "Environment",
+        "value": "Volcanic domes, lava flows"
+      }
+    ],
+    "specimen_type": "extrusive (felsic glass)",
+    "rock_type": "igneous",
+    "subtype": "extrusive (felsic glass)",
+    "texture": "glassy; conchoidal fracture; no visible crystals",
+    "commonColors": "black, dark brown, gray; banded varieties",
+    "diagnostics": "very sharp conchoidal fractures; vitreous luster; dense but not crystalline",
+    "confusedWith": "chert (granular feel, sedimentary), rhyolite (crystalline)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/obsidian-sampler-surface-macro-91b688d688054328862fcbec715b693f",
+      "title": "Obsidian Sampler (Surface Macro)",
+      "author_name": "inciprocal",
+      "author_url": "https://sketchfab.com/inciprocal.com",
+      "license": "Unknown",
+      "license_url": ""
+    }
+  },
+  "Olivine": {
+    "name": "Olivine",
+    "category": "Minerals",
+    "description": "Olive-green; granular sugary aggregates; no cleavage.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "(Mg,Fe)\u2082SiO\u2084 (magnesium iron silicate)"
+      },
+      {
+        "label": "Formation",
+        "value": "Early crystallization from mafic/ultramafic magmas"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Basalt, Gabbro, Peridotite"
+      }
+    ],
+    "rock_type": "mineral",
+    "subtype": "nesosilicate",
+    "texture": "granular sugary aggregates; sometimes stubby crystals",
+    "commonColors": "olive-green to yellow-green",
+    "diagnostics": "no cleavage; conchoidal to uneven fracture; H~6.5\u20137",
+    "confusedWith": "epidote (yellow-green but different cleavage), peridotite rock (olivine-rich aggregate)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/olivine-75705dfbf0e04912af5b6ffe89d01838",
+      "title": "olivine",
+      "author_name": "rockdoc",
+      "author_url": "https://sketchfab.com/rockdoc",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Peridotite": {
+    "name": "Peridotite",
+    "category": "Igneous Rocks",
+    "description": "Very Mg/Fe-rich; heavy; abundant olivine grains.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Coarse-grained; olivine-dominant"
+      },
+      {
+        "label": "Formation",
+        "value": "Crystallization of ultramafic magma"
+      },
+      {
+        "label": "Environment",
+        "value": "Upper mantle, ophiolites"
+      }
+    ],
+    "specimen_type": "intrusive (ultramafic)",
+    "rock_type": "igneous",
+    "subtype": "intrusive (ultramafic)",
+    "texture": "coarse-grained; olivine-dominant with pyroxene",
+    "commonColors": "olive-green to dark green",
+    "diagnostics": "very Mg/Fe-rich; heavy; abundant olivine grains",
+    "confusedWith": "serpentinite (waxy, slick, metamorphosed), gabbro (less green, more plagioclase)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/peridotite-italy-717ef0e167e54f0aac437b25f5145ffc",
+      "title": "Peridotite, Italy",
+      "author_name": "Sara Carena",
+      "author_url": "https://sketchfab.com/saracarena1",
+      "license": "CC Attribution-NonCommercial",
+      "license_url": "http://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  },
+  "Phyllite": {
+    "name": "Phyllite",
+    "category": "Metamorphic Rocks",
+    "description": "Satiny luster; minute mica give a sheen; faint wrinkling.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Fine; wavy foliation with silky sheen"
+      },
+      {
+        "label": "Formation",
+        "value": "Low- to medium-grade metamorphism of shale"
+      },
+      {
+        "label": "Environment",
+        "value": "Regional metamorphism, fold belts"
+      }
+    ],
+    "specimen_type": "foliated (between slate and schist)",
+    "rock_type": "metamorphic",
+    "subtype": "foliated (between slate and schist)",
+    "texture": "fine; wavy foliation with silky sheen",
+    "commonColors": "gray to greenish",
+    "diagnostics": "satiny luster; minute mica give a sheen; faint wrinkling",
+    "confusedWith": "slate (dull, planar), schist (sparkly, coarse mica)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/phyllite-7993de88170841999f364257303f014b",
+      "title": "Phyllite",
+      "author_name": "EDUROCK EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  },
+  "Pumice": {
+    "name": "Pumice",
+    "category": "Igneous Rocks",
+    "description": "So light it may float; rough frothy feel; felsic.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Highly vesicular frothy glass"
+      },
+      {
+        "label": "Formation",
+        "value": "Gas-rich explosive volcanic eruptions"
+      },
+      {
+        "label": "Environment",
+        "value": "Explosive volcanism, pyroclastic flows"
+      }
+    ],
+    "specimen_type": "extrusive (felsic, vesicular)",
+    "rock_type": "igneous",
+    "subtype": "extrusive (felsic, vesicular)",
+    "texture": "highly vesicular frothy glass; very low density",
+    "commonColors": "white to light gray",
+    "diagnostics": "so light it may float; rough frothy feel; felsic",
+    "confusedWith": "scoria (darker, denser, thicker bubble walls)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/pumice-9c6168536ac24095bd902b407f1e4256",
+      "title": "Pumice",
+      "author_name": "phaneritic",
+      "author_url": "https://sketchfab.com/phaneritic",
+      "license": "Unknown",
+      "license_url": ""
+    }
+  },
+  "Quartz": {
+    "name": "Quartz",
+    "category": "Minerals",
+    "description": "No cleavage; conchoidal fracture; hardness 7; vitreous luster.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "SiO\u2082 (silicon dioxide)"
+      },
+      {
+        "label": "Formation",
+        "value": "Late crystallization from felsic magmas or precipitation"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Granite, Rhyolite, Sandstone, veins"
+      }
+    ],
+    "rock_type": "mineral",
+    "subtype": "tectosilicate (SiO2)",
+    "texture": "massive, granular, or hexagonal prisms terminated by pyramids",
+    "commonColors": "colorless, white, gray, purple (amethyst), many others",
+    "diagnostics": "no cleavage; conchoidal fracture; hardness 7; vitreous",
+    "confusedWith": "calcite (cleavage, acid), feldspar (cleavage, H~6)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/quartz-40dbf45ad43b485fa9188a5507e8fed4",
+      "title": "Quartz",
+      "author_name": "EDUROCK \u2013 EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC Attribution",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Quartz sandstone": {
+    "name": "Quartz sandstone",
+    "category": "Sedimentary Rocks",
+    "description": "Gritty; mostly quartz; resistant; may show cross-bedding.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Well-sorted, well-rounded quartz sand"
+      },
+      {
+        "label": "Formation",
+        "value": "Weathering and transport of quartz-rich rocks"
+      },
+      {
+        "label": "Environment",
+        "value": "Beaches, deserts, mature river systems"
+      }
+    ],
+    "specimen_type": "clastic (mature)",
+    "rock_type": "sedimentary",
+    "subtype": "clastic (mature)",
+    "texture": "well-sorted, well-rounded quartz sand without fusion of crystals",
+    "commonColors": "white, light tan",
+    "diagnostics": "gritty; mostly quartz; resistant; may show cross-bedding",
+    "confusedWith": "quartzite (metamorphic, fuses grains; breaks through grains), siltstone (finer)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/light-gray-quartz-sandstone-f8d51ce77e994c8b9b1dd7a3793b7d36",
+      "title": "Light Gray Quartz Sandstone",
+      "author_name": "Dr. Parvinder Sethi",
+      "author_url": "https://sketchfab.com/parv",
+      "license": "CC Attribution-NonCommercial",
+      "license_url": "http://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  },
+  "Quartzite": {
+    "name": "Quartzite",
+    "category": "Metamorphic Rocks",
+    "description": "Scratches glass easily; breaks THROUGH grains; no acid reaction.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Granoblastic; interlocking quartz"
+      },
+      {
+        "label": "Formation",
+        "value": "Metamorphism of quartz-rich sandstone"
+      },
+      {
+        "label": "Environment",
+        "value": "Regional and contact metamorphism"
+      }
+    ],
+    "specimen_type": "nonfoliated (metamorphosed sandstone)",
+    "rock_type": "metamorphic",
+    "subtype": "nonfoliated (metamorphosed sandstone)",
+    "texture": "granoblastic; interlocking quartz; very hard",
+    "commonColors": "white, pink, gray",
+    "diagnostics": "scratches glass easily; breaks THROUGH grains; no acid reaction",
+    "confusedWith": "marble (acid reacts; softer; sugary calcite)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/quartzite-9902e1d81bca4df4abfed8bf7c13ab6a",
+      "title": "Quartzite",
+      "author_name": "EDUROCK EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  },
+  "Rhyolite": {
+    "name": "Rhyolite",
+    "category": "Igneous Rocks",
+    "description": "Light-colored volcanic rock; quartz not visible but felsic look.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Aphanitic to porphyritic; may be flow-banded"
+      },
+      {
+        "label": "Formation",
+        "value": "Explosive eruption of felsic magma"
+      },
+      {
+        "label": "Environment",
+        "value": "Continental volcanism, calderas"
+      }
+    ],
+    "specimen_type": "extrusive (felsic)",
+    "rock_type": "igneous",
+    "subtype": "extrusive (felsic)",
+    "texture": "aphanitic to porphyritic; may be flow-banded",
+    "commonColors": "light gray, pink",
+    "diagnostics": "light-colored volcanic rock; quartz not visible but felsic look",
+    "confusedWith": "andesite (darker), granite (coarse)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/flow-banded-rhyolite-2123888cf474412881859c33829507b7",
+      "title": "Flow-banded rhyolite",
+      "author_name": "Earth Sciences, University of Newcastle",
+      "author_url": "https://sketchfab.com/Landy42",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  },
+  "Sandstone": {
+    "name": "Sandstone",
+    "category": "Sedimentary Rocks",
+    "description": "Gritty feel; individual grains visible; often quartz-rich.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Sand-sized grains; may show bedding"
+      },
+      {
+        "label": "Formation",
+        "value": "Cementation of sand-sized particles"
+      },
+      {
+        "label": "Environment",
+        "value": "Beaches, rivers, deserts, shallow marine"
+      }
+    ],
+    "specimen_type": "clastic (sand)",
+    "rock_type": "sedimentary",
+    "subtype": "clastic (sand)",
+    "texture": "sand-sized grains; may show bedding/cross-beds",
+    "commonColors": "tan, red, gray, white",
+    "diagnostics": "gritty feel; individual grains visible; often quartz-rich",
+    "confusedWith": "siltstone (finer, slightly gritty), quartzite (metamorphic, very hard)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/sandstone-c7c36cc003c348f3ba68ff47e4b907fa",
+      "title": "Sandstone",
+      "author_name": "EDUROCK EDUCATIONAL VIRTUAL ROCK COLLECTION",
+      "author_url": "https://sketchfab.com/EDUROCK_AALTO",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Scoria": {
+    "name": "Scoria",
+    "category": "Igneous Rocks",
+    "description": "Mafic color; sinks in water; vesicles commonly larger than pumice.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Vesicular with thin, sharp walls"
+      },
+      {
+        "label": "Formation",
+        "value": "Gas-rich basaltic eruptions"
+      },
+      {
+        "label": "Environment",
+        "value": "Cinder cones, strombolian eruptions"
+      }
+    ],
+    "specimen_type": "extrusive (mafic, vesicular)",
+    "rock_type": "igneous",
+    "subtype": "extrusive (mafic, vesicular)",
+    "texture": "vesicular with thin, sharp walls; denser than pumice",
+    "commonColors": "dark gray, black, red-brown",
+    "diagnostics": "mafic color; sinks in water; vesicles commonly larger than pumice",
+    "confusedWith": "basalt (few vesicles), cinders (same material in loose form), pumice (lighter color/weight)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/scoria-6dbd07399559472fba3f4c34c5bd7d0e",
+      "title": "Scoria - Download Free 3D model by Digital Atlas of Ancient Life (@DigitalAtlasOfAncientLife)",
+      "author_name": "Community members",
+      "author_url": "https://sketchfab.com/members",
+      "license": "CC0 Public Domain",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  },
+  "Shale": {
+    "name": "Shale",
+    "category": "Sedimentary Rocks",
+    "description": "Breaks into paper-thin layers; smooth feel.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Very fine; fissile (splits into sheets)"
+      },
+      {
+        "label": "Formation",
+        "value": "Compaction of mud in quiet water"
+      },
+      {
+        "label": "Environment",
+        "value": "Deep marine, lakes, river floodplains"
+      }
+    ],
+    "specimen_type": "clastic (mud)",
+    "rock_type": "sedimentary",
+    "subtype": "clastic (mud)",
+    "texture": "very fine; fissile (splits into thin sheets)",
+    "commonColors": "gray, black, red, green",
+    "diagnostics": "breaks into paper-thin layers; smooth feel",
+    "confusedWith": "slate (harder, rings, slaty cleavage), mudstone (massive)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/shale-e899e354b81f421ab591f86990cb86bb",
+      "title": "Shale",
+      "author_name": "trclifton",
+      "author_url": "https://sketchfab.com/trclifton",
+      "license": "CC BY NC SA 4.0",
+      "license_url": "http://creativecommons.org/licenses/by-nc-sa/4.0/"
+    }
+  },
+  "Siltstone": {
+    "name": "Siltstone",
+    "category": "Sedimentary Rocks",
+    "description": "Grittier than shale/mudstone; lacks sand-size sparkle.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Fine; slightly gritty"
+      },
+      {
+        "label": "Formation",
+        "value": "Deposition of silt-sized particles"
+      },
+      {
+        "label": "Environment",
+        "value": "River deltas, offshore marine"
+      }
+    ],
+    "specimen_type": "clastic (silt)",
+    "rock_type": "sedimentary",
+    "subtype": "clastic (silt)",
+    "texture": "fine; slightly gritty (between sand and mud)",
+    "commonColors": "tan, gray, brown",
+    "diagnostics": "grittier than shale/mudstone; lacks sand-size sparkle",
+    "confusedWith": "sandstone (coarser), mudstone (smoother)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/siltstone-49-05-06-2020-bb0b48b63cf945fba1d91ce4987faaaf",
+      "title": "Siltstone #49 05-06-2020",
+      "author_name": "rocksandminerals",
+      "author_url": "https://sketchfab.com/rocksandminerals",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "Slate": {
+    "name": "Slate",
+    "category": "Metamorphic Rocks",
+    "description": "Splits into flat durable sheets; dull luster; 'ping' when tapped.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Very fine; planar slaty cleavage"
+      },
+      {
+        "label": "Formation",
+        "value": "Low-grade metamorphism of shale"
+      },
+      {
+        "label": "Environment",
+        "value": "Regional metamorphism, fold belts"
+      }
+    ],
+    "specimen_type": "foliated (low-grade from shale)",
+    "rock_type": "metamorphic",
+    "subtype": "foliated (low-grade from shale)",
+    "texture": "very fine; planar slaty cleavage",
+    "commonColors": "dark gray, black, green, red",
+    "diagnostics": "splits into flat durable sheets; dull luster; 'ping' when tapped",
+    "confusedWith": "phyllite (silky sheen), shale (less hard, earthy break)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/slate-8b76397ccbf94ac4a9d71bf2ce8a3592",
+      "title": "Slate",
+      "author_name": "Earth Sciences, University of Newcastle",
+      "author_url": "https://sketchfab.com/Landy42",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  },
+  "Sulfur": {
+    "name": "Sulfur",
+    "category": "Minerals",
+    "description": "Bright yellow; very low density; burns with blue flame.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "S (sulfur)"
+      },
+      {
+        "label": "Formation",
+        "value": "Volcanic sublimation or bacterial reduction"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Volcanic areas, hot springs"
+      }
+    ],
+    "rock_type": "mineral",
+    "subtype": "native element",
+    "texture": "massive or orthorhombic crystals",
+    "commonColors": "bright yellow",
+    "diagnostics": "very low density; resinous to greasy luster; burns with blue flame, sulfur odor",
+    "confusedWith": "orpiment (more orange, arsenic sulfide), dyed calcite (harder, acid reaction)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/sulfur-a7f23fb5f196403dbeb4e0e1f91f1e3c",
+      "title": "sulfur",
+      "author_name": "rockdoc",
+      "author_url": "https://sketchfab.com/rockdoc",
+      "license": "CC Attribution-ShareAlike",
+      "license_url": "http://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  },
+  "Talc": {
+    "name": "Talc",
+    "category": "Minerals",
+    "description": "Softest mineral (H=1); soapy feel; pearly to greasy luster.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "Mg\u2083Si\u2084O\u2081\u2080(OH)\u2082 (magnesium silicate hydroxide)"
+      },
+      {
+        "label": "Formation",
+        "value": "Metamorphism of magnesium-rich rocks"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Ultramafic rocks, soapstone"
+      }
+    ],
+    "rock_type": "mineral",
+    "subtype": "phyllosilicate",
+    "texture": "massive, foliated; soapy feel",
+    "commonColors": "white, light green, gray",
+    "diagnostics": "Mohs hardness 1; pearly to greasy luster; easily scratched",
+    "confusedWith": "kaolinite (chalky, earthy), gypsum (softer feel but different cleavage/behavior)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/talc-15132-06-24-2020-ce55f12abdcd4f408c5cf6792c76795b",
+      "title": "Talc #15132 06-24-2020",
+      "author_name": "rocksandminerals",
+      "author_url": "https://sketchfab.com/rocksandminerals",
+      "license": "",
+      "license_url": ""
+    }
+  },
+  "Travertine": {
+    "name": "Travertine",
+    "category": "Sedimentary Rocks",
+    "description": "Calcite; strong acid reaction; visible pores/laminae.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Banded, porous; fibrous layers"
+      },
+      {
+        "label": "Formation",
+        "value": "Precipitation from hot springs"
+      },
+      {
+        "label": "Environment",
+        "value": "Hot springs, cave deposits"
+      }
+    ],
+    "specimen_type": "chemical limestone",
+    "rock_type": "sedimentary",
+    "subtype": "chemical limestone (spring/terrace deposits)",
+    "texture": "banded, porous; fibrous or concentric layers",
+    "commonColors": "white, cream, tan",
+    "diagnostics": "calcite; strong acid reaction; visible pores/laminae",
+    "confusedWith": "tufa (very porous variety), marble (metamorphic, crystalline)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/travertine-vc-block-4bdd3354e02c49c1b7ab5caf9be7bb9e",
+      "title": "Travertine VC Block",
+      "author_name": "Alimo\u011flu - Marble & Granite",
+      "author_url": "https://sketchfab.com/alimoglu",
+      "license": "Unknown",
+      "license_url": "N/A"
+    }
+  },
+  "Tuff": {
+    "name": "Tuff",
+    "category": "Igneous Rocks",
+    "description": "Lightweight; may show shards/pumice; soft.",
+    "details": [
+      {
+        "label": "Texture",
+        "value": "Fragmental; ash matrix with fragments"
+      },
+      {
+        "label": "Formation",
+        "value": "Consolidation of volcanic ash"
+      },
+      {
+        "label": "Environment",
+        "value": "Explosive volcanism, ash falls"
+      }
+    ],
+    "specimen_type": "pyroclastic (volcanic ash)",
+    "rock_type": "igneous",
+    "subtype": "pyroclastic (volcanic ash)",
+    "texture": "fragmental; ash matrix with pumice/lithic fragments",
+    "commonColors": "light gray, tan",
+    "diagnostics": "lightweight; may show shards/pumice; soft",
+    "confusedWith": "sedimentary siltstone (heavier), welded tuff/ignimbrite (denser, banded)",
+    "model_3d": {
+      "link": "https://sketchfab.com/3d-models/bishop-tuff-05c27d3b5b25450290f2565a4f8a2cef",
+      "title": "Bishop Tuff",
+      "author_name": "Ron Schott",
+      "author_url": "https://sketchfab.com/haysrockdoc",
+      "license": "\u2014",
+      "license_url": "https://sketchfab.com/3d-models/bishop-tuff-05c27d3b5b25450290f2565a4f8a2cef"
+    }
+  },
+  "Amphibolite": {
+    "name": "Amphibolite",
+    "category": "Metamorphic Rocks",
+    "description": "Dark metamorphic rock composed mainly of amphibole and plagioclase; shows strong foliation with alternating light and dark bands.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "Amphibole (hornblende) + plagioclase feldspar"
+      },
+      {
+        "label": "Formation",
+        "value": "Medium to high-grade metamorphism of mafic igneous rocks"
+      },
+      {
+        "label": "Environment",
+        "value": "Regional metamorphism of basalt, gabbro, or volcanic rocks"
+      }
+    ],
+    "rock_type": "metamorphic",
+    "subtype": "regional metamorphic (medium to high grade)",
+    "texture": "foliated; alternating dark (amphibole) and light (feldspar) bands",
+    "commonColors": "dark green to black with white/gray bands",
+    "diagnostics": "strong banding; dark amphibole crystals; harder than schist; may show garnet porphyroblasts",
+    "confusedWith": "gneiss (more felsic), schist (lower grade), migmatite (partial melting)",
+    "model_3d": {
+      "link": "",
+      "title": "",
+      "author_name": "",
+      "author_url": "",
+      "license": "",
+      "license_url": ""
+    }
+  },
+  "Chalk": {
+    "name": "Chalk",
+    "category": "Sedimentary Rocks",
+    "description": "Soft, white, fine-grained limestone composed of microscopic marine organisms (coccoliths); easily scratched with fingernail.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "CaCO\u2083 from microscopic marine plankton (coccoliths)"
+      },
+      {
+        "label": "Formation",
+        "value": "Accumulation of marine microorganisms in shallow seas"
+      },
+      {
+        "label": "Environment",
+        "value": "Warm, shallow marine environments; Cretaceous period"
+      }
+    ],
+    "rock_type": "sedimentary",
+    "subtype": "biochemical (marine microfossils)",
+    "texture": "very fine-grained; soft and powdery; porous",
+    "commonColors": "white to very light gray",
+    "diagnostics": "very soft (fingernail hardness); powdery feel; reacts with acid; often contains flint nodules",
+    "confusedWith": "limestone (harder), diatomaceous earth (silica-based), gypsum (softer, different taste)",
+    "model_3d": {
+      "link": "",
+      "title": "",
+      "author_name": "",
+      "author_url": "",
+      "license": "",
+      "license_url": ""
+    }
+  },
+  "Coquina": {
+    "name": "Coquina",
+    "category": "Sedimentary Rocks",
+    "description": "Limestone composed of loosely cemented shell fragments; you can see individual shells and shell pieces with the naked eye.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "CaCO\u2083 shell fragments (mollusks, brachiopods, etc.)"
+      },
+      {
+        "label": "Formation",
+        "value": "Accumulation and cementation of shell debris"
+      },
+      {
+        "label": "Environment",
+        "value": "High-energy marine environments, beaches, barrier islands"
+      }
+    ],
+    "rock_type": "sedimentary",
+    "subtype": "biochemical (shell fragments)",
+    "texture": "coarse-grained; visible shell fragments; loosely cemented",
+    "commonColors": "white to tan to brown",
+    "diagnostics": "obvious shell fragments; porous; reacts strongly with acid; relatively soft",
+    "confusedWith": "other fossiliferous limestones (more tightly cemented), shell hash (unconsolidated)",
+    "model_3d": {
+      "link": "",
+      "title": "",
+      "author_name": "",
+      "author_url": "",
+      "license": "",
+      "license_url": ""
+    }
+  },
+  "Limonite": {
+    "name": "Limonite",
+    "category": "Minerals",
+    "description": "Yellow-brown to dark brown iron oxide mineral; earthy luster; forms rusty coatings and bog iron deposits.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "FeO(OH)\u00b7nH\u2082O (hydrated iron oxide)"
+      },
+      {
+        "label": "Formation",
+        "value": "Weathering and oxidation of iron-bearing minerals"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Bog iron deposits, gossan zones, weathered iron ores"
+      }
+    ],
+    "specimen_type": "iron oxide",
+    "rock_type": "mineral",
+    "subtype": "oxide (hydrated)",
+    "texture": "earthy, massive; may be powdery or compact",
+    "commonColors": "yellow-brown to dark brown, ochre",
+    "diagnostics": "yellow-brown streak; earthy luster; relatively soft; forms in oxidizing environments",
+    "confusedWith": "goethite (harder, more crystalline), hematite (red streak), clay minerals (different hardness)",
+    "model_3d": {
+      "link": "",
+      "title": "",
+      "author_name": "",
+      "author_url": "",
+      "license": "",
+      "license_url": ""
+    }
+  },
+  "Micrite Limestone": {
+    "name": "Micrite Limestone",
+    "category": "Sedimentary Rocks",
+    "description": "Fine-grained limestone with muddy texture; composed of microcrystalline calcite; often contains scattered fossils.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "Microcrystalline CaCO\u2083 (calcite mud)"
+      },
+      {
+        "label": "Formation",
+        "value": "Precipitation of lime mud in quiet marine environments"
+      },
+      {
+        "label": "Environment",
+        "value": "Shallow marine lagoons, protected carbonate platforms"
+      }
+    ],
+    "rock_type": "sedimentary",
+    "subtype": "chemical/biochemical (microcrystalline)",
+    "texture": "very fine-grained (mudstone texture); dense and compact",
+    "commonColors": "light gray to dark gray, tan, cream",
+    "diagnostics": "fine muddy texture; reacts with acid; may show scattered fossils; harder than chalk",
+    "confusedWith": "chalk (softer), shale (doesn't react with acid), fine sandstone (different composition)",
+    "model_3d": {
+      "link": "",
+      "title": "",
+      "author_name": "",
+      "author_url": "",
+      "license": "",
+      "license_url": ""
+    }
+  },
+  "Oolitic Limestone": {
+    "name": "Oolitic Limestone",
+    "category": "Sedimentary Rocks",
+    "description": "Limestone composed of small, round grains (ooids) that look like fish eggs; forms in shallow, agitated marine water.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "CaCO\u2083 ooids (concentric spherical grains)"
+      },
+      {
+        "label": "Formation",
+        "value": "Precipitation around nuclei in agitated shallow marine water"
+      },
+      {
+        "label": "Environment",
+        "value": "Shallow marine shoals, tidal flats, high-energy carbonate platforms"
+      }
+    ],
+    "rock_type": "sedimentary",
+    "subtype": "chemical (ooid grainstone)",
+    "texture": "medium-grained; composed of spherical ooids (0.25-2mm)",
+    "commonColors": "white to cream to tan",
+    "diagnostics": "distinctive spherical grains visible to naked eye; reacts with acid; may show cross-bedding",
+    "confusedWith": "pisolitic limestone (larger grains), other grainstones (different grain types)",
+    "model_3d": {
+      "link": "",
+      "title": "",
+      "author_name": "",
+      "author_url": "",
+      "license": "",
+      "license_url": ""
+    }
+  },
+  "Schist": {
+    "name": "Schist",
+    "category": "Metamorphic Rocks",
+    "description": "Medium-grade metamorphic rock with strong foliation and visible mica crystals; splits easily along parallel planes.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "Mica + quartz + feldspar \u00b1 garnet, staurolite, kyanite"
+      },
+      {
+        "label": "Formation",
+        "value": "Medium-grade regional metamorphism of shale or volcanic rocks"
+      },
+      {
+        "label": "Environment",
+        "value": "Mountain-building zones, regional metamorphic terranes"
+      }
+    ],
+    "rock_type": "metamorphic",
+    "subtype": "regional metamorphic (medium grade)",
+    "texture": "strongly foliated; visible mica crystals; schistose cleavage",
+    "commonColors": "silvery gray, green, brown, depending on mineral content",
+    "diagnostics": "strong foliation; visible mica flakes; splits along parallel planes; may contain porphyroblasts",
+    "confusedWith": "gneiss (higher grade, banded), phyllite (finer-grained), slate (lower grade)",
+    "model_3d": {
+      "link": "",
+      "title": "",
+      "author_name": "",
+      "author_url": "",
+      "license": "",
+      "license_url": ""
+    }
+  },
+  "Sphalerite": {
+    "name": "Sphalerite",
+    "category": "Minerals",
+    "description": "Primary zinc ore mineral; resinous to adamantine luster; perfect cleavage in six directions; often twinned.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "ZnS (zinc sulfide)"
+      },
+      {
+        "label": "Formation",
+        "value": "Hydrothermal veins, contact metamorphic deposits"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Lead-zinc ore deposits, Mississippi Valley-type deposits"
+      }
+    ],
+    "specimen_type": "sulfide",
+    "rock_type": "mineral",
+    "subtype": "sulfide (zinc ore)",
+    "texture": "crystalline; perfect cleavage; often twinned or massive",
+    "commonColors": "brown, black, yellow, red, colorless (marmatite variety is iron-rich and dark)",
+    "diagnostics": "resinous luster; perfect cleavage in 6 directions; often associated with galena; high specific gravity",
+    "confusedWith": "galena (metallic luster, cubic cleavage), pyrite (metallic luster, different crystal form)",
+    "model_3d": {
+      "link": "",
+      "title": "",
+      "author_name": "",
+      "author_url": "",
+      "license": "",
+      "license_url": ""
+    }
+  },
+  "Serpentinite": {
+    "name": "Serpentine",
+    "category": "Minerals",
+    "description": "Green metamorphic mineral with greasy to waxy feel; forms during hydration of ultramafic rocks; often fibrous or massive.",
+    "details": [
+      {
+        "label": "Composition",
+        "value": "Mg\u2083Si\u2082O\u2085(OH)\u2084 (hydrated magnesium silicate)"
+      },
+      {
+        "label": "Formation",
+        "value": "Hydrothermal alteration of olivine and pyroxene in ultramafic rocks"
+      },
+      {
+        "label": "Occurs in",
+        "value": "Serpentinite bodies, ophiolite complexes, altered peridotite"
+      }
+    ],
+    "specimen_type": "phyllosilicate",
+    "rock_type": "mineral",
+    "subtype": "phyllosilicate (sheet silicate)",
+    "texture": "massive, fibrous, or platy; greasy to waxy feel",
+    "commonColors": "green (various shades), yellow-green, dark green, sometimes with mottling",
+    "diagnostics": "greasy/waxy feel; green color; relatively soft (2.5-4); often shows mesh texture from olivine replacement",
+    "confusedWith": "talc (softer, whiter), chlorite (harder), jade (harder, different feel)",
+    "model_3d": {
+      "link": "",
+      "title": "",
+      "author_name": "",
+      "author_url": "",
+      "license": "",
+      "license_url": ""
+    }
+  }
+}

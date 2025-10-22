@@ -8,7 +8,7 @@
   import Navigation from '$lib/Navigation.svelte';
   import BookmarkButton from '$lib/BookmarkButton.svelte';
   import { bookmarks } from '$lib/stores/bookmarks.js';
-  import rock_defs from '$lib/rock_defs.json';
+  import rockMetadata from '$lib/rock_metadata.json';
   
   // Data state
   let manifest = {};
@@ -103,11 +103,11 @@
   }
   
   function getRockCategory(rockName) {
-    const rockDef = rock_defs.find(r => r.name === rockName);
-    if (rockDef) {
-      if (rockDef.type === 'igneous') return 'Igneous Rocks';
-      if (rockDef.type === 'sedimentary') return 'Sedimentary Rocks';
-      if (rockDef.type === 'metamorphic') return 'Metamorphic Rocks';
+    const rockData = rockMetadata[rockName];
+    if (rockData) {
+      if (rockData.rock_type === 'igneous') return 'Igneous Rocks';
+      if (rockData.rock_type === 'sedimentary') return 'Sedimentary Rocks';
+      if (rockData.rock_type === 'metamorphic') return 'Metamorphic Rocks';
     }
     return 'Minerals';
   }
@@ -173,7 +173,7 @@
       .sort((a, b) => a.localeCompare(b));
   }
   
-  $: currentRockDef = rock_defs.find(r => r.name === current?.label);
+  $: currentRockDef = rockMetadata[current?.label];
   
   $: organizedOptions = ready ? organizeClassesByCategory() : [];
   

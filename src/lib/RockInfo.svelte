@@ -6,15 +6,15 @@
 
   // Field order & labels
   const order = [
-    "type",
-    "subtype",
+    "rock_type",
+    "subtype", 
     "texture",
     "commonColors",
     "diagnostics",
     "confusedWith"
   ];
   const labels = {
-    type: "Type",
+    rock_type: "Type",
     subtype: "Subtype",
     texture: "Texture",
     commonColors: "Common colors",
@@ -45,8 +45,8 @@
       {#if info?.[key]}
         <dt class="ri-label">{labels[key]}</dt>
         <dd class="ri-value">
-          {#if key === "type"}
-            <span class="chip {typeClass(info.type)}">{info.type}</span>
+          {#if key === "rock_type"}
+            <span class="chip {typeClass(info.rock_type)}">{info.rock_type}</span>
           {:else}
             <p class="ri-text">{info[key]}</p>
           {/if}

@@ -1,9 +1,8 @@
 <script>
     import { onMount } from 'svelte';
     import { bookmarks } from '$lib/stores/bookmarks.js';
-    import specimens from '$lib/specimens.json';
+    import rockMetadata from '$lib/rock_metadata.json';
     import rocksManifest from '$lib/rocks-manifest.json';
-    import rock_defs from '$lib/rock_defs.json';
     import Modal from '$lib/Modal.svelte';
     import RockModel from '$lib/RockModel.svelte';
     import ImageCarousel from '$lib/ImageCarousel.svelte';
@@ -15,6 +14,9 @@
     let modalComponent = null;
     let modalProps = {};
     let modalTitle = "";
+    
+    // Convert object-based metadata to array format for compatibility
+    const specimens = Object.values(rockMetadata);
     
     // Reactive bookmarked specimens
     $: bookmarkedSpecimens = specimens.filter(specimen => 
@@ -33,11 +35,11 @@
     
     function open3DModal(event) {
         const rockName = event.detail.name;
-        const def = rock_defs.find(r => r.name === rockName);
-        if (def && def.model_3d) {
+        const rockData = rockMetadata[rockName];
+        if (rockData && rockData.model_3d) {
             modalComponent = RockModel;
-            modalProps = { name: def.name, ...def.model_3d };
-            modalTitle = `3D Model of ${def.name}`;
+            modalProps = { name: rockData.name, ...rockData.model_3d };
+            modalTitle = `3D Model of ${rockData.name}`;
             modalOpen = true;
         }
     }
