@@ -4,7 +4,7 @@
   export let rockId;
   export let isBookmarked = false;
   export let onToggle;
-  export let size = 18;
+  export let size = 22;
   export let className = '';
 </script>
 
@@ -25,14 +25,15 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: #ccc;
+    color: #999;
     transition: all 0.2s ease;
-    padding: 4px;
+    padding: 8px;
     border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
   }
   
   .bookmark-btn:hover {

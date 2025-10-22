@@ -30,34 +30,38 @@
     </div>
     
     <h3 class="specimen-name">
-        {specimen.name}
-        {#if specimen.specimen_type}
-            <span class="specimen-type">({specimen.specimen_type})</span>
-        {/if}
+        <div class="name-content">
+            {specimen.name}
+            {#if specimen.specimen_type}
+                <span class="specimen-type">({specimen.specimen_type})</span>
+            {/if}
+        </div>
         
-        {#if thumbnail}
+        <div class="action-buttons">
+            {#if thumbnail}
+                <button 
+                    class="thumbnail-btn" 
+                    on:click={openImageCarousel} 
+                    title="View all {specimen.name} specimens"
+                    disabled={!hasImages}
+                >
+                    <img 
+                        class="rock-thumb" 
+                        src={thumbnail} 
+                        alt="{specimen.name} thumbnail" 
+                        loading="lazy" 
+                    />
+                </button>
+            {/if}
+            
             <button 
-                class="thumbnail-btn" 
-                on:click={openImageCarousel} 
-                title="View all {specimen.name} specimens"
-                disabled={!hasImages}
+                class="model-btn" 
+                on:click={open3DModal} 
+                title="View 3D Model"
             >
-                <img 
-                    class="rock-thumb" 
-                    src={thumbnail} 
-                    alt="{specimen.name} thumbnail" 
-                    loading="lazy" 
-                />
+                <Cube size={16} />
             </button>
-        {/if}
-        
-        <button 
-            class="model-btn" 
-            on:click={open3DModal} 
-            title="View 3D Model"
-        >
-            <Cube size={18} />
-        </button>
+        </div>
     </h3>
     
     <div class="specimen-description">
@@ -115,8 +119,21 @@
         color: #2c3e50;
         display: flex;
         align-items: center;
+        gap: 1rem;
+    }
+    
+    .name-content {
+        display: flex;
+        align-items: center;
         flex-wrap: wrap;
         gap: 0.5rem;
+    }
+    
+    .action-buttons {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-shrink: 0;
     }
     
     .specimen-type {
@@ -130,10 +147,14 @@
         border: none;
         cursor: pointer;
         padding: 0;
-        border-radius: 8px;
+        border-radius: 6px;
         overflow: hidden;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
-        margin-left: auto;
+        height: 32px;
+        width: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .thumbnail-btn:not(:disabled):hover {
@@ -147,10 +168,10 @@
     }
     
     .rock-thumb {
-        width: 60px;
-        height: 45px;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        border-radius: 8px;
+        border-radius: 6px;
         display: block;
     }
     
@@ -159,14 +180,16 @@
         border: 1px solid color-mix(in srgb, var(--accent) 45%, #ccc 55%);
         background: white;
         color: var(--ink);
-        padding: 0.35rem 0.55rem;
-        border-radius: 8px;
+        padding: 8px;
+        border-radius: 6px;
         font-weight: 600;
         cursor: pointer;
         transition: transform 0.04s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
         display: flex;
         align-items: center;
         justify-content: center;
+        height: 32px;
+        width: 32px;
     }
     
     .model-btn:hover {
